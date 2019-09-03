@@ -1,2 +1,1 @@
-read cc gi
-vcl
+- du an tot nghiep
