@@ -14,3 +14,28 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//// HỖ TRỢ ////
+// Gửi yêu cầu mới //
+Route::get('/new-request', function () {
+    return view('pages/form/new-request');
+});
+// Yêu cầu mới gửi //
+Route::get('/request-new', function () {
+    return view('pages/table/request-new');
+});
+// Đang xử lý //
+Route::get('/handling', function () {
+    return view('pages/table/request-new');
+});
+// Đã trả lời //
+Route::get('/answered', function () {
+    return view('pages/table/request-new');
+});
+// Đã xử lý xong //
+Route::get('/done-handling', function () {
+    return view('pages/table/request-new');
+});
+// Tra cứu câu hỏi //
+Route::get('/search-question', function () {
+    return view('pages/form/search-request');
+});
