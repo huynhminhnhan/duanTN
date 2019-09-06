@@ -10,7 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::any('{all}', function () {
+    return view('welcome');
+})
+->where(['all' => '.*']);
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,6 +22,10 @@ Route::get('/', function () {
 Route::get('/new-request', function () {
     return view('pages/form/new-request');
 });
+Route::get('/new-request', function () {
+    return view('pages/form/new-request');
+});
+Route::get('/SearchQuestion','SearchQuestion@init');
 // Yêu cầu mới gửi //
 Route::get('/request-new', function () {
     return view('pages/table/request-new');

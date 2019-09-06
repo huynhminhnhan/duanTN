@@ -1,292 +1,5 @@
 <template>
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html">
-            <!-- <img src="../assets/images/logo.svg" alt="logo">  -->
-            </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html">
-            <!-- <img src="../assets/images/logo-mini.svg" alt="logo">-->
-             </a> 
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center">
-          <ul class="navbar-nav">
-            <li class="nav-item font-weight-semibold d-none d-lg-block">Help : +050 2992 709</li>
-            <li class="nav-item dropdown language-dropdown">
-              <a class="nav-link dropdown-toggle px-2 d-flex align-items-center" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="d-inline-flex mr-0 mr-md-3">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-us"></i>
-                  </div>
-                </div>
-                <span class="profile-text font-weight-medium d-none d-md-block">English</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-us"></i>
-                  </div>English
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-fr"></i>
-                  </div>French
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-ae"></i>
-                  </div>Arabic
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-ru"></i>
-                  </div>Russian
-                </a>
-              </div>
-            </li>
-          </ul>
-          <form class="ml-auto search-form d-none d-md-block" action="#">
-            <div class="form-group">
-              <input type="search" class="form-control" placeholder="Search Here">
-            </div>
-          </form>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <i class="mdi mdi-bell-outline"></i>
-                <span class="count">7</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-                <a class="dropdown-item py-3">
-                  <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
-                  <span class="badge badge-pill badge-primary float-right">View all</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <!-- <img src="../assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">  -->
-                    </div>
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                    <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <!-- <img src="../assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic"> -->
-                    </div> 
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                    <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <!-- <img src="../assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic">  -->
-                    </div>
-                  <div class="preview-item-content flex-grow py-2">
-                    <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                    <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="mdi mdi-email-outline"></i>
-                <span class="count bg-success">3</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
-                <a class="dropdown-item py-3 border-bottom">
-                  <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
-                  <span class="badge badge-pill badge-primary float-right">View all</span>
-                </a>
-                <a class="dropdown-item preview-item py-3">
-                  <div class="preview-thumbnail">
-                    <i class="mdi mdi-alert m-auto text-primary"></i>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal text-dark mb-1">Application Error</h6>
-                    <p class="font-weight-light small-text mb-0"> Just now </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item py-3">
-                  <div class="preview-thumbnail">
-                    <i class="mdi mdi-settings m-auto text-primary"></i>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal text-dark mb-1">Settings</h6>
-                    <p class="font-weight-light small-text mb-0"> Private message </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item py-3">
-                  <div class="preview-thumbnail">
-                    <i class="mdi mdi-airballoon m-auto text-primary"></i>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal text-dark mb-1">New user registration</h6>
-                    <p class="font-weight-light small-text mb-0"> 2 days ago </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
-              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <!-- <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image"> -->
-                 </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <div class="dropdown-header text-center">
-                  <!-- <img class="img-md rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image"> -->
-                  <p class="mb-1 mt-3 font-weight-semibold">nhanhuynh</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
-                </div>
-                <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
-                <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
-                <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
-                <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
-                <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
-              </div>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
-                <div class="profile-image">
-                  <!-- <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="profile image"> -->
-                  <div class="dot-indicator bg-success"></div>
-                </div>
-                <div class="text-wrapper">
-                  <p class="profile-name">{{title}}</p>
-                  <p class="designation">Premium user</p>
-                </div>
-              </a>
-            </li>
-            
-            <li class="nav-item nav-category">Main Menu</li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="menu-icon typcn typcn-document-text"></i>
-                <span class="menu-title">Trang Chủ</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="menu-icon typcn typcn-coffee"></i>
-                <span class="menu-title">HỖ TRỢ</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse show" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/new-request">Gửi yêu cầu mới</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/request-new">Yêu cầu mới gửi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/handling">Nhân viên đang xử lý</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/answered">Nhân viên đã trả lời</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/done-handling">Nhân viên đã xử lý xong</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/search-question">Tra cứu câu hỏi</a>
-                    </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1">
-                    <i class="menu-icon typcn typcn-coffee"></i>
-                    <span class="menu-title">NHIỆM VỤ CỦA TÔI</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="ui-basic1">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Nhiệm vụ phải nhận</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Nhiệm vụ phải làm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Câu hỏi chuyển đến</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Câu hỏi chuyển đi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đang nghiêm cứu</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic2">
-                    <i class="menu-icon typcn typcn-coffee"></i>
-                    <span class="menu-title">NHIỆM VỤ CHUNG</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="ui-basic2">
-                    <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Xem yêu cầu mới</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Xem yêu cầu chưa tiếp nhận</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Đang xử lý</a>
-                    </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic3">
-                    <i class="menu-icon typcn typcn-coffee"></i>
-                    <span class="menu-title">NỘI BỘ</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="ui-basic3">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Xem chấm công</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Xem lịch trực</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tạo đơn xin phép</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Ghi phạt nội bộ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Xem bảng lương</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            
-          </ul>
-        </nav>
-        <!-- partial -->
-        <!-- het  header   -->  <div class="main-panel">
-    <div class="content-wrapper">
-      <!-- Page Title Header Starts-->
+     <div class="content-wrapper">
       <div class="row page-title-header">
         <div class="col-12">
           <div class="page-header">
@@ -337,7 +50,7 @@
           </div>
         </div>
       </div>
-      <!-- Page Title Header Ends-->
+   
       <div class="row">
         <div class="col-md-12 grid-margin">
           <div class="card">
@@ -350,8 +63,8 @@
                       <h5 class="mb-0 font-weight-medium text-primary">Visits</h5>
                       <p class="mb-0 text-muted">+14.00(+0.50%)</p>
                     </div>
-                    <div class="wrapper my-auto ml-auto ml-lg-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas height="100" width="200" id="stats-line-graph-1" class="chartjs-render-monitor" style="display: block; height: 50px; width: 100px;"></canvas>
+                    <div class="wrapper my-auto ml-auto ml-lg-4">
+                      <canvas height="50" width="100" id="stats-line-graph-1"></canvas>
                     </div>
                   </div>
                 </div>
@@ -362,8 +75,8 @@
                       <h5 class="mb-0 font-weight-medium text-primary">Impressions</h5>
                       <p class="mb-0 text-muted">+138.97(+0.54%)</p>
                     </div>
-                    <div class="wrapper my-auto ml-auto ml-lg-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas height="100" width="200" id="stats-line-graph-2" class="chartjs-render-monitor" style="display: block; height: 50px; width: 100px;"></canvas>
+                    <div class="wrapper my-auto ml-auto ml-lg-4">
+                      <canvas height="50" width="100" id="stats-line-graph-2"></canvas>
                     </div>
                   </div>
                 </div>
@@ -374,8 +87,8 @@
                       <h5 class="mb-0 font-weight-medium text-primary">Conversation</h5>
                       <p class="mb-0 text-muted">+57.62(+0.76%)</p>
                     </div>
-                    <div class="wrapper my-auto ml-auto ml-lg-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas height="100" width="200" id="stats-line-graph-3" class="chartjs-render-monitor" style="display: block; height: 50px; width: 100px;"></canvas>
+                    <div class="wrapper my-auto ml-auto ml-lg-4">
+                      <canvas height="50" width="100" id="stats-line-graph-3"></canvas>
                     </div>
                   </div>
                 </div>
@@ -386,8 +99,8 @@
                       <h5 class="mb-0 font-weight-medium text-primary">Downloads</h5>
                       <p class="mb-0 text-muted">+138.97(+0.54%)</p>
                     </div>
-                    <div class="wrapper my-auto ml-auto ml-lg-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas height="100" width="200" id="stats-line-graph-4" class="chartjs-render-monitor" style="display: block; height: 50px; width: 100px;"></canvas>
+                    <div class="wrapper my-auto ml-auto ml-lg-4">
+                      <canvas height="50" width="100" id="stats-line-graph-4"></canvas>
                     </div>
                   </div>
                 </div>
@@ -399,7 +112,7 @@
       <div class="row">
         <div class="col-md-8 grid-margin stretch-card">
           <div class="card">
-            <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+            <div class="card-body">
               <h4 class="card-title mb-0">Sales Statistics Overview</h4>
               <div class="d-flex flex-column flex-lg-row">
                 <p>Lorem ipsum is placeholder text commonly used</p>
@@ -435,21 +148,21 @@
                     </div>
                   </div>
                 </div>
-                <div class="ml-lg-auto" id="sales-statistics-legend"><div class="chartjs-legend"><ul><li><span style="background-color: #8862e0"></span>Revenue</li><li><span style="background-color: #19d895"></span>Sales</li></ul></div></div>
+                <div class="ml-lg-auto" id="sales-statistics-legend"></div>
               </div>
-              <canvas class="mt-5 chartjs-render-monitor" height="456" id="sales-statistics-overview" style="display: block; height: 228px; width: 571px;" width="1142"></canvas>
+              <!-- <canvas class="mt-5" height="120" id="sales-statistics-overview"></canvas> -->
             </div>
           </div>
         </div>
         <div class="col-md-4 grid-margin stretch-card">
           <div class="card">
-            <div class="card-body d-flex flex-column"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+            <div class="card-body d-flex flex-column">
               <div class="wrapper">
                 <h4 class="card-title mb-0">Net Profit Margin</h4>
                 <p>Started collecting data from February 2019</p>
-                <div class="mb-4" id="net-profit-legend"><div class="chartjs-legend"><ul><li><span style="background-color:rgba(88, 208, 222,0.8)"></span>Sales</li><li><span style="background-color:rgba(150, 77, 247,1)"></span>Orders</li></ul></div></div>
+                <div class="mb-4" id="net-profit-legend"></div>
               </div>
-              <canvas class="my-auto mx-auto chartjs-render-monitor" height="406" id="net-profit" width="488" style="display: block; height: 203px; width: 244px;"></canvas>
+              <!-- <canvas class="my-auto mx-auto" height="250" id="net-profit"></canvas> -->
             </div>
           </div>
         </div>
@@ -458,7 +171,7 @@
         <div class="col-md-8">
           <div class="row">
             <div class="col-md-6 grid-margin stretch-card">
-              <div class="card"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+              <div class="card">
                 <div class="card-body pb-0">
                   <div class="d-flex justify-content-between">
                     <h4 class="card-title mb-0">Total Revenue</h4>
@@ -466,11 +179,11 @@
                   </div>
                   <h3 class="font-weight-medium mb-4">184.42K</h3>
                 </div>
-                <canvas class="mt-n4 chartjs-render-monitor" height="180" id="total-revenue" width="598" style="display: block; height: 90px; width: 299px;">
-              </canvas></div>
+                <canvas class="mt-n4" height="90" id="total-revenue"></canvas>
+              </div>
             </div>
             <div class="col-md-6 grid-margin stretch-card">
-              <div class="card"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+              <div class="card">
                 <div class="card-body pb-0">
                   <div class="d-flex justify-content-between">
                     <h4 class="card-title mb-0">Transaction</h4>
@@ -478,12 +191,12 @@
                   </div>
                   <h3 class="font-weight-medium">147.7K</h3>
                 </div>
-                <canvas class="mt-n3 chartjs-render-monitor" height="180" id="total-transaction" width="598" style="display: block; height: 90px; width: 299px;">
-              </canvas></div>
+                <canvas class="mt-n3" height="90" id="total-transaction"></canvas>
+              </div>
             </div>
             <div class="col-md-12 grid-margin">
               <div class="card">
-                <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <div class="card-body">
                   <h4 class="card-title mb-0">Market Overview</h4>
                   <div class="d-flex align-items-center justify-content-between w-100">
                     <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -501,7 +214,7 @@
                     <p class="mb-0 font-weight-medium mr-2 ml-2 mb-1">USD</p>
                     <p class="mb-0 text-success font-weight-semibold mb-1">(+1.37%)</p>
                   </div>
-                  <canvas class="mt-4 chartjs-render-monitor" height="380" id="market-overview-chart" width="1142" style="display: block; height: 190px; width: 571px;"></canvas>
+                  <canvas class="mt-4" height="100" id="market-overview-chart"></canvas>
                 </div>
               </div>
             </div>
@@ -636,8 +349,8 @@
                       </div>
                     </div>
                     <div class="col-5 col-md-7 d-flex pl-4">
-                      <div class="ml-auto"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                        <canvas height="200" id="realtime-statistics" width="600" class="chartjs-render-monitor" style="display: block; height: 100px; width: 300px;"></canvas>
+                      <div class="ml-auto">
+                        <canvas height="100" id="realtime-statistics"></canvas>
                       </div>
                     </div>
                   </div>
@@ -653,7 +366,7 @@
                       <p><span class="font-weight-medium">0.51%</span> (30 days)</p>
                     </div>
                     <div class="col-6">
-                      <div class="mt-n3 ml-auto" id="dashboard-guage-chart"><svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.359375px; top: -0.171875px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.4</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><filter id="inner-shadow-dashboard-guage-chart"><feOffset dx="0" dy="3"></feOffset><feGaussianBlur result="offset-blur" stdDeviation="5"></feGaussianBlur><feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"></feComposite><feFlood flood-color="black" flood-opacity="0.2" result="color"></feFlood><feComposite operator="in" in="color" in2="inverse" result="shadow"></feComposite><feComposite operator="over" in="shadow" in2="SourceGraphic"></feComposite></filter></defs><path fill="#edebeb" stroke="none" d="M27.117249999999995,101.03255999999999L10.846899999999998,101.03255999999999A43.3876,43.3876,0,0,1,97.62209999999999,101.03255999999999L81.35175,101.03255999999999A27.117250000000002,27.117250000000002,0,0,0,27.117249999999995,101.03255999999999Z" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" filter="url(#inner-shadow-dashboard-guage-chart)"></path><path fill="#ff0000" stroke="none" d="M27.117249999999995,101.03255999999999L10.846899999999998,101.03255999999999A43.3876,43.3876,0,0,1,73.93205820649956,62.37392533112477L66.54547387906223,76.87091333195298A27.117250000000002,27.117250000000002,0,0,0,27.117249999999995,101.03255999999999Z" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" filter="url(#inner-shadow-dashboard-guage-chart)"></path><path fill="#000000" stroke="none" d="M64.22901337803418,83.80645806526134L62.296081644590416,82.82158015493637L75.65559454956828,58.99129479759819Z" stroke-width="0" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><text x="54.2345" y="45.171025" text-anchor="middle" font-family="sans-serif" font-size="8px" stroke="none" fill="#999999" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 8px; font-weight: bold; fill-opacity: 1;" font-weight="bold" fill-opacity="1"><tspan dy="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></tspan></text><text x="54.2345" y="99.67138039215686" text-anchor="middle" font-family="Arial" font-size="16px" stroke="none" fill="#010101" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 16px; font-weight: bold; fill-opacity: 1;" font-weight="bold" fill-opacity="1"><tspan dy="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">65%</tspan></text><text x="54.2345" y="112.67138039215686" text-anchor="middle" font-family="Arial" font-size="10px" stroke="none" fill="#b3b3b3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 10px; font-weight: normal; fill-opacity: 1;" font-weight="normal" fill-opacity="1"><tspan dy="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></tspan></text><text x="18.982075" y="112.67138039215686" text-anchor="middle" font-family="Arial" font-size="10px" stroke="none" fill="#b3b3b3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 10px; font-weight: normal; fill-opacity: 1;" font-weight="normal" fill-opacity="1"><tspan dy="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><text x="89.48692499999999" y="112.67138039215686" text-anchor="middle" font-family="Arial" font-size="10px" stroke="none" fill="#b3b3b3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 10px; font-weight: normal; fill-opacity: 1;" font-weight="normal" fill-opacity="1"><tspan dy="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text></svg></div>
+                      <div class="mt-n3 ml-auto" id="dashboard-guage-chart"></div>
                     </div>
                   </div>
                 </div>
@@ -663,6 +376,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title mb-4">World sellings</h4>
+                  <div id="dashboard-vmap" class="vector-map"></div>
                   <div class="wrapper">
                     <div class="d-flex w-100 pt-2 mt-4">
                       <p class="mb-0 font-weight-semibold">California</p>
@@ -851,28 +565,16 @@
           </div>
         </div>
       </div>
-    </div>
-  <footer class="footer">
-    <div class="container-fluid clearfix">
-      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019 <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted &amp; made with <i class="mdi mdi-heart text-danger"></i>
-      </span>
-    </div>
-  </footer>
-  <!-- partial -->
-</div>
-<!-- main-panel ends -->
-</div>
-<!-- page-body-wrapper ends -->
-</div>
+      </div>
 </template>
 <script>
 export default {
-    name : 'layout',
+    name : 'home',
     data() {
        return {
             title : 'Huynh minh nhan'
        } 
+       
     }
 }
 </script>
