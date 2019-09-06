@@ -2675,26 +2675,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'appSidebar',
-  data: function data() {
-    return {
-      title: 'Huynh minh nhan'
+  data: function (_data) {
+    function data() {
+      return _data.apply(this, arguments);
+    }
+
+    data.toString = function () {
+      return _data.toString();
     };
-  }
+
+    return data;
+  }(function () {
+    return {
+      title: 'Huynh minh nhan',
+      menu: [{
+        title: 'Hỗ trợ',
+        childrenMenu: [{
+          title: 'Gửi yêu cầu mới',
+          url: '/support'
+        }, {
+          title: 'Yêu cầu mới gửi',
+          url: '/support-new'
+        }, {
+          title: 'Nhân viên đang xử lí',
+          url: '/support-process'
+        }, {
+          title: 'Nhân viên đã xử lí xong',
+          url: '/support-done'
+        }, {
+          title: 'tra cứu câu hỏi',
+          url: '/support-search-question'
+        }]
+      }, {
+        title: 'Nhiệm vụ của tôi',
+        childrenMenu: [{
+          title: 'Nhiệm vụ phải nhận',
+          url: '/mission'
+        }, {
+          title: 'Nhiệm vụ phải làm',
+          url: '/mission-new'
+        }, {
+          title: 'Câu hỏi chuyển đến',
+          url: '/mission-process'
+        }, {
+          title: 'Câu hỏi chuyển đi ',
+          url: '/mission-done'
+        }, {
+          title: 'Đang nghiên cứu',
+          url: '/mission-question'
+        }]
+      }]
+    };
+    x = data();
+    console.log(x);
+  })
 });
 
 /***/ }),
@@ -40102,300 +40138,107 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "nav",
+    { staticClass: "sidebar sidebar-offcanvas", attrs: { id: "sidebar" } },
+    [
+      _c(
+        "ul",
+        { staticClass: "nav" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item nav-category" }, [
+            _vm._v("Main Menu")
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._l(_vm.menu, function(item, i) {
+            return _c("li", { key: i, staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    "data-toggle": "collapse",
+                    href: "#ui-basic",
+                    "aria-expanded": "false",
+                    "aria-controls": "ui-basic"
+                  }
+                },
+                [
+                  _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "menu-title" }, [
+                    _vm._v(_vm._s(item.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("i", { staticClass: "menu-arrow" })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "collapse", attrs: { id: "ui-basic" } },
+                [
+                  _c(
+                    "ul",
+                    { staticClass: "nav flex-column sub-menu" },
+                    _vm._l(item.childrenMenu, function(menus, i) {
+                      return _c("li", { key: i, staticClass: "nav-item" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { href: menus.url }
+                          },
+                          [_vm._v(_vm._s(menus.title))]
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      { staticClass: "sidebar sidebar-offcanvas", attrs: { id: "sidebar" } },
-      [
-        _c("ul", { staticClass: "nav" }, [
-          _c("li", { staticClass: "nav-item nav-profile" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _c("div", { staticClass: "profile-image" }, [
-                _c("div", { staticClass: "dot-indicator bg-success" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-wrapper" }, [
-                _c("p", { staticClass: "profile-name" }, [
-                  _vm._v("Allen Moreno")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "designation" }, [
-                  _vm._v("Premium user")
-                ])
-              ])
-            ])
-          ]),
+    return _c("li", { staticClass: "nav-item nav-profile" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+        _c("div", { staticClass: "profile-image" }, [
+          _c("div", { staticClass: "dot-indicator bg-success" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-wrapper" }, [
+          _c("p", { staticClass: "profile-name" }, [_vm._v("Allen Moreno")]),
           _vm._v(" "),
-          _c("li", { staticClass: "nav-item nav-category" }, [
-            _vm._v("Main Menu")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "/" } }, [
-              _c("i", { staticClass: "menu-icon typcn typcn-document-text" }),
-              _vm._v(" "),
-              _c("span", { staticClass: "menu-title" }, [_vm._v("Trang Chủ")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  "data-toggle": "collapse",
-                  href: "#ui-basic",
-                  "aria-expanded": "false",
-                  "aria-controls": "ui-basic"
-                }
-              },
-              [
-                _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "menu-title" }, [_vm._v("HỖ TRỢ")]),
-                _vm._v(" "),
-                _c("i", { staticClass: "menu-arrow" })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "collapse show", attrs: { id: "ui-basic" } },
-              [
-                _c("ul", { staticClass: "nav flex-column sub-menu" }, [
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "/new-request" }
-                      },
-                      [_vm._v("Gửi yêu cầu mới")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "/request-new" }
-                      },
-                      [_vm._v("Yêu cầu mới gửi")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      { staticClass: "nav-link", attrs: { href: "/handling" } },
-                      [_vm._v("Nhân viên đang xử lý")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      { staticClass: "nav-link", attrs: { href: "/answered" } },
-                      [_vm._v("Nhân viên đã trả lời")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "/done-handling" }
-                      },
-                      [_vm._v("Nhân viên đã xử lý xong")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "/search-question" }
-                      },
-                      [_vm._v("Tra cứu câu hỏi")]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  "data-toggle": "collapse",
-                  href: "#ui-basic1",
-                  "aria-expanded": "false",
-                  "aria-controls": "ui-basic1"
-                }
-              },
-              [
-                _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "menu-title" }, [
-                  _vm._v("NHIỆM VỤ CỦA TÔI")
-                ]),
-                _vm._v(" "),
-                _c("i", { staticClass: "menu-arrow" })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "collapse", attrs: { id: "ui-basic1" } }, [
-              _c("ul", { staticClass: "nav flex-column sub-menu" }, [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Nhiệm vụ phải nhận")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Nhiệm vụ phải làm")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Câu hỏi chuyển đến")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Câu hỏi chuyển đi")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Đang nghiêm cứu")
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  "data-toggle": "collapse",
-                  href: "#ui-basic2",
-                  "aria-expanded": "false",
-                  "aria-controls": "ui-basic2"
-                }
-              },
-              [
-                _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "menu-title" }, [
-                  _vm._v("NHIỆM VỤ CHUNG")
-                ]),
-                _vm._v(" "),
-                _c("i", { staticClass: "menu-arrow" })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "collapse", attrs: { id: "ui-basic2" } }, [
-              _c("ul", { staticClass: "nav flex-column sub-menu" }, [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Xem yêu cầu mới")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Xem yêu cầu chưa tiếp nhận")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Đang xử lý")
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link",
-                attrs: {
-                  "data-toggle": "collapse",
-                  href: "#ui-basic3",
-                  "aria-expanded": "false",
-                  "aria-controls": "ui-basic3"
-                }
-              },
-              [
-                _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "menu-title" }, [_vm._v("NỘI BỘ")]),
-                _vm._v(" "),
-                _c("i", { staticClass: "menu-arrow" })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "collapse", attrs: { id: "ui-basic3" } }, [
-              _c("ul", { staticClass: "nav flex-column sub-menu" }, [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Xem chấm công")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Xem lịch trực")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Tạo đơn xin phép")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Ghi phạt nội bộ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Xem bảng lương")
-                  ])
-                ])
-              ])
-            ])
-          ])
+          _c("p", { staticClass: "designation" }, [_vm._v("Premium user")])
         ])
-      ]
-    )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "/" } }, [
+        _c("i", { staticClass: "menu-icon typcn typcn-document-text" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "menu-title" }, [_vm._v("Trang Chủ")])
+      ])
+    ])
   }
 ]
 render._withStripped = true

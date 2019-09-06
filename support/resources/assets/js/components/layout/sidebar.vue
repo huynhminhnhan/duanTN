@@ -23,36 +23,23 @@
                 <span class="menu-title">Trang Chủ</span>
               </a>
             </li>
-            <li class="nav-item">
+             <!-- <li class="nav-item" v-for="(item, i) in menu" :key="i">{{item.title}} </li> -->
+            <li class="nav-item" v-for="(item, i) in menu" :key="i">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
-                <span class="menu-title">HỖ TRỢ</span>
+                <span class="menu-title">{{item.title}}</span>
                 <i class="menu-arrow"></i>
               </a>
-              <div class="collapse show" id="ui-basic">
+              <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/new-request">Gửi yêu cầu mới</a>
+                    <li class="nav-item"  v-for="(menus, i) in item.childrenMenu" :key="i">
+                        <a class="nav-link" v-bind:href="menus.url">{{menus.title}}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/request-new">Yêu cầu mới gửi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/handling">Nhân viên đang xử lý</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/answered">Nhân viên đã trả lời</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/done-handling">Nhân viên đã xử lý xong</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/search-question">Tra cứu câu hỏi</a>
-                    </li>
+                    
                 </ul>
               </div>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1">
                     <i class="menu-icon typcn typcn-coffee"></i>
                     <span class="menu-title">NHIỆM VỤ CỦA TÔI</span>
@@ -123,8 +110,8 @@
                         </li>
                     </ul>
                 </div>
-            </li>
-            
+            </li> -->
+           
           </ul>
         </nav>
         
@@ -134,11 +121,39 @@
 <script >
 export default {
     name : 'appSidebar',
+    
     data() {
        return {
-            title : 'Huynh minh nhan'
-       } 
-       
+            title : 'Huynh minh nhan',
+            menu : [{
+        title : 'Hỗ trợ',
+        childrenMenu : [
+            {title : 'Gửi yêu cầu mới',url : '/support'},
+            {title : 'Yêu cầu mới gửi',url : '/support-new'},
+            {title : 'Nhân viên đang xử lí',url : '/support-process'},
+            {title : 'Nhân viên đã xử lí xong',url : '/support-done'},
+            {title : 'tra cứu câu hỏi',url : '/support-search-question'}
+            ]
+    },
+    {
+        title : 'Nhiệm vụ của tôi',
+        childrenMenu : [
+            {title : 'Nhiệm vụ phải nhận',url : '/mission'},
+            {title : 'Nhiệm vụ phải làm',url : '/mission-new'},
+            {title : 'Câu hỏi chuyển đến',url : '/mission-process'},
+            {title : 'Câu hỏi chuyển đi ',url : '/mission-done'},
+            {title : 'Đang nghiên cứu',url : '/mission-question'}
+            ]
     }
+    ],
+   
+       } 
+       x = data();
+       console.log(x);
+    }
+   
 }
+
+ 
+  
 </script>
