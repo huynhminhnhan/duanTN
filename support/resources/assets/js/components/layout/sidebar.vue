@@ -18,7 +18,7 @@
           
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" v-link="'/'">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Trang Chủ</span>
               </a>
@@ -32,7 +32,7 @@
               <div class="collapse show" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/new-request">Gửi yêu cầu mới</a>
+                        <a class="nav-link" route-link="'/new-request'">Gửi yêu cầu mới</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/request-new">Yêu cầu mới gửi</a>

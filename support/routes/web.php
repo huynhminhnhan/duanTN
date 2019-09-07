@@ -14,9 +14,9 @@ Route::any('{all}', function () {
     return view('welcome');
 })
 ->where(['all' => '.*']);
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 //// HỖ TRỢ ////
 // Gửi yêu cầu mới //
 Route::get('/new-request', function () {
