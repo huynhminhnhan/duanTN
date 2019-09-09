@@ -14,7 +14,8 @@
     
   <div id="app">
     <app></app>
-        </div>
+    {{-- <login></login> --}}
+  </div>
 
   <script src="{{ mix('js/app.js') }}"></script>
   <script src="{{ mix('admin/js/library.min.js') }}"></script>

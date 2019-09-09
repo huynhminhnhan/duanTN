@@ -73,6 +73,16 @@ export default {
             {title : 'Câu hỏi chuyển đi ',url : '/mission-done'},
             {title : 'Đang nghiên cứu',url : '/mission-question'}
             ]
+    },
+    {
+        title : 'Nhiệm vụ của tôi',
+        childrenMenu : [
+            {title : 'Nhiệm vụ phải nhận',url : '/mission'},
+            {title : 'Nhiệm vụ phải làm',url : '/mission-new'},
+            {title : 'Câu hỏi chuyển đến',url : '/mission-process'},
+            {title : 'Câu hỏi chuyển đi ',url : '/mission-done'},
+            {title : 'Đang nghiên cứu',url : '/mission-question'}
+            ]
     }
     ],
    

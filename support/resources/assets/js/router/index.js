@@ -4,19 +4,9 @@ import searchSupport from '../components/pages/forms/search-request';
 import requestNew from '../components/pages/tables/request-new';
 
 const index  = {
-    data () {
-        return {
-          transitionName: 'slide-left'
-        }
-      },
-      beforeRouteUpdate (to, from, next) {
-        const toDepth = to.path.split('/').length
-        const fromDepth = from.path.split('/').length
-        this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
-        next()
-      },
+   
     template: `
-        <transition :name="transitionName">
+        <transition name="pages" mode="out-in">
             <router-view></router-view>
         </transition>`
 }

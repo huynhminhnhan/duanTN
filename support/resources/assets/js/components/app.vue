@@ -7,7 +7,7 @@
 <app-sidebar></app-sidebar>
    <div class="main-panel">
 
- <transition :name="transitionName">
+ <transition name="fade" mode="out-in">
             <router-view></router-view>
         </transition>
 <app-footer></app-footer>
