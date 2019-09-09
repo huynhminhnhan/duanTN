@@ -1,22 +1,15 @@
 import home from '../components/home';
+import children from '../components/children';
+
 import newSupport from '../components/pages/forms/new-request';
 import searchSupport from '../components/pages/forms/search-request';
 import requestNew from '../components/pages/tables/request-new';
-
-const index  = {
-   
-    template: `
-        <transition name="pages" mode="out-in">
-            <router-view></router-view>
-        </transition>`
-}
-
 
 
 
 export const routes = [
    
-    { path: '/support',component: index,
+    { path: '/support',component: children,
         children: [
             { 
                 path: 'new', 
@@ -41,5 +34,6 @@ export const routes = [
         ]
     },   
     { path: '/', component: home },
+
 
 ];

@@ -6,10 +6,13 @@
 <div class="container-fluid page-body-wrapper">
 <app-sidebar></app-sidebar>
    <div class="main-panel">
-
- <transition name="fade" mode="out-in">
-            <router-view></router-view>
-        </transition>
+<!-- <div v-if=""></div> -->
+<div>
+<app-router></app-router>
+</div>
+<div>
+    <app-children></app-children>
+</div>
 <app-footer></app-footer>
    </div>
 </div>
@@ -22,6 +25,10 @@
 import appHeader from './layout/header';
 import appFooter from './layout/footer';
 import appSidebar from './layout/sidebar';
+import appRouter from './router';
+import appChild from './children';
+
+
 
 
 export default {
@@ -29,7 +36,9 @@ export default {
     components : {
         appHeader,
        appSidebar,
-        appFooter
+        appFooter,
+        appRouter,
+        appChild
     }
 }
 </script>
