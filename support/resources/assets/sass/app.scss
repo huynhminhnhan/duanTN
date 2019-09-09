@@ -9,3 +9,10 @@
 
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+.page-body-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+}
