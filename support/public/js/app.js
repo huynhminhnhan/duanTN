@@ -2656,6 +2656,24 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Đang nghiên cứu',
           url: '/mission-question'
         }]
+      }, {
+        title: 'Nhiệm vụ của tôi',
+        childrenMenu: [{
+          title: 'Nhiệm vụ phải nhận',
+          url: '/mission'
+        }, {
+          title: 'Nhiệm vụ phải làm',
+          url: '/mission-new'
+        }, {
+          title: 'Câu hỏi chuyển đến',
+          url: '/mission-process'
+        }, {
+          title: 'Câu hỏi chuyển đi ',
+          url: '/mission-done'
+        }, {
+          title: 'Đang nghiên cứu',
+          url: '/mission-question'
+        }]
       }]
     };
     x = data();
@@ -68091,7 +68109,7 @@ var render = function() {
             [
               _c(
                 "transition",
-                { attrs: { name: _vm.transitionName } },
+                { attrs: { name: "fade", mode: "out-in" } },
                 [_c("router-view")],
                 1
               ),
@@ -70347,8 +70365,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("transition", { attrs: { name: "slide" } }, [
-    _c("div", { staticClass: "row" }, [
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
       _c(
         "div",
         { staticClass: "col-md-6 d-flex align-items-stretch grid-margin" },
@@ -71503,9 +71527,8 @@ var render = function() {
         ])
       ])
     ])
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 
 
@@ -71527,8 +71550,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("transition", { attrs: { name: "fade" } }, [
-    _c("div", { staticClass: "row" }, [
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
       _c(
         "div",
         { staticClass: "col-md-6 d-flex align-items-stretch grid-margin" },
@@ -72683,9 +72712,8 @@ var render = function() {
         ])
       ])
     ])
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 
 
@@ -89255,18 +89283,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var index = {
-  data: function data() {
-    return {
-      transitionName: 'slide-left'
-    };
-  },
-  beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
-    var toDepth = to.path.split('/').length;
-    var fromDepth = from.path.split('/').length;
-    this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
-    next();
-  },
-  template: "\n        <transition :name=\"transitionName\">\n            <router-view></router-view>\n        </transition>"
+  template: "\n        <transition name=\"pages\" mode=\"out-in\">\n            <router-view></router-view>\n        </transition>"
 };
 var routes = [{
   path: '/support',
