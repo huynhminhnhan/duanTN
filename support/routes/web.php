@@ -11,11 +11,11 @@
 |
 */
 Route::any('{all}', function () {
-    return view('welcome');
+    return view('layout.master');
 })
 ->where(['all' => '.*']);
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('layout.master');
 // });
 //// HỖ TRỢ ////
 // Gửi yêu cầu mới //

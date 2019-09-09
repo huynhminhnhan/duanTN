@@ -1,11 +1,12 @@
 <template>
+<transition name="slide">
     <div class="row">
             <div class="col-md-6 d-flex align-items-stretch grid-margin">
               <div class="row flex-grow">
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">Default form</h4>
+                      <h4 class="card-title">New</h4>
                       <p class="card-description"> Basic form layout </p>
                       <form class="forms-sample">
                         <div class="form-group">
@@ -483,6 +484,8 @@
                 </div>
               </div>
             </div>
+    </div>
+    </transition>
 </template>
 <script>
 export default {

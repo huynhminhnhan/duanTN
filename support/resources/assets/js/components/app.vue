@@ -7,8 +7,9 @@
 <app-sidebar></app-sidebar>
    <div class="main-panel">
 
-<router-view></router-view>
-
+ <transition :name="transitionName">
+            <router-view></router-view>
+        </transition>
 <app-footer></app-footer>
    </div>
 </div>
