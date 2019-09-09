@@ -59,19 +59,38 @@ export default {
         childrenMenu : [
             {title : 'Gửi yêu cầu mới',url : '/support/new'},
             {title : 'Yêu cầu mới gửi',url : '/support/request-new'},
-            {title : 'Nhân viên đang xử lí',url : '/support/process'},
-            {title : 'Nhân viên đã xử lí xong',url : '/support/done'},
+            {title : 'Nhân viên đang xử lý',url : '/support/process'},
+            {title : 'Nhân viên đã xử lý xong',url : '/support/done'},
             {title : 'Tra cứu câu hỏi',url : '/support/search'}
             ]
     },
     {
         title : 'Nhiệm vụ của tôi',
         childrenMenu : [
-            {title : 'Nhiệm vụ phải nhận',url : '/mission'},
-            {title : 'Nhiệm vụ phải làm',url : '/mission-new'},
-            {title : 'Câu hỏi chuyển đến',url : '/mission-process'},
-            {title : 'Câu hỏi chuyển đi ',url : '/mission-done'},
-            {title : 'Đang nghiên cứu',url : '/mission-question'}
+            {title : 'Nhiệm vụ phải nhận',url : '/mission/me/must-receive'},
+            {title : 'Nhiệm vụ phải làm',url : '/mission/me/must-does'},
+            {title : 'Câu hỏi chuyển đến',url : '/mission/me/move-in'},
+            {title : 'Câu hỏi chuyển đi ',url : '/mission/me/move'},
+            {title : 'Đang nghiên cứu',url : '/mission/me/research'}
+            ]
+    },
+    {
+        title : 'Nhiệm vụ chung',
+        childrenMenu : [
+            {title : 'Xem yêu cầu mới',url : '/mission/see-new'},
+            {title : 'Chưa tiếp nhận',url : '/mission/not-yet'},
+            {title : 'Đang xử lý',url : '/mission/processing'},
+            {title : 'Đã trả lời',url : '/mission/answered'},
+            ]
+    },
+    {
+        title : 'Nội bộ',
+        childrenMenu : [
+            {title : 'Xem chấm công',url : '/mission/timekeeping'},
+            {title : 'Xem lịch trực',url : '/mission/calendar'},
+            {title : 'Tạo đơn xin nghỉ phép',url : '/mission/permission-form'},
+            {title : 'Ghi phạt nội bô',url : '/mission/punish'},
+            {title : 'Xem bảng lương',url : '/mission/salary'},
             ]
     }
     ],
