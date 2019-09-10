@@ -33,7 +33,7 @@ Vue.component('app', require('./components/app.vue').default);
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-    mode: 'hash',
+    mode: 'history',
     routes
 })
 const app = new Vue({
