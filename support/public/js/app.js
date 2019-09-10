@@ -2585,21 +2585,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'appSidebar',
-  data: function (_data) {
-    function data() {
-      return _data.apply(this, arguments);
-    }
-
-    data.toString = function () {
-      return _data.toString();
-    };
-
-    return data;
-  }(function () {
+  data: function data() {
     return {
       title: 'Huynh minh nhan',
       menu: [{
         title: 'Hỗ trợ',
+        acive: false,
         childrenMenu: [{
           title: 'Gửi yêu cầu mới',
           url: '/support/new'
@@ -2618,6 +2609,7 @@ __webpack_require__.r(__webpack_exports__);
         }]
       }, {
         title: 'Nhiệm vụ của tôi',
+        acive: false,
         childrenMenu: [{
           title: 'Nhiệm vụ phải nhận',
           url: '/mission'
@@ -2636,9 +2628,35 @@ __webpack_require__.r(__webpack_exports__);
         }]
       }]
     };
-    x = data();
-    console.log(x);
-  })
+  },
+  methods: {
+    activeMenu: function activeMenu() {
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.menu[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+          item.active == true; //  console.log(item);
+        } // return this.title = 'change';
+
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+            _iterator["return"]();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -70219,7 +70237,21 @@ var render = function() {
         "ul",
         { staticClass: "nav" },
         [
-          _vm._m(0),
+          _c("li", { staticClass: "nav-item nav-profile" }, [
+            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-wrapper" }, [
+                _c("p", { staticClass: "profile-name" }, [
+                  _vm._v(_vm._s(_vm.title))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "designation" }, [
+                  _vm._v("Premium user")
+                ])
+              ])
+            ])
+          ]),
           _vm._v(" "),
           _c("li", { staticClass: "nav-item nav-category" }, [
             _vm._v("Main Menu")
@@ -70247,58 +70279,66 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm._l(_vm.menu, function(item, i) {
-            return _c("li", { key: i, staticClass: "nav-item" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link",
-                  attrs: {
-                    "data-toggle": "collapse",
-                    href: "#ui-basic",
-                    "aria-expanded": "false",
-                    "aria-controls": "ui-basic"
-                  }
-                },
-                [
-                  _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "menu-title" }, [
-                    _vm._v(_vm._s(item.title))
-                  ]),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "menu-arrow" })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "collapse", attrs: { id: "ui-basic" } },
-                [
-                  _c(
-                    "ul",
-                    { staticClass: "nav flex-column sub-menu" },
-                    _vm._l(item.childrenMenu, function(menus, i) {
-                      return _c(
-                        "li",
-                        { key: i, staticClass: "nav-item" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { to: menus.url }
-                            },
-                            [_vm._v(_vm._s(menus.title))]
-                          )
-                        ],
-                        1
-                      )
-                    }),
-                    0
-                  )
-                ]
-              )
-            ])
+            return _c(
+              "li",
+              {
+                key: i,
+                staticClass: "nav-item",
+                on: { click: _vm.activeMenu }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      "data-toggle": "collapse",
+                      href: "#ui-basic",
+                      "aria-expanded": "false",
+                      "aria-controls": "ui-basic"
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "menu-title" }, [
+                      _vm._v(_vm._s(item.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "menu-arrow" })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "collapse", attrs: { id: "ui-basic" } },
+                  [
+                    _c(
+                      "ul",
+                      { staticClass: "nav flex-column sub-menu" },
+                      _vm._l(item.childrenMenu, function(menus, i) {
+                        return _c(
+                          "li",
+                          { key: i, staticClass: "nav-item" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link",
+                                attrs: { to: menus.url }
+                              },
+                              [_vm._v(_vm._s(menus.title))]
+                            )
+                          ],
+                          1
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ]
+            )
           })
         ],
         2
@@ -70311,18 +70351,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item nav-profile" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _c("div", { staticClass: "profile-image" }, [
-          _c("div", { staticClass: "dot-indicator bg-success" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "text-wrapper" }, [
-          _c("p", { staticClass: "profile-name" }, [_vm._v("Allen Moreno")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "designation" }, [_vm._v("Premium user")])
-        ])
-      ])
+    return _c("div", { staticClass: "profile-image" }, [
+      _c("div", { staticClass: "dot-indicator bg-success" })
     ])
   }
 ]

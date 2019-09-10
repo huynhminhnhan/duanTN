@@ -10,7 +10,7 @@
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Allen Moreno</p>
+                  <p class="profile-name">{{title}}</p>
                   <p class="designation">Premium user</p>
                 </div>
               </a>
@@ -24,7 +24,7 @@
               </router-link>
             </li>
              <!-- <li class="nav-item" v-for="(item, i) in menu" :key="i">{{item.title}} </li> -->
-            <li class="nav-item" v-for="(item, i) in menu" :key="i">
+            <li class="nav-item" @click="activeMenu" v-for="(item, i) in menu" :key="i">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
                 <span class="menu-title">{{item.title}}</span>
@@ -56,6 +56,7 @@ export default {
             title : 'Huynh minh nhan',
             menu : [{
         title : 'Hỗ trợ',
+        acive : false,
         childrenMenu : [
             {title : 'Gửi yêu cầu mới',url : '/support/new'},
             {title : 'Yêu cầu mới gửi',url : '/support/request-new'},
@@ -66,6 +67,7 @@ export default {
     },
     {
         title : 'Nhiệm vụ của tôi',
+        acive : false,
         childrenMenu : [
             {title : 'Nhiệm vụ phải nhận',url : '/mission'},
             {title : 'Nhiệm vụ phải làm',url : '/mission-new'},
@@ -74,12 +76,21 @@ export default {
             {title : 'Đang nghiên cứu',url : '/mission-question'}
             ]
     }
-    ],
-   
-       } 
-       x = data();
-       console.log(x);
-    }
+    ]
+       }
+      
+     
+    },
+       methods : {
+       activeMenu: function() {
+         for (let item of this.menu) {
+           item.active == true;
+            //  console.log(item);
+         }
+         // return this.title = 'change';
+        
+       }
+     }
    
 }
 
