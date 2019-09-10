@@ -89605,8 +89605,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/hungnguyen/document/branch-vuejs/duanTN/support/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /Users/hungnguyen/document/branch-vuejs/duanTN/support/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! /home/ssn/Documents/angularJs/vueJs/duanTN/support/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /home/ssn/Documents/angularJs/vueJs/duanTN/support/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })
