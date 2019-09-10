@@ -1,5 +1,5 @@
 <template>
-<transition name="slide">
+<!-- <transition name="slide"> -->
     <div class="row">
             <div class="col-md-6 d-flex align-items-stretch grid-margin">
               <div class="row flex-grow">
@@ -485,7 +485,7 @@
               </div>
             </div>
     </div>
-    </transition>
+    <!-- </transition> -->
 </template>
 <script>
 export default {

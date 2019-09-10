@@ -16,3 +16,24 @@
     padding-left: 0px;
     padding-right: 0px;
 }
+.child-fade-enter-active, .child-fade-leave-active {
+    opacity: 1s;
+    transform: .5s;
+}
+.child-fade-enter, .child-fade-leave-to {
+    opacity: 0;
+    transition :.3s;
+    transform: translateX(-30%);
+
+}
+
+.fade-enter-active, .fade-leave-active {
+    opacity: 1s;
+    transform: .5s;
+}
+.fade-enter, .fade-leave-to  {
+    opacity: 0;
+    transition :.3s;
+    transform: translateX(-30%);
+
+}
