@@ -6,3 +6,4 @@
 * copy file .env.example thành .env
 * php artisan key:generate (tạo key)
 * Chạy lệnh start php artisan serve
+* cd duanTN/support  ***PLEASEEEEEEEEEEE***
