@@ -1,11 +1,12 @@
 <template>
-<!-- <transition name="fade" mode="out-in"> -->
-    <router-view></router-view>
-<!-- </transition> -->
+<div>
+<h1>Day la giao dien trang Support</h1>
+</div>
+    
 </template>
 <script>
 export default {
-    name : 'router',
+    name : '404',
     data() {
        return {
             title : 'Huynh minh nhan'

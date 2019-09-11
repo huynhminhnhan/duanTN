@@ -10,12 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::any('{all}', function () {
+Route::any('{any}', function () {
     return view('layout.master');
 })
-->where(['all' => '.*']);
-// Route::get('/', function () {
-//     return view('layout.master');
+->where(['any' => '.*']);
+// Route::get('/login', function () {
+//     return view('home.master');
 // });
 //// HỖ TRỢ ////
 // Gửi yêu cầu mới //
@@ -46,3 +46,7 @@ Route::get('/done-handling', function () {
 Route::get('/search-question', function () {
     return view('pages/form/search-request');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

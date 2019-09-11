@@ -13,8 +13,8 @@
   <body>
     
   <div id="app">
-    <app></app>
-    {{-- <login></login> --}}
+  <router-view></router-view>
+    
   </div>
 
   <script src="{{ mix('js/app.js') }}"></script>
