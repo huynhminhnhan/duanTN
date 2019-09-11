@@ -2596,6 +2596,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'appHeader',
   data: function data() {
@@ -70341,12 +70342,19 @@ var staticRenderFns = [
                         })
                       ]),
                       _vm._v(" "),
-                      _c("a", { staticClass: "dropdown-item" }, [
-                        _vm._v("Sign Out"),
-                        _c("i", {
-                          staticClass: "dropdown-item-icon ti-power-off"
-                        })
-                      ])
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "/logout" }
+                        },
+                        [
+                          _vm._v("Sign Out"),
+                          _c("i", {
+                            staticClass: "dropdown-item-icon ti-power-off"
+                          })
+                        ]
+                      )
                     ]
                   )
                 ]
@@ -89391,6 +89399,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/login.vue":
+/*!**************************************************!*\
+  !*** ./resources/assets/js/components/login.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/assets/js/components/login.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/pages/forms/new-request.vue":
 /*!********************************************************************!*\
   !*** ./resources/assets/js/components/pages/forms/new-request.vue ***!
@@ -89682,6 +89722,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_forms_new_request__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/forms/new-request */ "./resources/assets/js/components/pages/forms/new-request.vue");
 /* harmony import */ var _components_pages_forms_search_request__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/forms/search-request */ "./resources/assets/js/components/pages/forms/search-request.vue");
 /* harmony import */ var _components_pages_tables_request_new__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/tables/request-new */ "./resources/assets/js/components/pages/tables/request-new.vue");
+/* harmony import */ var _components_login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/login */ "./resources/assets/js/components/login.vue");
+
 
 
 
