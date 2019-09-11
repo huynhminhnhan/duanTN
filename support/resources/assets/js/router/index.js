@@ -1,5 +1,9 @@
 import home from '../components/home';
 import children from '../components/children';
+import login from '../components/login';
+import app from '../components/app';
+
+
 
 import newSupport from '../components/pages/forms/new-request';
 import searchSupport from '../components/pages/forms/search-request';
@@ -33,7 +37,11 @@ export const routes = [
             },
         ]
     },   
-    { path: '/', component: home },
-
-
+    { path: '/home' ,component: require('../components/app.vue').default},
+    
+    { path: '/', component: login }
+    
+    
+    
 ];
+// Vue.component('app', require('../components/app.vue').default);
