@@ -6,6 +6,7 @@ import support from '../components/pages/support';
 import app from '../components/app';
 import pageAuth from '../components/auth/page';
 import login from '../components/auth/login';
+import VueRouter from 'vue-router';
 
 
 

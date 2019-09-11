@@ -89075,6 +89075,20 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
   routes: _router_index__WEBPACK_IMPORTED_MODULE_1__["routes"]
 });
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.requireAuth;
+  })) {
+    next({
+      path: '/auth',
+      query: {
+        redirect: to.fullPath
+      }
+    });
+  }
+
+  next();
+});
 var app = new Vue({
   el: '#app',
   router: router
@@ -89986,6 +90000,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_app__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/app */ "./resources/assets/js/components/app.vue");
 /* harmony import */ var _components_auth_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/auth/page */ "./resources/assets/js/components/auth/page.vue");
 /* harmony import */ var _components_auth_login__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/auth/login */ "./resources/assets/js/components/auth/login.vue");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+
 
 
 
