@@ -35,7 +35,7 @@ export default {
     name : 'app',
     components : {
         appHeader,
-       appSidebar,
+        appSidebar,
         appFooter,
         appRouter,
         appChild

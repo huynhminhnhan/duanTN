@@ -34,7 +34,7 @@ Vue.component('login', require('./components/login.vue').default);
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-    mode: 'hash',
+    mode: 'history',
     routes
 })
 const app = new Vue({
