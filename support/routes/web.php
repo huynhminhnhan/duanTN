@@ -19,11 +19,9 @@ Route::any('{any}', function () {
 // });
 //// HỖ TRỢ ////
 // Gửi yêu cầu mới //
-Route::get('/new-request', function () {
-    return view('pages/form/new-request');
-});
-Route::get('/new-request', function () {
-    return view('pages/form/new-request');
+// Route::get('/insert-request', 'RequesController@insert');
+Route::get('/insert-request', function () {
+    echo 'abc' ;
 });
 Route::get('/SearchQuestion','SearchQuestion@init');
 // Yêu cầu mới gửi //
