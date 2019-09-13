@@ -25,7 +25,7 @@
             </li>
              <!-- <li class="nav-item" v-for="(item, i) in menu" :key="i">{{item.title}} </li> -->
             <li class="nav-item" v-for="(item, i) in menu" :key="i">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" role="" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
                 <span class="menu-title">{{item.title}}</span>
                 <i class="menu-arrow"></i>

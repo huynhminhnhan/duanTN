@@ -30605,6 +30605,11 @@
 
 /* Footer */
 .footer {
+  /* footer cứng */
+  position: fixed ;
+  bottom: 0;
+  width: calc(100% - 270px);
+  /* end footer cứng */
   background: #dbdbdb;
   padding: 20px 1rem;
   transition: all 0.25s ease;
