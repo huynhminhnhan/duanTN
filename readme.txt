@@ -1,4 +1,5 @@
 - du an tot nghiep
+
 #INSTALL
 - git clone "https://github.com/huynhminhnhan/duanTN.git";
 - trỏ tới thư mục vừa clone về
@@ -6,4 +7,7 @@
 * copy file .env.example thành .env
 * php artisan key:generate (tạo key)
 * Chạy lệnh start php artisan serve
+
+
+
 * cd duanTN/support  ***PLEASEEEEEEEEEEE***

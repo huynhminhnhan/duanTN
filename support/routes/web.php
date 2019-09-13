@@ -10,15 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::any('{any}', function () {
+    return view('layout.master');
+})
+->where(['any' => '.*']);
+// Route::get('/login', function () {
+//     return view('home.master');
+// });
 //// HỖ TRỢ ////
 // Gửi yêu cầu mới //
-Route::get('/new-request', function () {
-    return view('pages/form/new-request');
+// Route::get('/insert-request', 'RequesController@insert');
+Route::get('/insert-request', function () {
+    echo 'abc' ;
 });
+Route::get('/SearchQuestion','SearchQuestion@init');
 // Yêu cầu mới gửi //
 Route::get('/request-new', function () {
     return view('pages/table/request-new');
@@ -39,3 +44,7 @@ Route::get('/done-handling', function () {
 Route::get('/search-question', function () {
     return view('pages/form/search-request');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
