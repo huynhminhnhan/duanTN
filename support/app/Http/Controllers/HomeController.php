@@ -23,8 +23,8 @@ class HomeController extends Controller
      */
 
     public function index(Request $Request)
-    {
-        
+    {     
+
         // $input = $Request;
         // // $arr = [
         // //     "name" => 'nhan',
@@ -37,6 +37,7 @@ class HomeController extends Controller
        
        
     //    $user = $Request->user()->authorizeRoles(['employee', 'admin']);
+
        
         return $user;
     }

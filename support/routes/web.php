@@ -19,11 +19,6 @@ Route::get('{any}', function () {
     return view('layout.master');
 })
 ->where(['any' => '.*']);
-// Route::get('/login', function () {
-//     return view('layout.master');
-// });
-//// HỖ TRỢ ////
-// Gửi yêu cầu mới //
 
 
 Auth::routes();
