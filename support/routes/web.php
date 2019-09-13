@@ -10,11 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::any('{any}', function () {
+
+Route::any('/', function () {
+    return view('layout.master');
+})
+->where(['any' => '.*']);
+Route::get('{any}', function () {
     return view('layout.master');
 })
 ->where(['any' => '.*']);
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::post('/login', 'HomeController@index');
+//Route::get('/login', 'HomeController@index')->name('home');
+
+// Route::get('/home', 'HomeController@index')->name('home');
