@@ -43,6 +43,7 @@ export const routes = [
               // end support Routing
           ]
         },
+        
         {
             path : '/auth',component : pageAuth,
             children : [
