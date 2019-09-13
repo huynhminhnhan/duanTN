@@ -87675,16 +87675,21 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
   routes: _router_index__WEBPACK_IMPORTED_MODULE_1__["routes"]
-}); // router.beforeEach((to ,from,next) => {
-//     if (to.matched.some(record => record.meta.requireAuth)) {
-//         next({
-//             path : '/auth',
-//             query: {redirect : to.fullPath}
-//         });
-//     }
-//     next();
-// });
+});
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.requireAuth;
+  })) {
+    next({
+      path: '/auth',
+      query: {
+        redirect: to.fullPath
+      }
+    });
+  }
 
+  next();
+});
 var app = new Vue({
   el: '#app',
   router: router
