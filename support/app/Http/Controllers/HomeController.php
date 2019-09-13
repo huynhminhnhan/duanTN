@@ -11,23 +11,33 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index(Request $Request)
     {
-        $user = $Request->user();
-        var_dump($user);
-        exit;
-        $user = $Request->user()->authorizeRoles(['employee', 'admin']);
+        
+        // $input = $Request;
+        // // $arr = [
+        // //     "name" => 'nhan',
+        // //     "age"=> 'hung'
+        // // ];
+        
+        // return $input;
+       // $user = $Request;
+      $user = json_encode($Request);
        
-       // return view('home');
+       
+    //    $user = $Request->user()->authorizeRoles(['employee', 'admin']);
+       
+        return $user;
     }
 }

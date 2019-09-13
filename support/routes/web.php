@@ -10,43 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::any('{any}', function () {
+
+Route::any('/', function () {
+    return view('layout.master');
+})
+->where(['any' => '.*']);
+Route::get('{any}', function () {
     return view('layout.master');
 })
 ->where(['any' => '.*']);
 // Route::get('/login', function () {
-//     return view('home.master');
+//     return view('layout.master');
 // });
 //// HỖ TRỢ ////
 // Gửi yêu cầu mới //
-Route::get('/new-request', function () {
-    return view('pages/form/new-request');
-});
-Route::get('/new-request', function () {
-    return view('pages/form/new-request');
-});
-Route::get('/SearchQuestion','SearchQuestion@init');
-// Yêu cầu mới gửi //
-Route::get('/request-new', function () {
-    return view('pages/table/request-new');
-});
-// Đang xử lý //
-Route::get('/handling', function () {
-    return view('pages/table/request-new');
-});
-// Đã trả lời //
-Route::get('/answered', function () {
-    return view('pages/table/request-new');
-});
-// Đã xử lý xong //
-Route::get('/done-handling', function () {
-    return view('pages/table/request-new');
-});
-// Tra cứu câu hỏi //
-Route::get('/search-question', function () {
-    return view('pages/form/search-request');
-});
+
 
 Auth::routes();
+Route::post('/login', 'HomeController@index');
+//Route::get('/login', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
