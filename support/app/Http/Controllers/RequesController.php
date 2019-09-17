@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class RequesController extends Controller
 {
-    function insert(){
-        return 'abc';
+    function insert(Request $request){
+        $bien = $request->title;
+        echo $bien;
     }
 }

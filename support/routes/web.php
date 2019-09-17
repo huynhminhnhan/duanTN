@@ -10,39 +10,44 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::any('{any}', function () {
-    return view('layout.master');
-})
-->where(['any' => '.*']);
+// Route::any('/', function(){
+//     return view('layout.master');
+// })
+// ->where(['any' => '.*']);
+// Route::get('{any}', function () {
+//     return view('layout.master');
+// })
+// ->where(['any' => '.*']);
+
+// Route::post('/new-request', 'RequesController@insert');
+
 // Route::get('/login', function () {
 //     return view('home.master');
 // });
 //// HỖ TRỢ ////
 // Gửi yêu cầu mới //
 // Route::get('/insert-request', 'RequesController@insert');
-Route::get('/insert-request', function () {
-    echo 'abc' ;
+
+Route::get('/', function () {
+    return view('welcome');
 });
-Route::get('/SearchQuestion','SearchQuestion@init');
-// Yêu cầu mới gửi //
+Route::get('/new-request', function () {
+    return view('pages.form.new-request');
+});
 Route::get('/request-new', function () {
-    return view('pages/table/request-new');
+    return view('welcome');
 });
-// Đang xử lý //
 Route::get('/handling', function () {
-    return view('pages/table/request-new');
+    return view('welcome');
 });
-// Đã trả lời //
-Route::get('/answered', function () {
-    return view('pages/table/request-new');
-});
-// Đã xử lý xong //
 Route::get('/done-handling', function () {
-    return view('pages/table/request-new');
+    return view('welcome');
 });
-// Tra cứu câu hỏi //
-Route::get('/search-question', function () {
-    return view('pages/form/search-request');
+Route::get('/handling', function () {
+    return view('welcome');
+});
+Route::get('/search-request', function () {
+    return view('welcome');
 });
 
 Auth::routes();

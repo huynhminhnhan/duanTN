@@ -2798,34 +2798,7 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  methods: {
-    activeMenu: function activeMenu() {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this.menu[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var item = _step.value;
-          item.active == true; //  console.log(item);
-        } // return this.title = 'change';
-
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-            _iterator["return"]();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -2905,13 +2878,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'newRequest',
   data: function data() {
     return {
-      title: ''
+      title: 'hhhhhhhh',
+      abc: ''
     };
+  },
+  methods: {
+    checkform: function checkform(e) {
+      var _this = this;
+
+      axios.post('/new-request', {
+        title: this.title
+      }).then(function (response) {
+        _this.abc = response.data;
+      });
+      e.preventDefault();
+    }
   }
 });
 
@@ -70258,66 +70243,51 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm._l(_vm.menu, function(item, i) {
-            return _c(
-              "li",
-              {
-                key: i,
-                staticClass: "nav-item",
-                on: { click: _vm.activeMenu }
-              },
-              [
+            return _c("li", { key: i, staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    "data-toggle": "collapse",
+                    href: "#" + item.url,
+                    "aria-expanded": "false",
+                    "aria-controls": item.url
+                  }
+                },
+                [
+                  _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "menu-title" }, [
+                    _vm._v(_vm._s(item.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("i", { staticClass: "menu-arrow" })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "collapse", attrs: { id: item.url } }, [
                 _c(
-                  "a",
-                  {
-                    staticClass: "nav-link",
-                    attrs: {
-                      "data-toggle": "collapse",
-                      href: "#" + item.url,
-                      "aria-expanded": "false",
-                      "aria-controls": item.url
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "menu-title" }, [
-                      _vm._v(_vm._s(item.title))
-                    ]),
-                    _vm._v(" "),
-                    _c("i", { staticClass: "menu-arrow" })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "collapse", attrs: { id: item.url } },
-                  [
-                    _c(
-                      "ul",
-                      { staticClass: "nav flex-column sub-menu" },
-                      _vm._l(item.childrenMenu, function(menus, i) {
-                        return _c(
-                          "li",
-                          { key: i, staticClass: "nav-item" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "nav-link",
-                                attrs: { to: menus.url }
-                              },
-                              [_vm._v(_vm._s(menus.title))]
-                            )
-                          ],
-                          1
+                  "ul",
+                  { staticClass: "nav flex-column sub-menu" },
+                  _vm._l(item.childrenMenu, function(menus, i) {
+                    return _c(
+                      "li",
+                      { key: i, staticClass: "nav-item" },
+                      [
+                        _c(
+                          "router-link",
+                          { staticClass: "nav-link", attrs: { to: menus.url } },
+                          [_vm._v(_vm._s(menus.title))]
                         )
-                      }),
-                      0
+                      ],
+                      1
                     )
-                  ]
+                  }),
+                  0
                 )
-              ]
-            )
+              ])
+            ])
           })
         ],
         2
@@ -70376,43 +70346,229 @@ var render = function() {
               staticClass: "forms-sample",
               attrs: {
                 name: "callback",
-                method: "POST",
-                action: "/insert-request",
                 role: "form",
                 enctype: "multipart/form-data"
               },
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.submitForm($event)
-                }
-              }
+              on: { submit: _vm.checkform }
             },
-            [_vm._m(0)]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.title,
-                expression: "title"
-              }
-            ],
-            attrs: { type: "text" },
-            domProps: { value: _vm.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col-md-6" }, [
+                  _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
+                    _vm._v("Chọn phòng ban")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.department,
+                          expression: "department"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "exampleFormControlSelect1" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.department = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", [_vm._v("Choose...")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("3")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("4")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("5")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6" }, [
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Chủ đề")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.cataquestion,
+                          expression: "cataquestion"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "title" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.cataquestion = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", [_vm._v("Choose...")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("3")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("4")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("5")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6" }, [
+                  _c("label", { attrs: { for: "tieude" } }, [
+                    _vm._v("Tiêu đề yêu cầu")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.content,
+                        expression: "content"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "tieude",
+                      placeholder: "Nhập tiêu đề"
+                    },
+                    domProps: { value: _vm.content },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.content = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6" }, [
+                  _c("label", [_vm._v("File upload")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "file-upload-default",
+                    attrs: { type: "file", name: "img[]" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group col-xs-12" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.images,
+                          expression: "images"
+                        }
+                      ],
+                      staticClass: "form-control file-upload-info",
+                      attrs: { type: "text", placeholder: "Upload Image" },
+                      domProps: { value: _vm.images },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.images = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-12" }, [
+                  _c("label", { attrs: { for: "noidung" } }, [
+                    _vm._v("Nội dung")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.images,
+                        expression: "images"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "noidung", cols: "2", rows: "2" },
+                    domProps: { value: _vm.images },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.images = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.title,
+                    expression: "title"
+                  }
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.title = $event.target.value
+                  }
                 }
-                _vm.title = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Message is: " + _vm._s(_vm.title))])
+              }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Message is: " + _vm._s(_vm.title))])
+            ]
+          )
         ])
       ])
     ])
@@ -70423,105 +70579,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
-          _vm._v("Chọn phòng ban")
-        ]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-control ",
-            attrs: { id: "exampleFormControlSelect1" }
-          },
-          [
-            _c("option", [_vm._v("Choose...")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("3")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("4")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("5")])
-          ]
-        )
-      ]),
+    return _c("span", { staticClass: "input-group-append" }, [
+      _c(
+        "button",
+        {
+          staticClass: "file-upload-browse btn btn-info",
+          attrs: { type: "button" }
+        },
+        [_vm._v("Upload")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group col-md-12" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success mr-2", attrs: { type: "submit" } },
+        [_vm._v("Submit")]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", { attrs: { for: "title" } }, [_vm._v("Chủ đề")]),
-        _vm._v(" "),
-        _c("select", { staticClass: "form-control ", attrs: { id: "title" } }, [
-          _c("option", [_vm._v("Choose...")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("2")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("3")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("4")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("5")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", { attrs: { for: "tieude" } }, [_vm._v("Tiêu đề yêu cầu")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", id: "tieude", placeholder: "Nhập tiêu đề" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", [_vm._v("File upload")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "file-upload-default",
-          attrs: { type: "file", name: "img[]" }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group col-xs-12" }, [
-          _c("input", {
-            staticClass: "form-control file-upload-info",
-            attrs: { type: "text", placeholder: "Upload Image" }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              {
-                staticClass: "file-upload-browse btn btn-info",
-                attrs: { type: "button" }
-              },
-              [_vm._v("Upload")]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-12" }, [
-        _c("label", { attrs: { for: "noidung" } }, [_vm._v("Nội dung")]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { id: "noidung", cols: "2", rows: "2" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-12" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-success mr-2", attrs: { type: "submit" } },
-          [_vm._v("Submit")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-light", attrs: { type: "reset" } },
-          [_vm._v("Reset")]
-        )
+      _c("button", { staticClass: "btn btn-light", attrs: { type: "reset" } }, [
+        _vm._v("Reset")
       ])
     ])
   }

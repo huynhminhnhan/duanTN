@@ -20,6 +20,7 @@ class CreateQuestionTable extends Migration
             $table->integer('idDepartment');
             $table->tinyInteger('Status');
             $table->string('Content');
+            $table->string('Title');
             $table->string('Images');
             $table->string('idCataQuestion');
             $table->timestamps();
