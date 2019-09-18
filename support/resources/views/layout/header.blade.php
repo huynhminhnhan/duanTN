@@ -184,16 +184,16 @@
                         <a class="nav-link" href="/new-request">Gửi yêu cầu mới</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/request-new">Yêu cầu mới gửi</a>
+                        <a class="nav-link" href="/support/request-new">Yêu cầu mới gửi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/handling">Nhân viên đang xử lý</a>
+                        <a class="nav-link" href="/support/handling">Nhân viên đang xử lý</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/answered">Nhân viên đã trả lời</a>
+                        <a class="nav-link" href="/support/answered">Nhân viên đã trả lời</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/done-handling">Nhân viên đã xử lý xong</a>
+                        <a class="nav-link" href="/support/done-handling">Nhân viên đã xử lý xong</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/search-question">Tra cứu câu hỏi</a>
