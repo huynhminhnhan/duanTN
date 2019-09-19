@@ -46,8 +46,11 @@ Route::get('/done-handling', function () {
 Route::get('/handling', function () {
     return view('welcome');
 });
-Route::get('/search-request', function () {
-    return view('welcome');
+Route::get('/search-question', function () {
+    return view('pages/form/search-request');
+});
+Route::get('/mission', function () {
+    return view('pages/form/mission-accept');
 });
 
 Auth::routes();
