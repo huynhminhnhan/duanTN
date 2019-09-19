@@ -23,11 +23,11 @@ class HomeController extends Controller
      */
     public function index(Request $Request)
     {
-        $user = $Request->user();
-        var_dump($user);
-        exit;
+       // $user = $Request->user();
+        // dd($user);
+        // exit;
         $user = $Request->user()->authorizeRoles(['employee', 'admin']);
        
-       // return view('home');
+        return view('home');
     }
 }
