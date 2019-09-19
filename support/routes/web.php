@@ -38,20 +38,10 @@ Route::post('/inser-request', 'RequesController@insert');
 
 Route::get('/support/{a}', 'PagesController@Question');
 
-Route::get('/handling', function () {
-    return view('welcome');
-});
-Route::get('/done-handling', function () {
-    return view('welcome');
-});
-Route::get('/handling', function () {
-    return view('welcome');
-});
-Route::get('/search-question', function () {
-    return view('pages/form/search-request');
-});
-Route::get('/mission', function () {
-    return view('pages/form/mission-accept');
+Route::prefix('mission')->group(function () {
+    Route::get('must-accept', function () {
+        return view('pages/table/');
+    });
 });
 
 Auth::routes();
