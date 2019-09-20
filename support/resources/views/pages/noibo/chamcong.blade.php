@@ -3,20 +3,19 @@
 
 
 <div class="main-panel">
-    <div class="content-wrapper">
-      <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-                    <div class="card">
-                            <div class="card-header">
-                              Quy định chấm công
-                            </div>
-                            <div class="card-body">
-                              <h5 class="card-title">Đẹp trai</h5>
-                              <p class="card-text">Like a boss</p>
-
-                            </div>
-                          </div>
-                </div>
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-header">
+            Quy định chấm công
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Đẹp trai</h5>
+            <p class="card-text">Like a boss</p>
+          </div>
+        </div>
+      </div>
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
@@ -37,34 +36,26 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
                     @foreach ($chamcong as $cc)
-
+                    <tr>
                       <td> {{$cc->id}} </td>
                       <td> {{$cc->name}} </td>
-                      <td>
-                        <div class="progress">
-                          <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </td>
+                      <td> $ 77.99 </td>
                       <td> $ 77.99 </td>
                       <td> $ 77.99 </td>
                       <td> $ 77.99 </td>
                       <td> $ 77.99 </td>
                       <td> $ 77.99 </td>
                       <td> May 15, 2015 </td>
-
-                      @endforeach
                     </tr>
-
+                    @endforeach
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-
+        </div>
       </div>
-    </div>
 
 
 @endsection
