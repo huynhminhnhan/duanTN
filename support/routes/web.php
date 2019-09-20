@@ -37,22 +37,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/new-request', function () {
-    return view('pages.form.new-request');
+    return view('pages/form/new-request');
 });
-Route::get('/request-new', function () {
-    return view('welcome');
-});
-Route::get('/handling', function () {
-    return view('welcome');
-});
-Route::get('/done-handling', function () {
-    return view('welcome');
-});
-Route::get('/handling', function () {
-    return view('welcome');
-});
-Route::get('/search-request', function () {
-    return view('welcome');
+Route::post('/inser-request', 'RequesController@insert');
+
+Route::get('/support/{a}', 'PagesController@Question');
+
+Route::prefix('mission')->group(function () {
+    Route::get('must-accept', function () {
+        return view('pages/table/');
+    });
 });
 
 Auth::routes();

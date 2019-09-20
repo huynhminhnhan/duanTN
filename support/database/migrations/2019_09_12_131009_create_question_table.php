@@ -18,10 +18,10 @@ class CreateQuestionTable extends Migration
             $table->integer('idUser');
             $table->integer('idAdmin');
             $table->integer('idDepartment');
-            $table->tinyInteger('Status');
+            $table->tinyInteger('Status')->default('0');
             $table->string('Content');
             $table->string('Title');
-            $table->string('Images');
+            $table->string('Images')->nullable();
             $table->string('idCataQuestion');
             $table->timestamps();
         });

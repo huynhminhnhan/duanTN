@@ -9,7 +9,11 @@ class Question extends Model
     public $table='question';
     protected $primaryKey = 'id';
 
-    function get_request(){
-
+    public function questionNew($status){
+        
+        $result = Question::orderBy('id','desc')
+                ->where('Status',$status)
+                ->get();
+        return $result;
     }
 }
