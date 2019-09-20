@@ -24,7 +24,12 @@
 // Route::get('/login', function () {
 //     return view('home.master');
 // });
-//// HỖ TRỢ ////
+// HỖ TRỢ ////
+// Route::get('/chamcong', function () {
+//     return view('pages.noibo.chamcong');
+// });
+Route::get('/chamcong', 'controllerNoiBo@chamCong');
+
 // Gửi yêu cầu mới //
 // Route::get('/insert-request', 'RequesController@insert');
 

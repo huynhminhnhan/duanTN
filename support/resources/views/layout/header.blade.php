@@ -256,7 +256,7 @@
                 <div class="collapse" id="ui-basic3">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Xem chấm công</a>
+                            <a class="nav-link" href="/chamcong">Xem chấm công</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Xem lịch trực</a>
@@ -273,7 +273,6 @@
                     </ul>
                 </div>
             </li>
-        
+
           </ul>
         </nav>
-    
