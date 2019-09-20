@@ -35,14 +35,16 @@ Route::get('/new-request', function () {
     return view('pages/form/new-request');
 });
 Route::post('/inser-request', 'RequesController@insert');
-
+// support
 Route::get('/support/{a}', 'PagesController@Question');
+// mission
+Route::get('/mission/{a}', 'PagesController@Question');
 
-Route::prefix('mission')->group(function () {
-    Route::get('must-accept', function () {
-        return view('pages/table/');
-    });
-});
+// Route::prefix('mission')->group(function () {
+//     Route::get('must-accept', function () {
+//         return view('pages/table/mission-accept');
+//     });
+// });
 
 Auth::routes();
 
