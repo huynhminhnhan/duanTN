@@ -28,7 +28,7 @@
 // Route::get('/chamcong', function () {
 //     return view('pages.noibo.chamcong');
 // });
-Route::get('/chamcong', 'controllerNoiBo@chamCong');
+// Route::get('/chamcong', 'controllerNoiBo@chamCong');
 
 // Gửi yêu cầu mới //
 // Route::get('/insert-request', 'RequesController@insert');
@@ -37,22 +37,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/new-request', function () {
-    return view('pages.form.new-request');
+    return view('pages/form/new-request');
 });
-Route::get('/request-new', function () {
-    return view('welcome');
-});
-Route::get('/handling', function () {
-    return view('welcome');
-});
-Route::get('/done-handling', function () {
-    return view('welcome');
-});
-Route::get('/handling', function () {
-    return view('welcome');
-});
-Route::get('/search-request', function () {
-    return view('welcome');
+Route::post('/inser-request', 'RequesController@insert');
+
+Route::get('/support/{a}', 'PagesController@Question');
+// Nội Bộ
+Route::prefix('internal')->group(function () {
+    Route::get('timekeeping', 'controllerNoiBo@chamCong');
+
 });
 
 Auth::routes();
