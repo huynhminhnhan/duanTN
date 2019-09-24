@@ -38,6 +38,7 @@ Route::post('/inser-request', 'RequesController@insert');
 
 Route::get('/support/{a}', 'PagesController@Question');
 
+<<<<<<< HEAD
 
 Auth::routes();
 
@@ -49,6 +50,12 @@ Route::get('/mission', function () {
 
 Route::get('/search-question', function () {
     return view('pages/form/search-request');
+=======
+Route::prefix('mission')->group(function () {
+    Route::get('must-accept', function () {
+        return view('pages/table/');
+    });
+>>>>>>> 61818767f4a091fb2f903b6f7b684ff3b1a21e89
 });
 
 Route::get('/view-payroll', function () {
