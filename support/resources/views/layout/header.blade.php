@@ -272,16 +272,11 @@
                             <a class="nav-link" href="/internal/punish">Ghi phạt nội bộ</a>
                         </li>
                         <li class="nav-item">
-<<<<<<< HEAD
-                            <a class="nav-link" href="/view-payroll">Xem bảng lương</a>
-=======
                             <a class="nav-link" href="/internal/payroll">Xem bảng lương</a>
->>>>>>> 61818767f4a091fb2f903b6f7b684ff3b1a21e89
                         </li>
                     </ul>
                 </div>
             </li>
-        
+
           </ul>
         </nav>
-    

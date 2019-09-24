@@ -24,7 +24,12 @@
 // Route::get('/login', function () {
 //     return view('home.master');
 // });
-//// HỖ TRỢ ////
+// HỖ TRỢ ////
+// Route::get('/chamcong', function () {
+//     return view('pages.noibo.chamcong');
+// });
+// Route::get('/chamcong', 'controllerNoiBo@chamCong');
+
 // Gửi yêu cầu mới //
 // Route::get('/insert-request', 'RequesController@insert');
 
@@ -35,10 +40,11 @@ Route::get('/new-request', function () {
     return view('pages/form/new-request');
 });
 Route::post('/inser-request', 'RequesController@insert');
-
+// support
 Route::get('/support/{a}', 'PagesController@Question');
 
-<<<<<<< HEAD
+
+
 
 Auth::routes();
 
@@ -48,16 +54,15 @@ Route::get('/mission', function () {
     return view('pages/table/mission-accept');
 });
 
-Route::get('/search-question', function () {
-    return view('pages/form/search-request');
-=======
-Route::prefix('mission')->group(function () {
-    Route::get('must-accept', function () {
-        return view('pages/table/');
-    });
->>>>>>> 61818767f4a091fb2f903b6f7b684ff3b1a21e89
-});
 
-Route::get('/view-payroll', function () {
-    return view('pages/table/payroll');
+
+// mission
+// Route::get('/mission/{a}', 'PagesController@Question');
+
+Route::prefix('internal')->group(function () {
+    Route::get('timekeeping','controllerNoiBo@chamCong');
+    Route::get('calendar','controllerNoiBo@lichtruc');
+    Route::get('permission-form','controllerNoiBo@xinphep');
+    Route::get('punish','controllerNoiBo@ghiphat');
+    Route::get('payroll','controllerNoiBo@banluong');
 });

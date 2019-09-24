@@ -571,11 +571,7 @@
     </div>
     <!-- het footer -->
 
-<<<<<<< HEAD
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
-  
 
-=======
->>>>>>> 48e7d3adb5c94643ab15481f06b4ed04e02d4226
 @endsection
