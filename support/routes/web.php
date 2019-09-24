@@ -38,22 +38,19 @@ Route::post('/inser-request', 'RequesController@insert');
 
 Route::get('/support/{a}', 'PagesController@Question');
 
-Route::get('/handling', function () {
-    return view('welcome');
-});
-Route::get('/done-handling', function () {
-    return view('welcome');
-});
-Route::get('/handling', function () {
-    return view('welcome');
-});
-Route::get('/search-question', function () {
-    return view('pages/form/search-request');
-});
-Route::get('/mission', function () {
-    return view('pages/form/mission-accept');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/mission', function () {
+    return view('pages/table/mission-accept');
+});
+
+Route::get('/search-question', function () {
+    return view('pages/form/search-request');
+});
+
+Route::get('/view-payroll', function () {
+    return view('pages/table/payroll');
+});
