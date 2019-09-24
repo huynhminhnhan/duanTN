@@ -33,9 +33,7 @@
 // Gửi yêu cầu mới //
 // Route::get('/insert-request', 'RequesController@insert');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 Route::get('/new-request', function () {
     return view('pages/form/new-request');
 });
@@ -55,4 +53,4 @@ Route::prefix('internal')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

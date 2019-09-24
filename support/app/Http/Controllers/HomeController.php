@@ -28,6 +28,6 @@ class HomeController extends Controller
         // exit;
         $user = $Request->user()->authorizeRoles(['employee', 'admin']);
        
-        return view('home');
+        return view('welcome');
     }
 }

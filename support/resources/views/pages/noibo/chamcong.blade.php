@@ -22,47 +22,47 @@
               <div class="card-body">
 
 
-                            {{-- <i class="fas fa-table"></i> --}}
-                            {{-- DatePicker --}}
-                                <label>Chọn ngày tháng: </label>
+          {{-- <i class="fas fa-table"></i> --}}
+          {{-- DatePicker --}}
+              <label>Chọn ngày tháng: </label>
 
-                                <form action="">
-                                        <script>
-                                            window.onload = function what(){
+              <form action="">
+                      <script>
+                          window.onload = function what(){
 
-                                            var d = new Date();
+                          var d = new Date();
 
 
-                                            var x = d.getMonth();
-                                             var   y = d.getFullYear();
+                          var x = d.getMonth();
+                            var   y = d.getFullYear();
 
-                                            // console.log(y);
+                          // console.log(y);
 
-                                            document.getElementById('demo').value  = x;
-                                            // document.getElementById('demo1').value  = y;
+                          document.getElementById('demo').value  = x;
+                          // document.getElementById('demo1').value  = y;
 
-                                        };
-                                        </script>
-                                        <select name="cars"  value="" id="demo">
-                                            <script>
-                                                for(var i = 1; i<= 12; i++){
-                                                    document.write (  '<option value="'+i+'">'+i+'</option>');
-                                                    // console.log(i);
-                                                }
-                                            </script>
-                                        </select>
-                                        <select name="cars"  value="" id="demo1">
-                                            <script>
-                                                 var d = new Date();
-                                                for(var z = d.getFullYear() ; z>=d.getFullYear()-3 ; z--){
-                                                    document.write ('<option value="'+z+'">'+z+'</option>');
-                                                    // console.log(z);
-                                                }
-                                            </script>
-                                        </select>
+                      };
+                      </script>
+                      <select name="cars"  value="" id="demo">
+                          <script>
+                              for(var i = 1; i<= 12; i++){
+                                  document.write (  '<option value="'+i+'">'+i+'</option>');
+                                  // console.log(i);
+                              }
+                          </script>
+                      </select>
+                      <select name="cars"  value="" id="demo1">
+                          <script>
+                                var d = new Date();
+                              for(var z = d.getFullYear() ; z>=d.getFullYear()-3 ; z--){
+                                  document.write ('<option value="'+z+'">'+z+'</option>');
+                                  // console.log(z);
+                              }
+                          </script>
+                      </select>
 
-                                    <input class="btn btn-outline-success" type="submit">
-                                  </form>
+                  <input class="btn btn-outline-success" type="submit">
+                </form>
 
 
                 <table class="table table-bordered mt-3">
