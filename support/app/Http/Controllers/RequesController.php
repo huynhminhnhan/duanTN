@@ -8,6 +8,11 @@ use Auth;
 
 class RequesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     function insert(Request $request){
         $validate= Validator::make(
             $request->all(),
