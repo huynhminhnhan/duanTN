@@ -43,6 +43,7 @@ class User extends Authenticatable
     /**
 * @param string|array $roles
 */
+
 public function authorizeRoles($roles)
 {
   if (is_array($roles)) {

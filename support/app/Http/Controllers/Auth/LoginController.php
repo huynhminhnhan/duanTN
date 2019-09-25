@@ -34,6 +34,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        // var_dump('ff');
+        // exit;
        
         $this->middleware('guest')->except('logout');
     }

@@ -10,18 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-<<<<<<< HEAD
-
-Route::any('/', function () {
-    return view('layout.master');
-})
-->where(['any' => '.*']);
-Route::get('{any}', function () {
-    return view('layout.master');
-})
-->where(['any' => '.*']);
-
-=======
 // Route::any('/', function(){
 //     return view('layout.master');
 // })
@@ -62,10 +50,8 @@ Route::prefix('internal')->group(function () {
     Route::get('punish','controllerNoiBo@ghiphat');
     Route::get('payroll','controllerNoiBo@banluong');
 });
->>>>>>> 97d408ad75b3e759a250fcf6e61d952fd98428d3
 
 Auth::routes();
-Route::post('/login', 'HomeController@index');
-//Route::get('/login', 'HomeController@index')->name('home');
+// Route::post('/login', 'HomeController@index');
 
 // Route::get('/home', 'HomeController@index')->name('home');
