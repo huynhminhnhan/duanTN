@@ -178,7 +178,7 @@
                 <span class="menu-title">HỖ TRỢ</span>
                 <i class="menu-arrow"></i>
               </a>
-              <div class="collapse show" id="ui-basic">
+              <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
                         <a class="nav-link" href="/new-request">Gửi yêu cầu mới</a>
@@ -210,19 +210,22 @@
                 <div class="collapse" id="ui-basic1">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhiệm vụ phải nhận</a>
+
+                          
+                            <a class="nav-link" href="/mission/must-accept
+                            ">Nhiệm vụ phải nhận</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhiệm vụ phải làm</a>
+                            <a class="nav-link" href="/mission/must-do">Nhiệm vụ phải làm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Câu hỏi chuyển đến</a>
+                            <a class="nav-link" href="/mission/move-in">Câu hỏi chuyển đến</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Câu hỏi chuyển đi</a>
+                            <a class="nav-link" href="/mission/move-away">Câu hỏi chuyển đi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đang nghiêm cứu</a>
+                            <a class="nav-link" href="/mission/research">Đang nghiêm cứu</a>
                         </li>
                     </ul>
                 </div>
@@ -236,13 +239,13 @@
                 <div class="collapse" id="ui-basic2">
                     <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Xem yêu cầu mới</a>
+                        <a class="nav-link" href="/mission/new-request">Xem yêu cầu mới</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Xem yêu cầu chưa tiếp nhận</a>
+                        <a class="nav-link" href="/mission/request">Xem yêu cầu chưa tiếp nhận</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Đang xử lý</a>
+                        <a class="nav-link" href="/mission/handling">Đang xử lý</a>
                     </li>
                     </ul>
                 </div>
@@ -256,24 +259,24 @@
                 <div class="collapse" id="ui-basic3">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Xem chấm công</a>
+                            <a class="nav-link" href="/internal/timekeeping">Xem chấm công</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Xem lịch trực</a>
+                            <a class="nav-link" href="/internal/calendar">Xem lịch trực</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tạo đơn xin phép</a>
+                            <a class="nav-link" href="/internal/permission-form
+                            ">Tạo đơn xin phép</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ghi phạt nội bộ</a>
+                            <a class="nav-link" href="/internal/punish">Ghi phạt nội bộ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Xem bảng lương</a>
+                            <a class="nav-link" href="/internal/payroll">Xem bảng lương</a>
                         </li>
                     </ul>
                 </div>
             </li>
-        
+
           </ul>
         </nav>
-    

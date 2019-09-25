@@ -571,4 +571,7 @@
     </div>
     <!-- het footer -->
 
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+
 @endsection
