@@ -24,7 +24,7 @@
       </router-link>
     </li>
       <!-- <li class="nav-item" v-for="(item, i) in menu" :key="i">{{item.title}} </li> -->
-    <li class="nav-item" @click="activeMenu" v-for="(item, i) in menu" :key="i">
+    <li class="nav-item"  v-for="(item, i) in menu" :key="i">
       <a class="nav-link" data-toggle="collapse" v-bind:href="'#'+item.url" aria-expanded="false" v-bind:aria-controls="item.url">
         <i class="menu-icon typcn typcn-coffee"></i>
         <span class="menu-title">{{item.title}}</span>
@@ -100,14 +100,7 @@ export default {
      
     },
        methods : {
-       activeMenu: function() {
-         for (let item of this.menu) {
-           item.active == true;
-            //  console.log(item);
-         }
-         // return this.title = 'change';
-        
-       }
+       
      }
    
 }

@@ -23,22 +23,12 @@ class HomeController extends Controller
      */
 
     public function index(Request $Request)
-    {     
-
-        // $input = $Request;
-        // // $arr = [
-        // //     "name" => 'nhan',
-        // //     "age"=> 'hung'
-        // // ];
-        
-        // return $input;
-       // $user = $Request;
-      $user = json_encode($Request);
+    {
+       // $user = $Request->user();
+        // dd($user);
+        // exit;
+        $user = $Request->user()->authorizeRoles(['employee', 'admin']);
        
-       
-    //    $user = $Request->user()->authorizeRoles(['employee', 'admin']);
-
-       
-        return $user;
+        return view('welcome');
     }
 }
