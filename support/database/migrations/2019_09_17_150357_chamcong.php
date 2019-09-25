@@ -15,17 +15,16 @@ class Chamcong extends Migration
     {
         Schema::create('chamcong', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_user');
             // $table->string('name')->nullable();
             // $table->text('description')->nullable();
             $table->string('ngay')->nullable();
             $table->string('thu')->nullable();
-            $table->string('giovao1')->nullable();
-            $table->string('giora1')->nullable();
-            $table->string('giovao2')->nullable();
-            $table->string('giora2')->nullable();
-            $table->string('ditre')->nullable();
-            $table->string('vesom')->nullable();
-            $table->string('ghichu')->nullable();
+            $table->string('gio_vao1')->nullable();
+            $table->string('gio_ra1')->nullable();
+            $table->string('gio_vao2')->nullable();
+            $table->string('gio_ra2')->nullable();
+            $table->string('ghi_chu')->nullable();
             $table->timestamps();
         });
     }

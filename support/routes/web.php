@@ -41,8 +41,8 @@ Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
 // mission
-// Route::get('/mission/{a}', 'PagesController@Question');
-
+Route::get('/mission/{a}', 'PagesController@Question');
+// noi bo
 Route::prefix('internal')->group(function () {
     Route::get('timekeeping','controllerNoiBo@chamCong');
     Route::get('calendar','controllerNoiBo@lichtruc');

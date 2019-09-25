@@ -33,27 +33,38 @@
                     </thead>
                     <tbody>
                       @forelse($Question as $q)
-                      <tr>
-                        <td>{{$q->id}}</td>
-                        <td> {{$q->idDepartment}} </td>
-                        <td>
-                            {{$q->idDepartment}}
-                        </td>
-                        <td> {{$q->created_at}} </td>
-                        <td> 
-                        @if($q->Status === 0)
-                        <p> Chưa tiếp nhận</p>
-                        @elseif($q->Status === 1)
-                        <p> Đang xử lí</p>
-                        @elseif($q->Status === 2)
-                        <p> Đã trả lời</p>
-                        @elseif($q->Status === 3)
-                        <p> Đã xử xong</p>
-                        @endif
-                        </td>
-                        <td> {{$q->id}} </td>
-
-                      </tr>
+                   
+                        <tr>
+                          <td>
+                             <a href="#">{{$q->id}}</a> 
+                          </td>
+                          <td>
+                            <a href="#"> {{$q->idDepartment}}</a> 
+                          </td>
+                          <td>
+                              <a href="#">{{$q->idDepartment}}</a> 
+                          </td>
+                          <td> 
+                            <a href="#">{{$q->created_at}}</a>  
+                          </td>
+                          <td>
+                            <a href="#"> 
+                              @if($q->Status === 0)
+                              <p> Chưa tiếp nhận</p>
+                              @elseif($q->Status === 1)
+                              <p> Đang xử lí</p>
+                              @elseif($q->Status === 2)
+                              <p> Đã trả lời</p>
+                              @elseif($q->Status === 3)
+                              <p> Đã xử xong</p>
+                              @endif
+                            </a> 
+                          </td>
+                          <td> 
+                            <a href="#">{{$q->id}}</a>  
+                          </td>
+                        </tr>
+                    
                       @empty
                        Chưa có câu hỏi 
                       @endforelse

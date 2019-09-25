@@ -10,7 +10,7 @@ class controllerNoiBo extends Controller
 {
     // Chấm công
     public function chamCong(){
-        $chamcong = Chamcong::all();
+        $chamcong = Chamcong::all()->where('id_user', 1);
         return view('pages.noibo.chamcong',['chamcong'=>$chamcong]);
     }
 }
