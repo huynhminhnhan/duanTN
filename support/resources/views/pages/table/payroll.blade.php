@@ -10,27 +10,43 @@
                   <div class="card">
                     <div class="card-body">
                       <h4 class="card-title">XEM BẢNG LƯƠNG</h4>
-                        <form class="mt-4">
-                        <div class="form-row">
-                          <div class="form-group col-md-3">
-                            <label for="inputState">Tháng</label>
-                            <select id="inputState" class="form-control">
-                              <option selected>Chọn...</option>
-                              <option>...</option>
-                            </select>
-                          </div>
-                          <div class="form-group col-md-3">
-                            <label for="inputState">Năm</label>
-                            <select id="inputState" class="form-control">
-                              <option selected>Chọn...</option>
-                              <option>...</option>
-                            </select>
-                          </div>
-                          <div class="form-group col-md-2">
-                            <button type="submit" class="btn btn-primary mb-2">Xem</button>
-                          </div>
-                        </div>
-                        </form>
+                      <form action="">
+                                        <script>
+                                            window.onload = function what(){
+
+                                            var d = new Date();
+
+
+                                            var x = d.getMonth();
+                                             var   y = d.getFullYear();
+
+                                            // console.log(y);
+
+                                            document.getElementById('demo').value  = x;
+                                            // document.getElementById('demo1').value  = y;
+
+                                        };
+                                        </script>
+                                        <select name="cars"  value="" id="demo">
+                                            <script>
+                                                for(var i = 1; i<= 12; i++){
+                                                    document.write (  '<option value="'+i+'">'+i+'</option>');
+                                                    // console.log(i);
+                                                }
+                                            </script>
+                                        </select>
+                                        <select name="cars"  value="" id="demo1">
+                                            <script>
+                                                 var d = new Date();
+                                                for(var z = d.getFullYear() ; z>=d.getFullYear()-3 ; z--){
+                                                    document.write ('<option value="'+z+'">'+z+'</option>');
+                                                    // console.log(z);
+                                                }
+                                            </script>
+                                        </select>
+
+                                    <input class="btn btn-outline-success" type="submit">
+                                  </form>
                       <div class="col-md-12 d-flex align-items-stretch grid-margin">
                       <table class="table table-bordered mt-3">
                         <thead>
@@ -42,10 +58,11 @@
                           </tr>
                         </thead>
                         <tbody>
+                        @forelse($banluong as $bl)
                           <tr>
                             <th scope="row">Lương cơ bản</th>
-                            <td></td>
-                            <td></td>
+                            <td>{{$bl->luong_can_ban}}</td>
+                            <td>{{$bl->ghi_chu}}</td>
                             <td></td>
                           </tr>
                           <tr>
@@ -96,6 +113,10 @@
                             <th scope="row">Lương thực lãnh(VNĐ)</th>
                             <td colspan="3"></td>
                           </tr>
+                          @empty
+                            Chưa cập nhật
+                          @endforelse
+                      
                         </tbody>
                       </table>
           </div>

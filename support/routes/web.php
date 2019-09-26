@@ -43,6 +43,15 @@ Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
 
+Route::get('/user', function () {
+    return view('pages/table/user');
+});
+
+Route::get('/edit', function () {
+    return view('pages/table/edit-user');
+});
+
+
 
 
 
