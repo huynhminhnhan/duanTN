@@ -26,9 +26,7 @@ class HomeController extends Controller
     public function index(Request $Request)
     {
 
-        $userInfor = $Request->session()->get('userInfor');
-
-    
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
         return view('welcome');
     }
 }
