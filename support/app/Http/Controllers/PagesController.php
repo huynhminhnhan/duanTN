@@ -7,6 +7,11 @@ use App\Quotation;
 use App\Question;
 class PagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function Question($status){
         if($status === 'request-new'){
             $status = 0;

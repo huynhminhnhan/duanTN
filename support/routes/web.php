@@ -33,12 +33,10 @@
 // Gửi yêu cầu mới //
 // Route::get('/insert-request', 'RequesController@insert');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('/new-request', function () {
     return view('pages/form/new-request');
-});
+})->middleware('auth');
 Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
@@ -66,8 +64,8 @@ Route::get('/mission', function () {
 
 
 // mission
-// Route::get('/mission/{a}', 'PagesController@Question');
-
+Route::get('/mission/{a}', 'PagesController@Question');
+// noi bo
 Route::prefix('internal')->group(function () {
     Route::get('timekeeping','controllerNoiBo@chamCong');
     Route::get('calendar','controllerNoiBo@lichtruc');
