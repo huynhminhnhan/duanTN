@@ -26,7 +26,11 @@ class HomeController extends Controller
     public function index(Request $Request)
     {
 
+<<<<<<< HEAD
         $userInfor = $Request->session()->get('userInfor');
+=======
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
+>>>>>>> cb74d14d77e20c19792f886b4889ca0b1d7c01c5
         return view('welcome');
     }
 }
