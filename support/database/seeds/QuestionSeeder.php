@@ -12,7 +12,7 @@ class QuestionSeeder extends Seeder
     public function run()
     {
         $qs = new question();
-        $qs->idUser = 1;
+        $qs->id_user = 1;
         $qs->idAdmin = 2;
         $qs->idDepartment=2;
         $qs->Status=0;
