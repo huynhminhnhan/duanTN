@@ -33,10 +33,10 @@
 // Gửi yêu cầu mới //
 // Route::get('/insert-request', 'RequesController@insert');
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('/new-request', function () {
     return view('pages/form/new-request');
-});
+})->middleware('auth');
 Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
@@ -52,5 +52,6 @@ Route::prefix('internal')->group(function () {
 });
 
 Auth::routes();
+// Route::post('/login', 'HomeController@index');
 
 // Route::get('/home', 'HomeController@index')->name('home');

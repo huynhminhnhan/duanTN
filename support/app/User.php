@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -28,7 +27,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    
     /**
      * The attributes that should be cast to native types.
      *
@@ -44,6 +43,7 @@ class User extends Authenticatable
     /**
 * @param string|array $roles
 */
+
 public function authorizeRoles($roles)
 {
   if (is_array($roles)) {

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use App\Role;
 class HomeController extends Controller
 {
     /**
@@ -21,13 +22,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index(Request $Request)
     {
-       // $user = $Request->user();
-        // dd($user);
-        // exit;
-        $user = $Request->user()->authorizeRoles(['employee', 'admin']);
-       
+
+        $userInfor = $Request->session()->get('userInfor');
+
+    
         return view('welcome');
     }
 }
