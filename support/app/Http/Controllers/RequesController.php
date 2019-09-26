@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Quotation;
 use App\Question;
+use HomeController;
 use Validator;
 use Auth;
 
@@ -57,6 +58,8 @@ class RequesController extends Controller
             $question->idUser = 1;
             $question->idAdmin = 2;
             $question->save();
+            
+            
             return redirect('/new-request') ;
         }
     }
