@@ -36,7 +36,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('/new-request', function () {
     return view('pages/form/new-request');
-});
+})->name('new-request');
 Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
