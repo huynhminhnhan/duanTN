@@ -27,8 +27,6 @@ class HomeController extends Controller
     {
 
         $userInfor = $Request->session()->get('userInfor');
-
-    
         return view('welcome');
     }
 }
