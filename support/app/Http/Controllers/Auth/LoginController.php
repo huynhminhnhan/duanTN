@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use App\Role;
+use App\Account;
 class LoginController extends Controller
 {
     /*
@@ -38,16 +39,15 @@ class LoginController extends Controller
      $id = $Request->user()->id;
      $users = User::where('id',$id)->get()->load('roles');
      $infoUser = $users[0]->getAttributes(); // get info user
+     $Account = Account::where('id',$id)->get()->first();
+     $Account = $Account->getAttributes();
+ 
      $getAttributes = $users[0]['roles'][0]->getAttributes();
      $role = array(
          "role" => $getAttributes
      );
-     $user  = array(
-        "userInfo" => $infoUser
-    );
-     $userInfor =  array_merge($role,$user);
-    // var_dump($getAttributes);
-    // exit;
+   
+     $userInfor =  array_merge($Account,$role);
      $value = $Request->session()->put('userInfor',$userInfor);
     
     //  $value = $Request->session()->put('userInforAdmin',$infoUser);

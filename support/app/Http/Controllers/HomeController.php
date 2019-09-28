@@ -27,6 +27,10 @@ class HomeController extends Controller
     {
 
         $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
+        // echo '<pre>';
+        // var_dump($userInfor);
+        // echo '</pre>';
+        // exit;
         return view('welcome');
     }
 }
