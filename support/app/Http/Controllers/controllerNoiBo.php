@@ -8,9 +8,15 @@ use Chamcong as GlobalChamcong;
 
 class controllerNoiBo extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // Chấm công
-    public function chamCong(){
-        $chamcong = Chamcong::all()->where('id_user', 1);
+    public function chamCong(Request $Request){
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
+        //dd($userInfor['userInfo']['id']); exit;
+        $chamcong = Chamcong::all()->where('id_user', $userInfor['userInfo']['id']);
         return view('pages.noibo.chamcong',['chamcong'=>$chamcong]);
     }
 }
