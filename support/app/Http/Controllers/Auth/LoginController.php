@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use App\Role;
 use App\Account;
+use Socialite;
+
 class LoginController extends Controller
 {
     /*
@@ -34,12 +36,22 @@ class LoginController extends Controller
      *
      * @return void
      */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('google')->user();
+        dd($user);
+        // $user->token;
+    }
     public function authenticated(Request $Request)
 {
      $id = $Request->user()->id;
      $users = User::where('id',$id)->get()->load('roles');
      $infoUser = $users[0]->getAttributes(); // get info user
-     $Account = Account::where('id',$id)->get()->first();
+     $Account = Account::where('user_id',$id)->get()->first();
      $Account = $Account->getAttributes();
  
      $getAttributes = $users[0]['roles'][0]->getAttributes();

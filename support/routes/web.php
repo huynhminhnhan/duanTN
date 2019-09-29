@@ -54,6 +54,9 @@ Route::get('/edit', function () {
 
 
 Auth::routes();
+Route::get('google/redirect', 'Auth\LoginController@redirectToProvider')->name('googleRedirect');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
