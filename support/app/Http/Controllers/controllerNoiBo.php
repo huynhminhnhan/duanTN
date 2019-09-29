@@ -19,4 +19,13 @@ class controllerNoiBo extends Controller
         $chamcong = Chamcong::all()->where('id_user', $userInfor['userInfo']['id']);
         return view('pages.noibo.chamcong',['chamcong'=>$chamcong]);
     }
+    // bảng lương
+    public function banluong(){
+        return view('pages.table.payroll');
+    }
+    // xem lịch trực
+    public function lichtruc(){
+        return view('pages.table.calendar');
+    }
+    
 }

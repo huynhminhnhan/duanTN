@@ -40,6 +40,29 @@ Route::get('/new-request', function () {
 Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
+
+Route::get('/user', function () {
+    return view('pages/table/user');
+});
+
+Route::get('/edit', function () {
+    return view('pages/table/edit-user');
+});
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/mission', function () {
+    return view('pages/table/mission-accept');
+});
+
+
+
 // mission
 Route::get('/mission/{a}', 'PagesController@Question');
 // noi bo
@@ -50,8 +73,3 @@ Route::prefix('internal')->group(function () {
     Route::get('punish','controllerNoiBo@ghiphat');
     Route::get('payroll','controllerNoiBo@banluong');
 });
-
-Auth::routes();
-// Route::post('/login', 'HomeController@index');
-
-// Route::get('/home', 'HomeController@index')->name('home');
