@@ -15,7 +15,7 @@ class controllerNoiBo extends Controller
         return view('pages.noibo.chamcong',['chamcong'=>$chamcong]);
     }
     // Trang cá nhân
-    public function caNhan(){
+    public function profile(){
         $canhan = Trangcanhan::all();
         return view('pages.noibo.trangcanhan',['canhan'=>$canhan]);
     }

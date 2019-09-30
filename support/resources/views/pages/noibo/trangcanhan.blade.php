@@ -9,7 +9,7 @@
             <div class="row">
                     <div class="col-lg-4 grid-margin stretch-card">
                             <div class="card" style="width: 18rem;">
-                                    <img src="/support/resources/assets/images/12.jpg" class="card-img-top">
+                                  <img src=" {{asset('/assets/images/12.jpg')}} " class="card-img-top">
                                     <div class="card-body">
                                       <h5 class="card-title">Tên:</h5>
                                       <h6>Chuyên ngành:</h6>
