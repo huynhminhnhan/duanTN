@@ -18,7 +18,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','googleId'
     ];
-    public $timestamps = false;
+  
 
     //protected $dateFormat = 'Y-m-d H:i';
    // protected $dateFormat = 'Y-m-d H:i:sO';
