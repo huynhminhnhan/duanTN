@@ -13,7 +13,9 @@ class RequesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+    public function view() {
+        return view('pages/form/new-request');
+    }
     function insert(Request $request){
         $validate= Validator::make(
             $request->all(),
