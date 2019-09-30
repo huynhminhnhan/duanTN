@@ -87,7 +87,7 @@ class LoginController extends Controller
             'avatar' => $user->avatar,
             'sex' => $user->user['gender'],
             'status'=> 1 ,
-            'department_id' => 1,
+            'department_id' => 2,
           
         ]);
         $newUser
