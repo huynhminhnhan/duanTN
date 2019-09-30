@@ -51,7 +51,7 @@ class LoginController extends Controller
      $value = $Request->session()->put('userInfor',$userInfor);
     
     //  $value = $Request->session()->put('userInforAdmin',$infoUser);
-    if(auth()->user()->hasRole('admin'))
+    $Account = Account::where('user_id',$id)->get()->first();
     {
         // $value = $Request->session()->put('userInforAdmin',$infoUser);
         return redirect('/');
