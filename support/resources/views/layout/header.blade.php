@@ -211,7 +211,7 @@
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
 
-                          
+
                             <a class="nav-link" href="/mission/must-accept
                             ">Nhiệm vụ phải nhận</a>
                         </li>
@@ -273,6 +273,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/internal/payroll">Xem bảng lương</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/internal/trangcanhan">Trang cá nhân</a>
                         </li>
                     </ul>
                 </div>

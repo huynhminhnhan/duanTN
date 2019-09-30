@@ -28,6 +28,9 @@
 // Route::get('/chamcong', function () {
 //     return view('pages.noibo.chamcong');
 // });
+    Route::get('/trangcanhan', function(){
+        return view('pages.noibo.trangcanhan');
+    });
 // Route::get('/chamcong', 'controllerNoiBo@chamCong');
 
 // Gửi yêu cầu mới //
@@ -46,7 +49,8 @@ Route::get('/support/{a}', 'PagesController@Question');
 // Route::get('/mission/{a}', 'PagesController@Question');
 
 Route::prefix('internal')->group(function () {
-    Route::get('timekeeping','controllerNoiBo@chamCong');
+    // Route::get('trangcanhan','controllerNoiBo@trangcanhan');
+    Route::get('timekeeping','controllerNoiBo@chamcong');
     Route::get('calendar','controllerNoiBo@lichtruc');
     Route::get('permission-form','controllerNoiBo@xinphep');
     Route::get('punish','controllerNoiBo@ghiphat');
