@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class payroll extends Model
 {
-    public $table='account';
+    public $table='payroll';
     protected $primaryKey = 'id';
 }
