@@ -55,7 +55,7 @@ class RequesController extends Controller
             }
             // chu de
             $question->idCataQuestion = $request->idCataQuestion;
-            $question->idUser = 1;
+            $question->id_User = 1;
             $question->idAdmin = 2;
             $question->save();
             

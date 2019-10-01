@@ -39,7 +39,7 @@ class LoginController extends Controller
      $id = $Request->user()->id;
      $users = User::where('id',$id)->get()->load('roles');
      $infoUser = $users[0]->getAttributes(); // get info user
-     $Account = Account::where('id',$id)->get()->first();
+     $Account = Account::where('user_id',$id)->get()->first();
      $Account = $Account->getAttributes();
  
      $getAttributes = $users[0]['roles'][0]->getAttributes();
