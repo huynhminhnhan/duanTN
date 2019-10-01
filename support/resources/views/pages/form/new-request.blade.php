@@ -15,13 +15,14 @@
                                 <div class="form-group col-md-6">
                                     <label for="exampleFormControlSelect1">Chọn phòng ban</label>
                                     <select class="form-control" name="idDepartment" id="exampleFormControlSelect1">
-                                        <option value="">Choose...</option>
-                                        @forelse($department as $depar)
-                                            <option>{{$depar->name}}</option>
-                                        @empty
-                                            <option>Chưa có câu hỏi </option>
-                                        @endforelse
+                                       
+                                        <option>Choose...</option>
+                                    @forelse($department as $de)
 
+                                        <option value="{{$de->id}}">{{$de->name}}</option>
+                                    @empty
+                                        Khong co danh muc
+                                    @endforelse 
                                     </select>   
                                     @if($errors->has('idDepartment'))
                                         <p style="color:red">{{$errors->first('idDepartment')}}</p>
@@ -30,11 +31,13 @@
                                 <div class="form-group col-md-6">
                                     <label for="title">Chủ đề</label>
                                     <select class="form-control"  name="idCataQuestion" id="title">
+                                        
                                         <option value="">Choose...</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        @forelse($Cata as $Cata)
+                                            <option value="{{$Cata->id}}">{{$Cata->name}}</option>
+                                        @empty
+                                            Khong co danh muc cau hoi
+                                        @endforelse
                                     </select> 
                                     @if($errors->has('idCataQuestion'))
                                         <p style="color:red">{{$errors->first('idCataQuestion')}}</p>

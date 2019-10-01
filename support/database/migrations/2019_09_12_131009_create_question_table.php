@@ -18,8 +18,8 @@ class CreateQuestionTable extends Migration
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
             $table->integer('idAdmin');
-            $table->integer('idDepartment')->unsigned();
-            //$table->foreign('idDepartment')->references('id')->on('department');
+            $table->integer('idDepartment');
+            // $table->foreign('idDepartment')->references('id')->on('department');;
             $table->tinyInteger('Status')->default('0');
             $table->string('Content');
             $table->string('Title');

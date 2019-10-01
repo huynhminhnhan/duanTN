@@ -9,8 +9,8 @@ class Department extends Model
     public $table='department';
     protected $primaryKey = 'id';
 
-    function showAll(){
-        $result = department::all();
+    public function getAll(){
+        $result = Department::all();
         return $result;
     }
 }

@@ -16,4 +16,12 @@ class Question extends Model
                 ->get();
         return $result;
     }
+    public function questionConnect($status){
+        
+        $result = Question::join ('CataQuestion', 'Question.idCataQuestion' , '=', 'CataQuestion.id')
+                ->orderBy('Question.id','desc')
+                ->where('Status',$status)
+                ->get();
+        return $result;
+    }
 }

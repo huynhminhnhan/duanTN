@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
         $this->call(AccountsTableSeeder::class);
         $this->call(ChamcongSeeder::class);
         $this->call(QuestionSeeder::class);
+        $this->call(CataQuestiona::class);
+
+
         
 
     //    khi nao tạo seed mới thì đóng các class đã tạo seed rồi lại

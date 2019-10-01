@@ -25,6 +25,7 @@ class Controller extends BaseController
         );
         // = $userInFor->getAttributes();
         $AccountInfor =  array_merge($accountAttr,$arrRole);
+        
        return $this->Account = $AccountInfor;
      }
     // public function getAccount($id_user) {
