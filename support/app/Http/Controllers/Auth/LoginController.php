@@ -44,6 +44,8 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         $user = Socialite::driver('google')->user();
+       // dd($user);
+        // exit;
         $id =  $user->getId();
         $family_name = $user->user['family_name'];
         $email_verified  = $user->user['email_verified'];
@@ -55,7 +57,7 @@ class LoginController extends Controller
         }
        
 
-         if (empty($family_name) || $family_name != 'FPL' && empty($hd) || $hd != 'fpt.edu.vn' ) {
+         if (empty($hd) || $hd != 'fpt.edu.vn' ) {
             return redirect('/login')->with('error', 'Vui lòng đăng nhập bằng email FPT');
          }
          if ($email_verified == false) {
@@ -79,9 +81,19 @@ class LoginController extends Controller
             'password' => $passwordUser,
           
         ]);
+        $newAccount = Account::create([
+            'user_id' => $newUser->id,
+            'name' => $user->name,
+            'avatar' => $user->avatar,
+            'sex' => $user->user['gender'],
+            'status'=> 1 ,
+            'department_id' => 2,
+          
+        ]);
         $newUser
         ->roles()
         ->attach(Role::where('name', 'student')->first());
+
         // echo '<pre>';
         //     var_dump($newUser->load('roles'));
         //     echo '</pre>';
@@ -119,17 +131,17 @@ class LoginController extends Controller
          return redirect('/new-request');
      } 
      
-     $infoUser = $users[0]->getAttributes(); // get info user
-     $Account = Account::where('user_id',$id)->get()->first();
-     $Account = $Account->getAttributes();
+    //  $infoUser = $users[0]->getAttributes(); // get info user
+    //  $Account = Account::where('user_id',$id)->get()->first();
+    //  $Account = $Account->getAttributes();
  
-     $getAttributes = $users[0]['roles'][0]->getAttributes();
-     $role = array(
-         "role" => $getAttributes
-     );
+    //  $getAttributes = $users[0]['roles'][0]->getAttributes();
+    //  $role = array(
+    //      "role" => $getAttributes
+    //  );
    
-     $userInfor =  array_merge($Account,$role);
-     $value = $Request->session()->put('userInfor',$userInfor);
+    //  $userInfor =  array_merge($Account,$role);
+    //  $value = $Request->session()->put('userInfor',$userInfor);
     
     //  $value = $Request->session()->put('userInforAdmin',$infoUser);
     if(auth()->user()->hasRole('admin'))

@@ -13,7 +13,13 @@ class RequesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+    public function view() {
+         // echo '<pre>';
+        // $user_info = $this->getUserInfo(); //lây thông tin user 
+        // var_dump($user_info); 
+        // echo '</pre>';
+        return view('pages/form/new-request');
+    }
     function insert(Request $request){
         $validate= Validator::make(
             $request->all(),
