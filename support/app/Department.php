@@ -8,4 +8,9 @@ class Department extends Model
 {
     public $table='department';
     protected $primaryKey = 'id';
+
+    function showAll(){
+        $result = department::all();
+        return $result;
+    }
 }

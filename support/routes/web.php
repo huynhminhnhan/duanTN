@@ -34,9 +34,12 @@
 // Route::get('/insert-request', 'RequesController@insert');
 
 Route::get('/', 'HomeController@index')->middleware('auth');
-Route::get('/new-request', function () {
-    return view('pages/form/new-request');
-})->middleware('auth');
+Route::get('/new-request','RequesController@view');
+// function () {
+
+//     return view('pages/form/new-request');
+    
+// })->middleware('auth');
 Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
@@ -54,6 +57,9 @@ Route::get('/edit', function () {
 
 
 Auth::routes();
+Route::get('google/redirect', 'Auth\LoginController@redirectToProvider')->name('googleRedirect');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

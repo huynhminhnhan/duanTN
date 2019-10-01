@@ -18,7 +18,7 @@ class Account extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('name');
-            $table->enum('sex', ['Nam', 'Nữ']);	
+            $table->string('sex');	
             $table->integer('phone')->nullable();
             $table->string('birthday')->nullable();
             $table->string('address')->nullable();

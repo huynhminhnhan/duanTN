@@ -7,6 +7,7 @@
         <div class="col-12">
           <div class="page-header">
             <h4 class="page-title">Dashboard</h4>
+            
             <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
               <ul class="quick-links">
                 <li><a href="#">ICE Market data</a></li>
@@ -570,7 +571,8 @@
       </div>
     </div>
     <!-- het footer -->
-
+  
+   
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
 

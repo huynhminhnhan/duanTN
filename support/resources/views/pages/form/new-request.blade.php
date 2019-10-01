@@ -16,10 +16,12 @@
                                     <label for="exampleFormControlSelect1">Chọn phòng ban</label>
                                     <select class="form-control" name="idDepartment" id="exampleFormControlSelect1">
                                         <option value="">Choose...</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        @forelse($department as $depar)
+                                            <option>{{$depar->name}}</option>
+                                        @empty
+                                            <option>Chưa có câu hỏi </option>
+                                        @endforelse
+
                                     </select>   
                                     @if($errors->has('idDepartment'))
                                         <p style="color:red">{{$errors->first('idDepartment')}}</p>

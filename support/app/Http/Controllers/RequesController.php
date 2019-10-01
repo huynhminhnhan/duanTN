@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Quotation;
 use App\Question;
+use App\Department;
 use HomeController;
 use Validator;
 use Auth;
@@ -13,7 +14,16 @@ class RequesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+    public function view() {
+         // echo '<pre>';
+        // $user_info = $this->getUserInfo(); //lây thông tin user 
+        // var_dump($user_info); 
+        // echo '</pre>';
+        $depar = new Department();
+        $department = $depar->showAll();
+
+        return view('pages/form/new-request',['department'=>$department]);
+    }
     function insert(Request $request){
         $validate= Validator::make(
             $request->all(),
