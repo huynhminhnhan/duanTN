@@ -28,8 +28,9 @@ class HomeController extends Controller
     public function index(Request $Request)
     {
 
-        
-
+         $user_info = $this->getUserInfo(); //lây thông tin user 
+        // $SessionUser = $Request->session()->put('userInfor',$user_info);
+       // var_dump($SessionUser);
         // echo '<pre>';
         // $user_info = $this->getUserInfo(); //lây thông tin user 
         // var_dump($user_info); 

@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Quotation;
 use App\Question;
+use App\CataQuestion;
+use App\Department;
 use HomeController;
 use Validator;
 use Auth;
@@ -18,7 +20,11 @@ class RequesController extends Controller
         // $user_info = $this->getUserInfo(); //lây thông tin user 
         // var_dump($user_info); 
         // echo '</pre>';
-        return view('pages/form/new-request');
+        $depart = new Department();
+        $department = $depart->getAll();
+        $Cata = CataQuestion::all();
+
+        return view('pages/form/new-request', ['department' => $department, 'Cata'=>$Cata]);
     }
     function insert(Request $request){
         $validate= Validator::make(
@@ -61,7 +67,10 @@ class RequesController extends Controller
             }
             // chu de
             $question->idCataQuestion = $request->idCataQuestion;
-            $question->idUser = 1;
+
+            $user_info = $this->getUserInfo(); //lây thông tin user 
+            // dd($user_info['roles']['id']);
+            $question->id_User = $user_info['roles']['id'];
             $question->idAdmin = 2;
             $question->save();
             
