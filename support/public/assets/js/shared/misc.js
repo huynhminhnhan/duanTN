@@ -52,7 +52,18 @@ var lightColor = getComputedStyle(document.body).getPropertyValue('--light');
     $("#sidebar > .nav > .nav-item > a[data-toggle='collapse']").on("click", function () {
       $("#sidebar > .nav > .nav-item").find('.collapse.show').collapse('hide');
     });
-
+    $(".file-upload-browse").on("click",function(){
+      $(".file-upload-default").trigger( "click" );
+    
+    })
+    $(".file-upload-default").on("change",function(e){
+      
+       var fileName = e.target.files[0].name;
+       $(".file-upload-info").val(fileName);
+       // $val = $(".file-upload-default").attr("value");
+       // console.log(fileName);
+    });
+   
     function appendBanner() {
      // var bannerState = localStorage.getItem('bannerState') ? localStorage.getItem('bannerState') : "enabled";
       // if (bannerState == "enabled") {
