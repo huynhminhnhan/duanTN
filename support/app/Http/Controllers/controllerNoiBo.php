@@ -9,14 +9,24 @@ use Chamcong as GlobalChamcong;
 
 class controllerNoiBo extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // Chấm công
-    public function chamCong(){
-        $chamcong = Chamcong::all();
+    public function chamCong(Request $Request){
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user
+        //dd($userInfor['userInfo']['id']); exit;
+        $chamcong = Chamcong::all()->where('id_user', $userInfor['userInfo']['id']);
         return view('pages.noibo.chamcong',['chamcong'=>$chamcong]);
     }
-    // Trang cá nhân
-    public function profile(){
-        $canhan = Trangcanhan::all();
-        return view('pages.noibo.trangcanhan',['canhan'=>$canhan]);
+    // bảng lương
+    public function banluong(){
+        return view('pages.table.payroll');
     }
+    // xem lịch trực
+    public function lichtruc(){
+        return view('pages.table.calendar');
+    }
+
 }

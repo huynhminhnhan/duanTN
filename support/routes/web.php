@@ -36,18 +36,45 @@
 // Gửi yêu cầu mới //
 // Route::get('/insert-request', 'RequesController@insert');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/new-request', function () {
-    return view('pages/form/new-request');
-});
+Route::get('/', 'HomeController@index')->middleware('auth');
+Route::get('/new-request','RequesController@view');
+// function () {
+
+//     return view('pages/form/new-request');
+    
+// })->middleware('auth');
 Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
-// mission
-// Route::get('/mission/{a}', 'PagesController@Question');
 
+Route::get('/user', function () {
+    return view('pages/table/user');
+});
+
+Route::get('/edit', function () {
+    return view('pages/table/edit-user');
+});
+
+
+
+
+
+Auth::routes();
+Route::get('google/redirect', 'Auth\LoginController@redirectToProvider')->name('googleRedirect');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/mission', function () {
+    return view('pages/table/mission-accept');
+});
+
+
+
+// mission
+Route::get('/mission/{a}', 'PagesController@Question');
+// noi bo
 Route::prefix('internal')->group(function () {
      Route::get('profile','controllerNoiBo@profile');
     Route::get('timekeeping','controllerNoiBo@chamcong');
@@ -56,7 +83,3 @@ Route::prefix('internal')->group(function () {
     Route::get('punish','controllerNoiBo@ghiphat');
     Route::get('payroll','controllerNoiBo@banluong');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
