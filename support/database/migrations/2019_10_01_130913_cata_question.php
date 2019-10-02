@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Department extends Migration
+class CataQuestion extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class Department extends Migration
      */
     public function up()
     {
-        Schema::create('department', function (Blueprint $table) {
-            $table->Increments('id')->unsigned();
-            $table->string('name')->nullable();
-            $table->string('description')->nullable();
+        Schema::create('CataQuestion', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class Department extends Migration
      */
     public function down()
     {
-        
+        //
     }
 }

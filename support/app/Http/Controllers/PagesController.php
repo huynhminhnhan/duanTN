@@ -22,9 +22,13 @@ class PagesController extends Controller
         }else if($status === 'done-handling'){
             $status = 4;
         }
-        
+
         $qs = new Question();
-        $Question = $qs->questionNew($status);
+        $Question = $qs->questionConnect($status);
+        // echo '<pre>';
+        // var_dump($Question[1]->getAttributes());
+        // echo '</pre>';
+        // exit;
         return view('pages/table/request-new',['Question'=>$Question, 'status'=>$status]);
     }
     function Mission($status){

@@ -12,10 +12,12 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $Request)
     {
+      
         $this->middleware('auth');
     }
+
 
     /**
      * Show the application dashboard.
@@ -26,7 +28,14 @@ class HomeController extends Controller
     public function index(Request $Request)
     {
 
-        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
+         $user_info = $this->getUserInfo(); //lây thông tin user 
+        // $SessionUser = $Request->session()->put('userInfor',$user_info);
+       // var_dump($SessionUser);
+        // echo '<pre>';
+        // $user_info = $this->getUserInfo(); //lây thông tin user 
+        // var_dump($user_info); 
+        // echo '</pre>';
+        // exit;
         return view('welcome');
     }
 }

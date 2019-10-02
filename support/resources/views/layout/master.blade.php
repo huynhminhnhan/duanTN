@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!-- {{-- <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
   <head>
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <script src="{{ mix('admin/js/library.min.js') }}"></script>
 
   </body>
-</html> --}}
+</html> --}} -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,6 +62,15 @@
   </head>
   <body>
 <body>
+@if (session('success'))
+    <div class="purchase-banner-active"> 
+    <div class= "item-purchase-banner">
+            <p class="banner-text"> {{ session('success') }}</p>
+            
+              <span class="toggler-close"><i class="mdi mdi-close"></i></span>
+          </div>
+          </div>
+        @endif
   @include('layout.header')
   @yield('content')
   @include('layout.footer')

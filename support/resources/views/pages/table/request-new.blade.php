@@ -19,7 +19,7 @@
                   <h4 class="card-title">Yêu cầu đã xử lí xong</h4>
                   <p class="card-description"> Những yêu cầu bạn gửi đã được xử lí xong </p>
                     @endif
-                  {{-- <code>.table-striped</code> --}}
+                  <!-- {{-- <code>.table-striped</code> --}} -->
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -32,14 +32,14 @@
                       </tr>
                     </thead>
                     <tbody>
+                      
                       @forelse($Question as $q)
-                   
                         <tr>
                           <td>
                              <a href="#">{{$q->id}}</a> 
                           </td>
                           <td>
-                            <a href="#"> {{$q->idDepartment}}</a> 
+                            <a href="#"> {{$q->name}}</a> 
                           </td>
                           <td>
                               <a href="#">{{$q->idDepartment}}</a> 
