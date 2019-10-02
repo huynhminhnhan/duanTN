@@ -46,8 +46,8 @@ class LoginController extends Controller
         // session()->put('state', $request->input('state'));
 
         //$user = Socialite::driver('google')->user();
-         $user = Socialite::driver('google')->user();
-       dd($user);
+         $user = Socialite::driver('google')->stateless()->user();
+       // dd($user);
         // exit;
         $id =  $user->getId();
         $family_name = $user->user['family_name'];
@@ -84,11 +84,17 @@ class LoginController extends Controller
             'password' => $passwordUser,
 
         ]);
+        // if ()
+        $sex = 'Giới tính khác';
+        if (isset($user->user['gender'])) {
+            $sex  = isset($user->user['gender']);
+        }
         $newAccount = Account::create([
             'user_id' => $newUser->id,
             'name' => $user->name,
             'avatar' => $user->avatar,
-            'sex' => $user->user['gender'],
+
+            'sex' => $sex,
             'status'=> 1 ,
             'department_id' => 2,
 
@@ -102,7 +108,7 @@ class LoginController extends Controller
         //     echo '</pre>';
         //     exit;
         Auth::login($newUser);
-        return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');;
+        return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
          // insert user
         //  $User = new User;
         //  $User->name = $nameUser;
