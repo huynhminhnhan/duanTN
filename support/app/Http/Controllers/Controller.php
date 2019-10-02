@@ -11,8 +11,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-<<<<<<< HEAD
-=======
     private $user;
     private $Account;
     private $Role;
@@ -34,7 +32,6 @@ class Controller extends BaseController
        
     // }
 
->>>>>>> 97caa235749f67907179ad37b824136391fa54c7
        
         
 }

@@ -16,6 +16,7 @@ class HomeController extends Controller
     {
       
         $this->middleware('auth');
+      
     }
 
 
@@ -27,14 +28,10 @@ class HomeController extends Controller
 
     public function index(Request $Request)
     {
+       // $user_info = $this->getUserInfo(); //lây thông tin user 
+       $user_info = $Request->session()->get('AccountInfor');
 
-        
-
-        // echo '<pre>';
-        // $user_info = $this->getUserInfo(); //lây thông tin user 
-        // var_dump($user_info); 
-        // echo '</pre>';
-        // exit;
+         var_dump($user_info);
         return view('welcome');
     }
 }
