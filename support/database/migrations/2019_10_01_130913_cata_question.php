@@ -15,7 +15,7 @@ class CataQuestion extends Migration
     {
         Schema::create('CataQuestion', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name_cata');
             $table->timestamps();
         });
     }

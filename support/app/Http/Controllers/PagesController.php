@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Quotation;
 use App\Question;
+use App\CataQuestion;
 class PagesController extends Controller
 {
     public function __construct()
@@ -23,10 +24,11 @@ class PagesController extends Controller
             $status = 4;
         }
 
-        $qs = new Question();
-        $Question = $qs->questionConnect($status);
+        $user_info = $this->getUserInfo(); //lây thông tin user 
+        $qs = new CataQuestion();
+        $Question = $qs->get3Table($status,$user_info['user_id']);
         // echo '<pre>';
-        // var_dump($Question[1]->getAttributes());
+        // var_dump($Question);
         // echo '</pre>';
         // exit;
         return view('pages/table/request-new',['Question'=>$Question, 'status'=>$status]);

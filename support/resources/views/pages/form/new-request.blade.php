@@ -19,7 +19,7 @@
                                         <option>Choose...</option>
                                     @forelse($department as $de)
 
-                                        <option value="{{$de->id}}">{{$de->name}}</option>
+                                        <option value="{{$de->id}}">{{$de->name_depart}}</option>
                                     @empty
                                         Khong co danh muc
                                     @endforelse 
@@ -34,7 +34,7 @@
                                         
                                         <option value="">Choose...</option>
                                         @forelse($Cata as $Cata)
-                                            <option value="{{$Cata->id}}">{{$Cata->name}}</option>
+                                            <option value="{{$Cata->id}}">{{$Cata->name_cata}}</option>
                                         @empty
                                             Khong co danh muc cau hoi
                                         @endforelse
@@ -44,7 +44,7 @@
                                     @endif                
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="tieude">Tiêu đề yêu cầu</label>
+                                    <label  for="tieude">Tiêu đề yêu cầu</label>
                                     <input type="text" name="Title" class="form-control" id="tieude" placeholder="Nhập tiêu đề">
                                     @if($errors->has('Title'))
                                         <p style="color:red">{{$errors->first('Title')}}</p>

@@ -69,13 +69,13 @@ class RequesController extends Controller
             $question->idCataQuestion = $request->idCataQuestion;
 
             $user_info = $this->getUserInfo(); //lây thông tin user 
-            // dd($user_info['roles']['id']);
-            $question->id_User = $user_info['roles']['id'];
+            // dd($user_info);
+            $question->id_User = $user_info['user_id'];
             $question->idAdmin = 2;
             $question->save();
             
             
-            return redirect('/new-request') ;
+            return redirect('/new-request')->with('success', 'Bạn đã thêm câu hỏi thành công'); ;
         }
     }
 }

@@ -24,7 +24,7 @@
                     <thead>
                       <tr>
                         <th> Mã câu hỏi </th>
-                        <th> Chủ đề </th>
+                        <th> Tiêu đề </th>
                         <th> Gửi đến </th>
                         <th> Thời gian </th>
                         <th> Trạng thái </th>
@@ -34,15 +34,16 @@
                     <tbody>
                       
                       @forelse($Question as $q)
+                      {{-- {{dd($q)}} --}}
                         <tr>
                           <td>
                              <a href="#">{{$q->id}}</a> 
                           </td>
                           <td>
-                            <a href="#"> {{$q->name}}</a> 
+                            <a href="#"> {{$q->Title}}</a> 
                           </td>
                           <td>
-                              <a href="#">{{$q->idDepartment}}</a> 
+                              <a href="#">{{$q->description}}</a> 
                           </td>
                           <td> 
                             <a href="#">{{$q->created_at}}</a>  
@@ -50,18 +51,18 @@
                           <td>
                             <a href="#"> 
                               @if($q->Status === 0)
-                              <p> Chưa tiếp nhận</p>
+                              Chưa tiếp nhận
                               @elseif($q->Status === 1)
-                              <p> Đang xử lí</p>
+                              Đang xử lí
                               @elseif($q->Status === 2)
-                              <p> Đã trả lời</p>
+                             Đã trả lời
                               @elseif($q->Status === 3)
-                              <p> Đã xử xong</p>
+                             Đã xử xong
                               @endif
                             </a> 
-                          </td>
+                            </td>
                           <td> 
-                            <a href="#">{{$q->id}}</a>  
+                            <a href="#">{{$q->name_cata}}</a>  
                           </td>
                         </tr>
                     

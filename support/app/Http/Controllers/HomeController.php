@@ -33,7 +33,7 @@ class HomeController extends Controller
        // var_dump($SessionUser);
         // echo '<pre>';
         // $user_info = $this->getUserInfo(); //lây thông tin user 
-        // var_dump($user_info); 
+        // dd($user_info); 
         // echo '</pre>';
         // exit;
         return view('welcome');

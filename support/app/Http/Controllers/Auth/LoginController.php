@@ -44,9 +44,9 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         // session()->put('state', $request->input('state'));
-
+        $user = Socialite::driver('google')->stateless()->user();
         //$user = Socialite::driver('google')->user();
-         $user = Socialite::driver('google')->user();
+        //  $user = Socialite::driver('google')->user();
        // dd($user);
         // exit;
         $id =  $user->getId();
