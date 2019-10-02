@@ -14,7 +14,7 @@ class Department extends Migration
     public function up()
     {
         Schema::create('department', function (Blueprint $table) {
-            $table->increments('id');
+            $table->Increments('id')->unsigned();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();

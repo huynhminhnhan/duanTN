@@ -43,7 +43,10 @@ class LoginController extends Controller
     }
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('google')->user();
+        // session()->put('state', $request->input('state'));
+
+        //$user = Socialite::driver('google')->user();
+         $user = Socialite::driver('google')->stateless()->user();
        // dd($user);
         // exit;
         $id =  $user->getId();
@@ -150,7 +153,7 @@ class LoginController extends Controller
     //  $value = $Request->session()->put('userInfor',$userInfor);
     
     //  $value = $Request->session()->put('userInforAdmin',$infoUser);
-    if(auth()->user()->hasRole('admin'))
+    $Account = Account::where('user_id',$id)->get()->first();
     {
         //$value = $Request->session()->put('userInforAdmin',$infoUser);
         return redirect('/')->with('success', 'Xin chào admin'.Auth::user()->name.'');

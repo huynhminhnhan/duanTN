@@ -19,7 +19,7 @@ class DepartmentTableSeeder extends Seeder
 
         $Department = new Department();
         $Department->name = 'Student';
-        $Department->description = 'Phòng stuent';
+        $Department->description = 'Phòng student';
         $Department->save();
     }
 }
