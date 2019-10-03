@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class checkAdmin
+class employee
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,12 @@ class checkAdmin
      */
     public function handle($request, Closure $next)
     {
+        // var_dump('haha');
         $SessionUser = session()->get('AccountInfor'); // lấy session AccountInfor
-        if ($SessionUser['roles']['name'] != 'admin') {
+        $acceptRouter = array('employees','admin');
+        if (! in_array($SessionUser['roles']['name'],$acceptRouter)) {
             return redirect('/')->with('error', 'Bạn không có quyền truy cập ');
         }
-        // var_dump($SessionUser['roles']['name']);
         return $next($request);
     }
 }

@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
 
          $user_info = $this->getUserInfo(); //lây thông tin user 
-       
+        
         return view('welcome', ['user_info'=>$user_info]);
     }
 }

@@ -181,7 +181,7 @@
               </a>
             </li>
             {{-- {{dd($user_info['roles']['name'])}} --}}
-            @if($user_info['roles']['name'] === 'student')
+            @if(session()->get('AccountInfor')['roles']['name']  === 'student')
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
