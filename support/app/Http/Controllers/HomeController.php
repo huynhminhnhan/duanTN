@@ -29,13 +29,7 @@ class HomeController extends Controller
     {
 
          $user_info = $this->getUserInfo(); //lây thông tin user 
-         
-         
-    //     echo '<pre>';
-    //   //  $user_info = $this->getUserInfo(); //lây thông tin user 
-    //     var_dump($user_info); 
-    //     echo '</pre>';
-    //     exit;
-        return view('welcome');
+       
+        return view('welcome', ['user_info'=>$user_info]);
     }
 }

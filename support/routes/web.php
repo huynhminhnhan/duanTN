@@ -35,6 +35,10 @@
 
 Route::get('/', 'HomeController@index')->middleware('auth');
 Route::get('/new-request','RequesController@view');
+Route::get('/search-question','RequesController@search');
+Route::post('/search-question/name', 'RequesController@getSearchAjax')->name('search');
+
+
 // function () {
 
 //     return view('pages/form/new-request');

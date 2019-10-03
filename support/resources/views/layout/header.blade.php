@@ -139,7 +139,7 @@
                 <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
                 <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
@@ -180,13 +180,15 @@
                 <span class="menu-title">Trang Chủ</span>
               </a>
             </li>
+            {{-- {{dd($user_info['roles']['name'])}} --}}
+            @if($user_info['roles']['name'] === 'student')
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
                 <span class="menu-title">HỖ TRỢ</span>
                 <i class="menu-arrow"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse show" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
                         <a class="nav-link" href="/new-request">Gửi yêu cầu mới</a>
@@ -209,7 +211,7 @@
                 </ul>
               </div>
             </li>
-         
+            @else
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1">
                     <i class="menu-icon typcn typcn-coffee"></i>
@@ -286,6 +288,6 @@
                     </ul>
                 </div>
             </li>
-
+            @endif
           </ul>
         </nav>

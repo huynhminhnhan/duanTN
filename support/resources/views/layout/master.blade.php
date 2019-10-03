@@ -43,11 +43,14 @@
     <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"><script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script> --}}
     {{--EndDatePicker  --}}
     {{-- FONT AWSOME --}}
-    <script src="https://kit.fontawesome.com/1d81d68418.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/1d81d68418.js" crossorigin="anonymous"></script> --}}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
     <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
-    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    {{-- <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet"> --}}
     {{-- END FONTAWSOME --}}
  </body>
     <!-- plugin css for this page -->

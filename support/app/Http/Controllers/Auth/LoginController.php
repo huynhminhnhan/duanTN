@@ -44,9 +44,9 @@ class LoginController extends Controller
     public function handleProviderCallback(Request $Request)
     {
         // session()->put('state', $request->input('state'));
-
+        // $user = Socialite::driver('google')->stateless()->user();
         //$user = Socialite::driver('google')->user();
-         $user = Socialite::driver('google')->stateless()->user();
+        $user = Socialite::driver('google')->stateless()->user();
        // dd($user);
         // exit;
         $id =  $user->getId();
@@ -129,7 +129,7 @@ class LoginController extends Controller
         //     exit;
         Auth::login($newUser);
         return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
-         // insert user 
+        // insert user 
         //  $User = new User;
         //  $User->name = $nameUser;
         //  $User->password = $passwordUser;
