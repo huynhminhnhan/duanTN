@@ -13,12 +13,12 @@ class DepartmentTableSeeder extends Seeder
     public function run()
     {
         $Department = new Department();
-        $Department->name = 'Giam Doc';
+        $Department->name_depart = 'Giam Doc';
         $Department->description = 'Phong giam doc';
         $Department->save();
 
         $Department = new Department();
-        $Department->name = 'Student';
+        $Department->name_depart = 'Student';
         $Department->description = 'Phòng student';
         $Department->save();
     }

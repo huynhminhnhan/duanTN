@@ -19,7 +19,7 @@
                                         <option>Choose...</option>
                                     @forelse($department as $de)
 
-                                        <option value="{{$de->id}}">{{$de->name}}</option>
+                                        <option value="{{$de->id}}">{{$de->name_depart}}</option>
                                     @empty
                                         Khong co danh muc
                                     @endforelse 
@@ -34,7 +34,7 @@
                                         
                                         <option value="">Choose...</option>
                                         @forelse($Cata as $Cata)
-                                            <option value="{{$Cata->id}}">{{$Cata->name}}</option>
+                                            <option value="{{$Cata->id}}">{{$Cata->name_cata}}</option>
                                         @empty
                                             Khong co danh muc cau hoi
                                         @endforelse
@@ -44,7 +44,7 @@
                                     @endif                
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="tieude">Tiêu đề yêu cầu</label>
+                                    <label  for="tieude">Tiêu đề yêu cầu</label>
                                     <input type="text" name="Title" class="form-control" id="tieude" placeholder="Nhập tiêu đề">
                                     @if($errors->has('Title'))
                                         <p style="color:red">{{$errors->first('Title')}}</p>
@@ -53,13 +53,20 @@
                                 
                                 <div class="form-group col-md-6">
                                     <label>File upload</label>
-                                    {{-- <input type="file" name="Images" class="file-upload-default"> --}}
+                                    <input type="file" value=""  name="Images" class="file-upload-default d-none"> 
+                                   
                                     <div class="input-group col-xs-12">
-                                        <input type="file" name="Images"  class="form-control file-upload-info"  placeholder="Upload Image">
+                                        <input type="text" name="ImagesText"  class="form-control file-upload-info"  placeholder="Upload Image">
+                                      
                                         <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-info" type="button">Upload</button></span>
                                     </div>
                                 </div>
+                                <!-- <script>
+                                        $(".file-upload-browse").on("click",function(){
+                                                alert('haha');
+                                            })
+                                       </script> -->
                                 <div class="form-group col-md-12">
                                     <label for="noidung">Nội dung</label>
                                     <textarea class="form-control" name="Content" id="noidung" cols="2" rows="2"></textarea>
