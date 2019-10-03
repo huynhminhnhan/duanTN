@@ -36,6 +36,6 @@ class HomeController extends Controller
         // dd($user_info); 
         // echo '</pre>';
         // exit;
-        return view('welcome');
+        return view('welcome', ['user_info'=>$user_info]);
     }
 }

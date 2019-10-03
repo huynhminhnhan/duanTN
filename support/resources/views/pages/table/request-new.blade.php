@@ -55,9 +55,9 @@
                               @elseif($q->Status === 1)
                               Đang xử lí
                               @elseif($q->Status === 2)
-                             Đã trả lời
-                              @elseif($q->Status === 3)
-                             Đã xử xong
+                              Đã trả lời
+                                @elseif($q->Status === 3)
+                              Đã xử xong
                               @endif
                             </a> 
                             </td>

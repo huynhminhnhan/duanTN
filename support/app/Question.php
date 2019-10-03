@@ -27,4 +27,11 @@ class Question extends Model
         return $result;
         // 'CataQuestion.name' as 'Dichvu', 'question.id' as 'MaCauHoi', 'department.name' as 'PhongBan', 'question.created_at' As 'Time', 'question.Status' as 'Status' , 'question.Title' as 'Dichvu'
     }
+    // public function searchQuestion($status,$user_info){
+    //     $result = Question::join ('CataQuestion', 'Question.idCataQuestion' , '=', 'CataQuestion.id')
+    //             ->orderBy('Question.id','desc')
+    //             ->where('id_user',$user_info)
+    //             ->get(CataQuestion.name);
+    //     return $result;
+    // }
 }
