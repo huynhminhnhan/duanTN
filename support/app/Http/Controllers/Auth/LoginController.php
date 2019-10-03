@@ -116,7 +116,7 @@ class LoginController extends Controller
        
         $roleUser = $userInFor['roles'][0]->getAttributes();
         $Account = Account::where('user_id',$userInFor->id)->get()->first();
-      
+       
         $AccountAttr = $Account->getAttributes();
         $arrRole = array(
            "roles" => $roleUser
@@ -129,33 +129,15 @@ class LoginController extends Controller
         //     exit;
         Auth::login($newUser);
         return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
-        // insert user 
-        //  $User = new User;
-        //  $User->name = $nameUser;
-        //  $User->password = $passwordUser;
-        //  $User->email = $user->email;
-        //  $User->googleId = $id;
-        //  $User->save();
-        //  $insertedId = $User->id;
-
-        // return Socialite::driver('google')->stateless()->user();
-        // return redirect('/')->put('registerGoogle','true');
-        //  $loginUser = User::where('id',$id)->get();
-        //  login after register 
-        // echo $insertedId ;
-        // exit;
-        // return authenticated();
-         // insert User 
-        //dd($user);
-        // $user->token;
+        
     }
     public function authenticated(Request $Request)
 {
      $id = $Request->user()->id;
      $userInFor = Auth::user()->load('roles');
+     
      $roleUser = $userInFor['roles'][0]->getAttributes();
      $Account = Account::where('user_id',$id)->get()->first();
-   
      $AccountAttr = $Account->getAttributes();
      $arrRole = array(
         "roles" => $roleUser
@@ -167,22 +149,7 @@ class LoginController extends Controller
          return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');
      } 
      
-    //  $infoUser = $users[0]->getAttributes(); // get info user
-    //  $Account = Account::where('user_id',$id)->get()->first();
-    //  $Account = $Account->getAttributes();
- 
-    //  $getAttributes = $users[0]['roles'][0]->getAttributes();
-    //  $role = array(
-    //      "role" => $getAttributes
-    //  );
-   
-    //  $userInfor =  array_merge($Account,$role);
-    //  $value = $Request->session()->put('userInfor',$userInfor);
     
-    //  $value = $Request->session()->put('userInforAdmin',$infoUser);
-    // $Account = Account::where('user_id',$id)->get()->first();
-   
-        //$value = $Request->session()->put('userInforAdmin',$infoUser);
         return redirect('/')->with('success', 'Xin chào admin'.Auth::user()->name.'');
     
     
