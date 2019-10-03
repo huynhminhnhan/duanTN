@@ -132,11 +132,22 @@ class LoginController extends Controller
     public function authenticated(Request $Request)
 {
      $id = $Request->user()->id;
-     $users = User::where('id',$id)->get()->load('roles');
-    
+     $userInFor = Auth::user()->load('roles');
+     $roleUser = $userInFor['roles'][0]->getAttributes();
+     $Account = Account::where('user_id',$id)->get()->first();
+    //  echo '<pre>';
+    //  var_dump($Account);
+    //  echo '</pre>';
+    //  exit;
+     $AccountAttr = $Account->getAttributes();
+     $arrRole = array(
+        "roles" => $roleUser
+    );
+     $AccountInfor =  array_merge($AccountAttr,$arrRole);
+     $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
      if(!(auth()->user()->hasRole('admin')))
      {
-         // $value = $Request->session()->put('userInforAdmin',$infoUser);
+        
          return redirect('/new-request');
      } 
      
@@ -153,13 +164,13 @@ class LoginController extends Controller
     //  $value = $Request->session()->put('userInfor',$userInfor);
     
     //  $value = $Request->session()->put('userInforAdmin',$infoUser);
-    $Account = Account::where('user_id',$id)->get()->first();
-    {
+    // $Account = Account::where('user_id',$id)->get()->first();
+   
         //$value = $Request->session()->put('userInforAdmin',$infoUser);
         return redirect('/')->with('success', 'Xin chào admin'.Auth::user()->name.'');
-    } 
     
-    return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');;
+    
+    // return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');;
 }
     public function __construct()
     {
