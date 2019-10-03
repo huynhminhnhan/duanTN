@@ -34,7 +34,7 @@
 // Route::get('/insert-request', 'RequesController@insert');
 
 Route::get('/', 'HomeController@index')->middleware('auth');
-Route::get('/new-request','RequesController@view');
+Route::get('/new-request','RequesController@view')->middleware('checkAdmin');;
 Route::get('/search-question','RequesController@search');
 Route::post('/search-question/name', 'RequesController@getSearchAjax')->name('search');
 

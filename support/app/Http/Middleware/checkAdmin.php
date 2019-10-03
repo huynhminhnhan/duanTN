@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class HeaderMiddleware extends BaseController
+class checkAdmin
 {
     /**
      * Handle an incoming request.
@@ -13,12 +13,9 @@ class HeaderMiddleware extends BaseController
      * @param  \Closure  $next
      * @return mixed
      */
-    public function __construct()
+    public function handle($request, Closure $next)
     {
-        $this->middleware('auth');
-    }
-    public function handlee($request, Closure $next)
-    {
+        // var_dump('haha');
         return $next($request);
     }
 }
