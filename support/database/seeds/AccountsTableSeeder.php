@@ -16,7 +16,7 @@ class AccountsTableSeeder extends Seeder
         $Accounts = new Account();
         $Accounts->name = 'Huỳnh Minh Nhân';
         $Accounts->user_id = 3;
-        $Accounts->sex = 'Nam';
+
         $Accounts->phone = '0583255203';
         $Accounts->birthday = '03/01/1999';
         $Accounts->sex = 'Nam';
@@ -31,7 +31,7 @@ class AccountsTableSeeder extends Seeder
         $Accounts = new Account();
         $Accounts->name = 'Nhan vien';
         $Accounts->user_id = 1;
-        $Accounts->sex = 'Nam';
+  
         $Accounts->phone = '0583255203';
         $Accounts->birthday = '03/01/1999';
         $Accounts->sex = 'Nam';
@@ -46,7 +46,7 @@ class AccountsTableSeeder extends Seeder
         $Accounts = new Account();
         $Accounts->name = 'ADMIN Nhân';
         $Accounts->user_id = 3;
-        $Accounts->sex = 'Nam';
+
         $Accounts->phone = '0583255203';
         $Accounts->birthday = '03/01/1999';
         $Accounts->sex = 'Nam';
