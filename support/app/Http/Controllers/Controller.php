@@ -14,7 +14,7 @@ class Controller extends BaseController
     private $user;
     private $Account;
     private $Role;
-   public function getUserInfo() {
+    public function getUserInfo() {
         $userInFor = Auth::user()->load('roles');
         $attrUser = $userInFor->getAttributes();
         $roleUser = $userInFor['roles'][0]->getAttributes();

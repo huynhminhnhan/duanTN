@@ -26,10 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
       Schema::defaultStringLength(191);
-    //     var_dump(base_path().'/public');
-    // exit;
-		// $this->app->bind('path.public', function() {
-		// 	return base_path() . '/public';
-		// });
+      
     }
 }
