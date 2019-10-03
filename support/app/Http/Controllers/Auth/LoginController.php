@@ -41,7 +41,7 @@ class LoginController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
-    public function handleProviderCallback()
+    public function handleProviderCallback(Request $Request)
     {
         // session()->put('state', $request->input('state'));
 
@@ -66,13 +66,22 @@ class LoginController extends Controller
          if ($email_verified == false) {
             return redirect('/login')->with('error', 'Vui lòng Xác thực email trước khi đăng nhập ');
          }
-        //  dd ($user);
-        // var_dump($id);
-        // var_dump($id);
+       
         $finduser = User::where('googleId', $id)->first();
-        // var_dump($finduser);
-        // exit;
+       
          if ($finduser) {
+            $userInFor =  $finduser->load('roles');
+            $roleUser = $userInFor['roles'][0]->getAttributes();
+       
+            $roleUser = $userInFor['roles'][0]->getAttributes();
+            $Account = Account::where('user_id',$userInFor->id)->get()->first();
+          
+            $AccountAttr = $Account->getAttributes();
+            $arrRole = array(
+               "roles" => $roleUser
+           );
+            $AccountInfor =  array_merge($AccountAttr,$arrRole);
+            $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
             Auth::login($finduser);
             return redirect('/')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
          }
@@ -102,7 +111,18 @@ class LoginController extends Controller
         $newUser
         ->roles()
         ->attach(Role::where('name', 'student')->first());
-
+        $userInFor =  $newUser->load('roles');
+        $roleUser = $userInFor['roles'][0]->getAttributes();
+       
+        $roleUser = $userInFor['roles'][0]->getAttributes();
+        $Account = Account::where('user_id',$userInFor->id)->get()->first();
+      
+        $AccountAttr = $Account->getAttributes();
+        $arrRole = array(
+           "roles" => $roleUser
+       );
+        $AccountInfor =  array_merge($AccountAttr,$arrRole);
+        $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
         // echo '<pre>';
         //     var_dump($newUser->load('roles'));
         //     echo '</pre>';
@@ -135,10 +155,7 @@ class LoginController extends Controller
      $userInFor = Auth::user()->load('roles');
      $roleUser = $userInFor['roles'][0]->getAttributes();
      $Account = Account::where('user_id',$id)->get()->first();
-    //  echo '<pre>';
-    //  var_dump($Account);
-    //  echo '</pre>';
-    //  exit;
+   
      $AccountAttr = $Account->getAttributes();
      $arrRole = array(
         "roles" => $roleUser
@@ -147,8 +164,7 @@ class LoginController extends Controller
      $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
      if(!(auth()->user()->hasRole('admin')))
      {
-        
-         return redirect('/new-request');
+         return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');
      } 
      
     //  $infoUser = $users[0]->getAttributes(); // get info user
