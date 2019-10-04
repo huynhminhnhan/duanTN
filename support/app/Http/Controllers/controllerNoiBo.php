@@ -18,15 +18,20 @@ class controllerNoiBo extends Controller
         $userInfor = $Request->session()->get('userInfor'); // lây thông tin user
         //dd($userInfor['userInfo']['id']); exit;
         $chamcong = Chamcong::all()->where('id_user', $userInfor['userInfo']['id']);
-        return view('pages.noibo.chamcong',['chamcong'=>$chamcong]);
+        return view('pages.noibo.chamcong',['chamcong'=>$chamcong, 'user_info'=> $userInfor]);
     }
     // bảng lương
-    public function banluong(){
-        return view('pages.table.payroll');
+    public function banluong(Request $Request){
+        
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
+
+        return view('pages.table.payroll',['user_info'=> $userInfor]);
     }
     // xem lịch trực
-    public function lichtruc(){
-        return view('pages.table.calendar');
+    public function lichtruc(Request $Request){
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
+
+        return view('pages.table.calendar', ['user_info'=> $userInfor]);
     }
     // Profile
     public function profile(){

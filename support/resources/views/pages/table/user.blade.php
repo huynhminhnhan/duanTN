@@ -12,22 +12,29 @@
                     <h4 class="card-title"style="font-size: 20px">QUẢN LÝ TÀI KHOẢN</h4>
                     <table class="table table-striped">
                       <thead>
+
                         <tr>
-                          <th> Hình ảnh </th>
+                          <th> Avatar</th>
                           <th> Tên tài khoản </th>
-                          <th> ID </th>
-                          <th> Sửa </th>
+                          <th> Phòng ban</th>
+                        
 
                         </tr>
+                       
                       </thead>
                       <tbody>
+                      @if ($Accounts)
+                      @foreach ($Accounts as $Accounts)
+                        
                         <tr>
-                          <td class="py-1">
-                            <img src="../../../assets/images/faces-clipart/pic-1.png" alt="image" /> </td>
-                          <td> Example@gmail.com </td>
-                          <td> 12345 </td>
-                          <td> <a href="/edit"><i class="fas fa-user-edit"></i></a></td>
+                        <td class="py-1">
+                          <a href="/admin/user/{{$Accounts->id}}"> <img src="{{$Accounts->avatar}}" alt="image" /></a>  </td>
+                          <td> <a href="/admin/user/{{$Accounts->id}}"> {{$Accounts->name}} </a></td>
+                          <td> {{$Accounts->name_depart}} </td>
+                         
                         </tr>
+                        @endforeach
+                        @endif
                       </tbody>
                     </table>
                     </div>

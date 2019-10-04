@@ -8,33 +8,31 @@
                     <div class="card-body">
                         <h4 class="card-title mb-4" style="font-size: 20px">Chỉnh sửa tài khoản</h4>
                             <div class="row">
+                            @if ($Account) 
                                 <div class="form-group col-md-6">
                                     <label for="tieude">Tên tài khoản</label>
-                                    <input type="text" name="Title" class="form-control" id="tieude" placeholder="">
+                                    <input type="text" value="{{$Account->name}}" name="Title" class="form-control" id="tieude" placeholder="">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="title">Phòng ban</label>
                                     <select class="form-control"  name="idCataQuestion" id="title">
-                                        <option value="">Chọn...</option>
-                                        <option>Phòng tuyển sinh</option>
-                                        <option>Phòng công tác sinh viên</option>
-                                        <option>Phòng quan hệ doanh nghiệp</option>
-                                        <option>Phòng hành chánh nhân sự</option>
+                                      @if  ($Departments)
+                                            @php
+                                            $check = '';
+                                            @endphp
+                                        @foreach ($Departments as $Departments )
+                                            @if ($Departments->name_depart == $Account->name_depart)
+                                            @php
+                                            $check = 'selected';
+                                            @endphp
+                                            @endif
+                                            <option >  {{$Departments->name_depart}}</option>
+                                       
+                                        @endforeach
+                                        @endif
                                     </select>    
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="tieude">Mật khẩu</label>
-                                    <input type="text" name="Title" class="form-control" id="tieude" placeholder="">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Hình ảnh</label>
-                                    {{-- <input type="file" name="Images" class="file-upload-default"> --}}
-                                    <div class="input-group col-xs-12">
-                                        <input type="file" name="Images"  class="form-control file-upload-info"  placeholder="Upload Image">
-                                        <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-info" type="button">Upload</button></span>
-                                    </div>
-                                </div>
+                              
                                 <form class="ml-3 mb-3">
                                     <div class="custom-control custom-checkbox custom-control-inline">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -59,6 +57,7 @@
                                     <button type="submit" class="btn btn-warning">Xóa tài khoản</button>
                                 </div>
                             </div>
+                            @endif
                         </form>
                     </div>
                 </div>

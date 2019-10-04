@@ -13,11 +13,11 @@
                       <p class="card-description"> TÌM KIẾM </p>
                       <form class="forms-sample">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Từ khóa:</label>
-                          <input type="search" class="form-control" id="exampleInput" placeholder="">
+                          <label for="tukhoa">Từ khóa:</label>
+                          <input type="search" class="form-control" id="tukhoa" placeholder="Nhập từ khóa tìm câu hỏi">
                         </div>
                         
-                        <form>
+                      </form>
                         <label for="exampleInput" class="mt-2 mr-5">Trạng thái:</label>
                           <div class="custom-control custom-checkbox custom-control-inline">
                             <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -58,29 +58,53 @@
                <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th> Mã câu hỏi </th>
-                        <th> Lĩnh vực </th>
-                        <th> Gửi đến </th>
-                        <th> Thời gian </th>
-                        <th> Trạng thái </th>
-                        <th> Dịch vụ </th>
+                          <th> Mã câu hỏi </th>
+                          <th> Tiêu đề </th>
+                          <th> Gửi đến </th>
+                          <th> Thời gian </th>
+                          <th> Trạng thái </th>
+                          <th> Dịch vụ </th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td> cc </td>
-                        <td> cc </td>
-                        <td> cc </td>
-                        <td> cc </td>
-                        <td> cc </td>
-                        <td> cc
-                          
-                  </td>
-                      </tr>
+                    <tbody id="dulieu">
+
+                     
                     </tbody>
                 </table>
           </div>
           </div>
           </div>
-        
+
+<script>
+  $(document).ready(function(){
+
+   $('#tukhoa').keyup(function(){ //bắt sự kiện keyup khi người dùng gõ từ khóa tim kiếm
+    var query = $(this).val(); //lấy gía trị ng dùng gõ
+    // console.log(query);
+    if(query != '') //kiểm tra khác rỗng thì thực hiện đoạn lệnh bên dưới
+    {
+     var _token = $('input[name="_token"]').val(); // token để mã hóa dữ liệu
+     $.ajax({
+      url:"{{ route('search') }}", // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
+      method:"POST", // phương thức gửi dữ liệu.
+      data:{query:query, _token:_token},
+
+      success:function(data){ //dữ liệu nhận về
+    
+      // console.log(data);
+      var json = JSON.parse(data);
+      console.log(json);
+      $('tbody').html("");
+
+      for(response of json ){
+        // console.log(response);
+        $('tbody').append("<tr><td> "+ response.id +"</td> <td>"+ response.Title+"</td><td>"+response.description+"</td><td>"+response.created_at+"</td><td>"+response.Status+"</td> <td>"+response.name_cata+"</td></tr>")
+      }
+     }
+   });
+   }
+ });
+ });
+</script>
+        {{-- <tr><td> "+ dulieu.id +"</td> <td>'.$dulieu['Title'].'</td><td>'.$dulieu['description'].'</td><td>'.$dulieu['created_at'].'</td><td>'.$dulieu['Title'].'</td> <td>'.$dulieu['name_cata'].'</td></tr> --}}
 @endsection

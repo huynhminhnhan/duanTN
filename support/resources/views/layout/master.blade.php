@@ -43,11 +43,14 @@
     <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"><script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script> --}}
     {{--EndDatePicker  --}}
     {{-- FONT AWSOME --}}
-    <script src="https://kit.fontawesome.com/1d81d68418.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/1d81d68418.js" crossorigin="anonymous"></script> --}}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
     <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
-    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    {{-- <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet"> --}}
     {{-- END FONTAWSOME --}}
  </body>
     <!-- plugin css for this page -->
@@ -71,6 +74,34 @@
           </div>
           </div>
         @endif
+        @if (session('error'))
+       
+<div class="modal fade modelAlert" id="modelAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content alert alert-danger" role="alert">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="alert alert-danger" role="alert">
+      {{ session('error') }}
+</div>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+@endif
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modelAlert">Large modal</button> -->
+
+
   @include('layout.header')
   @yield('content')
   @include('layout.footer')
@@ -88,5 +119,8 @@
     <!-- Custom js for this page-->
     <script src="{{asset('assets/js/demo_1/dashboard.js')}}"></script>
     <!-- End custom js for this page-->
-
+    <script>
+  $('.modelAlert').modal();
+  </script>
+  
 </html>

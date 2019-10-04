@@ -10,79 +10,47 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::any('/', function(){
-//     return view('layout.master');
-// })
-// ->where(['any' => '.*']);
-// Route::get('{any}', function () {
-//     return view('layout.master');
-// })
-// ->where(['any' => '.*']);
 
-// Route::post('/new-request', 'RequesController@insert');
-
-// Route::get('/login', function () {
-//     return view('home.master');
-// });
-// HỖ TRỢ ////
-// Route::get('/chamcong', function () {
-//     return view('pages.noibo.chamcong');
-// });
-    // Route::get('/trangcanhan', function(){
-    //     return view('pages.noibo.trangcanhan');
-    // });
-// Route::get('/chamcong', 'controllerNoiBo@chamCong');
-
-// Gửi yêu cầu mới //
-// Route::get('/insert-request', 'RequesController@insert');
-
-Route::get('/', 'HomeController@index')->middleware('auth');
-Route::get('/new-request','RequesController@view');
-// function () {
-
-//     return view('pages/form/new-request');
-
-// })->middleware('auth');
-Route::post('/inser-request', 'RequesController@insert');
-// support
-Route::get('/support/{a}', 'PagesController@Question');
-
-// Chi tiết câu hỏi
-Route::get('/support/question/{id}','RequesController@chitietcauhoi');
-
-Route::get('/user', function () {
-    return view('pages/table/user');
-});
-
-Route::get('/edit', function () {
-    return view('pages/table/edit-user');
-});
+    Route::get('/', 'HomeController@index')->middleware('auth');
+    Route::get('/new-request','RequesController@view');
+    Route::get('/search-question','RequesController@search');
+    Route::post('/search-question/name', 'RequesController@getSearchAjax')->name('search');
+    // cho sinh viên
+    Route::get('/support/{a}', 'PagesController@Question');
+    Route::post('/inser-request', 'RequesController@insert');
 
 
 
+// router nhân viên -> chỉ nhân viên và admin  truy cập
+    Route::group(['middleware'=> ['checkemployee','auth'] ],function(){
+
+    // mission
+
+    Route::get('/mission', function () {
+        return view('pages/table/mission-accept');
+    });
+
+    Route::get('/mission/{a}', 'PagesController@Question');
+
+    // noi bo
+    Route::prefix('internal')->group(function () {
+        Route::get('timekeeping','controllerNoiBo@chamCong');
+        Route::get('calendar','controllerNoiBo@lichtruc');
+        Route::get('permission-form','controllerNoiBo@xinphep');
+        Route::get('punish','controllerNoiBo@ghiphat');
+        Route::get('payroll','controllerNoiBo@banluong');
+    });
+
+    });
+// Router admin -> chỉ admin mới có quyền truy cập
+    Route::group(['middleware'=> ['checkAdmin','auth'] ],function(){
+        Route::get('admin/user', 'UsersController@Viewusers');
+        Route::get('admin/user/{id}', 'UsersController@ViewEditUser');
+
+    });
 
 
 Auth::routes();
 Route::get('google/redirect', 'Auth\LoginController@redirectToProvider')->name('googleRedirect');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/mission', function () {
-    return view('pages/table/mission-accept');
-});
-
-
-
-// mission
-Route::get('/mission/{a}', 'PagesController@Question');
-// noi bo
-Route::prefix('internal')->group(function () {
-     Route::get('profile','controllerNoiBo@profile');
-    Route::get('timekeeping','controllerNoiBo@chamcong');
-    Route::get('calendar','controllerNoiBo@lichtruc');
-    Route::get('permission-form','controllerNoiBo@xinphep');
-    Route::get('punish','controllerNoiBo@ghiphat');
-    Route::get('payroll','controllerNoiBo@banluong');
-});
