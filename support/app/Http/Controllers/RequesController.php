@@ -39,13 +39,13 @@ class RequesController extends Controller
         if($request->get('query'))
         {
             $query = $request->get('query');
-
+            // echo $user_info['user_id'];
             $question = new CataQuestion();
 
             $data = $question->searchQuestion($user_info['user_id'],$query);
             
-            echo($data);
-        exit;
+            echo $data;
+            exit;
        }
     }
 
