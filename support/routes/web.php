@@ -41,11 +41,14 @@ Route::get('/new-request','RequesController@view');
 // function () {
 
 //     return view('pages/form/new-request');
-    
+
 // })->middleware('auth');
 Route::post('/inser-request', 'RequesController@insert');
 // support
 Route::get('/support/{a}', 'PagesController@Question');
+
+// Chi tiết câu hỏi
+Route::get('/support/question/{id}','RequesController@chitietcauhoi');
 
 Route::get('/user', function () {
     return view('pages/table/user');

@@ -32,23 +32,23 @@
                       </tr>
                     </thead>
                     <tbody>
-                      
+
                       @forelse($Question as $q)
                         <tr>
                           <td>
-                             <a href="#">{{$q->id}}</a> 
+                             <a href="#">{{$q->id}}</a>
                           </td>
                           <td>
-                            <a href="#"> {{$q->name}}</a> 
+                            <a href="#"> {{$q->name}}</a>
                           </td>
                           <td>
-                              <a href="#">{{$q->idDepartment}}</a> 
-                          </td>
-                          <td> 
-                            <a href="#">{{$q->created_at}}</a>  
+                              <a href="#">{{$q->idDepartment}}</a>
                           </td>
                           <td>
-                            <a href="#"> 
+                            <a href="#">{{$q->created_at}}</a>
+                          </td>
+                          <td>
+                            <a href="#">
                               @if($q->Status === 0)
                               <p> Chưa tiếp nhận</p>
                               @elseif($q->Status === 1)
@@ -58,17 +58,17 @@
                               @elseif($q->Status === 3)
                               <p> Đã xử xong</p>
                               @endif
-                            </a> 
+                            </a>
                           </td>
-                          <td> 
-                            <a href="#">{{$q->id}}</a>  
+                          <td>
+                            <a href="#">{{$q->id}}</a>
                           </td>
                         </tr>
-                    
+
                       @empty
-                       Chưa có câu hỏi 
+                       Chưa có câu hỏi
                       @endforelse
-                      
+
                     </tbody>
                   </table>
                 </div>

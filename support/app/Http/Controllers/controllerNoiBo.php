@@ -28,5 +28,9 @@ class controllerNoiBo extends Controller
     public function lichtruc(){
         return view('pages.table.calendar');
     }
-
+    // Profile
+    public function profile(){
+        $canhan = Trangcanhan::all();
+        return view('pages.noibo.trangcanhan',['canhan'=>$canhan]);
+    }
 }

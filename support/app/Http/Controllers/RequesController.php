@@ -17,8 +17,8 @@ class RequesController extends Controller
     }
     public function view() {
          // echo '<pre>';
-        // $user_info = $this->getUserInfo(); //lây thông tin user 
-        // var_dump($user_info); 
+        // $user_info = $this->getUserInfo(); //lây thông tin user
+        // var_dump($user_info);
         // echo '</pre>';
         $depart = new Department();
         $department = $depart->getAll();
@@ -62,21 +62,27 @@ class RequesController extends Controller
                 $now = date("ymd_His");
                 // $tenfile = "images/".$now.".jpg";
                 $file = $request -> file('Images');
-                
-                // $file -> move('images',$tenfile); 
+
+                // $file -> move('images',$tenfile);
                 $question->Images = $tenfile;
             }
             // chu de
             $question->idCataQuestion = $request->idCataQuestion;
 
-            $user_info = $this->getUserInfo(); //lây thông tin user 
+            $user_info = $this->getUserInfo(); //lây thông tin user
             // dd($user_info['roles']['id']);
             $question->id_User = $user_info['roles']['id'];
             $question->idAdmin = 2;
             $question->save();
-            
-            
+
+
             return redirect('/new-request') ;
         }
+    }
+
+    public function chitietcauhoi(Request $request){
+        // var_dump($request->id);
+        // exit;
+        return view('pages.table.chitietcauhoi');
     }
 }
