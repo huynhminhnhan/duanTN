@@ -75,7 +75,11 @@ class LoginController extends Controller
        
             $roleUser = $userInFor['roles'][0]->getAttributes();
             $Account = Account::where('user_id',$userInFor->id)->get()->first();
-          
+            if ($user->avatar != $Account->avatar ) {
+                $Account->avatar = $user->avatar;
+                $Account->save();
+            }
+            // dd($Account->avatar);
             $AccountAttr = $Account->getAttributes();
             $arrRole = array(
                "roles" => $roleUser

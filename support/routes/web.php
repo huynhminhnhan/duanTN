@@ -44,12 +44,8 @@
     });
 // Router admin -> chỉ admin mới có quyền truy cập 
     Route::group(['middleware'=> ['checkAdmin','auth'] ],function(){
-        Route::get('/user', function () {
-            return view('pages/table/user');
-        });
-        Route::get('/edit', function () {
-            return view('pages/table/edit-user');
-        });
+        Route::get('admin/user', 'UsersController@Viewusers');
+        Route::get('admin/user/{id}', 'UsersController@ViewEditUser');
         
     });
 
