@@ -40,7 +40,7 @@
                              <a href="#">{{$q->id}}</a>
                           </td>
                           <td>
-                            <a href="#"> {{$q->Title}}</a>
+                            <a href="/chitietcauhoi"> {{$q->Title}}</a>
                           </td>
                           <td>
                               <a href="#">{{$q->description}}</a>

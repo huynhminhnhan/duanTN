@@ -66,13 +66,13 @@ class LoginController extends Controller
          if ($email_verified == false) {
             return redirect('/login')->with('error', 'Vui lòng Xác thực email trước khi đăng nhập ');
          }
-       
+
         $finduser = User::where('googleId', $id)->first();
-       
+
          if ($finduser) {
             $userInFor =  $finduser->load('roles');
             $roleUser = $userInFor['roles'][0]->getAttributes();
-       
+
             $roleUser = $userInFor['roles'][0]->getAttributes();
             $Account = Account::where('user_id',$userInFor->id)->get()->first();
             if ($user->avatar != $Account->avatar ) {
@@ -117,10 +117,10 @@ class LoginController extends Controller
         ->attach(Role::where('name', 'student')->first());
         $userInFor =  $newUser->load('roles');
         $roleUser = $userInFor['roles'][0]->getAttributes();
-       
+
         $roleUser = $userInFor['roles'][0]->getAttributes();
         $Account = Account::where('user_id',$userInFor->id)->get()->first();
-       
+
         $AccountAttr = $Account->getAttributes();
         $arrRole = array(
            "roles" => $roleUser
@@ -133,65 +133,13 @@ class LoginController extends Controller
         //     exit;
         Auth::login($newUser);
         return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
-<<<<<<< HEAD
-         // insert user
-        //  $User = new User;
-        //  $User->name = $nameUser;
-        //  $User->password = $passwordUser;
-        //  $User->email = $user->email;
-        //  $User->googleId = $id;
-        //  $User->save();
-        //  $insertedId = $User->id;
 
-        // return Socialite::driver('google')->stateless()->user();
-        // return redirect('/')->put('registerGoogle','true');
-        //  $loginUser = User::where('id',$id)->get();
-        //  login after register
-        // echo $insertedId ;
-        // exit;
-        // return authenticated();
-         // insert User
-        //dd($user);
-        // $user->token;
-=======
-        
->>>>>>> 6341eb902959187d80c33a6b4d931da00b65eb3e
     }
     public function authenticated(Request $Request)
 {
      $id = $Request->user()->id;
-<<<<<<< HEAD
-     $users = User::where('id',$id)->get()->load('roles');
-
-     if(!(auth()->user()->hasRole('admin')))
-     {
-         // $value = $Request->session()->put('userInforAdmin',$infoUser);
-         return redirect('/new-request');
-     }
-
-    //  $infoUser = $users[0]->getAttributes(); // get info user
-    //  $Account = Account::where('user_id',$id)->get()->first();
-    //  $Account = $Account->getAttributes();
-
-    //  $getAttributes = $users[0]['roles'][0]->getAttributes();
-    //  $role = array(
-    //      "role" => $getAttributes
-    //  );
-
-    //  $userInfor =  array_merge($Account,$role);
-    //  $value = $Request->session()->put('userInfor',$userInfor);
-
-    //  $value = $Request->session()->put('userInforAdmin',$infoUser);
-    $Account = Account::where('user_id',$id)->get()->first();
-    {
-        //$value = $Request->session()->put('userInforAdmin',$infoUser);
-        return redirect('/')->with('success', 'Xin chào admin'.Auth::user()->name.'');
-    }
-
-    return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');;
-=======
      $userInFor = Auth::user()->load('roles');
-     
+
      $roleUser = $userInFor['roles'][0]->getAttributes();
      $Account = Account::where('user_id',$id)->get()->first();
      $AccountAttr = $Account->getAttributes();
@@ -203,14 +151,13 @@ class LoginController extends Controller
      if(!(auth()->user()->hasRole('admin')))
      {
          return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');
-     } 
-     
-    
+     }
+
+
         return redirect('/')->with('success', 'Xin chào admin'.Auth::user()->name.'');
-    
-    
+
+
     // return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');;
->>>>>>> 6341eb902959187d80c33a6b4d931da00b65eb3e
 }
     public function __construct()
     {

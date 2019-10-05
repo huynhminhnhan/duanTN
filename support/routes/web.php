@@ -32,6 +32,9 @@
 
     Route::get('/mission/{a}', 'PagesController@Question');
 
+    // Trang chi tiết
+    Route::get('/question/{a}-{id}', 'PagesController@Question');
+    Route::get('/chitietcauhoi', 'PagesController@Question');
     // noi bo
     Route::prefix('internal')->group(function () {
         Route::get('timekeeping','controllerNoiBo@chamCong');
