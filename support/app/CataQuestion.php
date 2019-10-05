@@ -11,7 +11,7 @@ class CataQuestion extends Model
 
     public function get3Table($status,$user_info){
         $result = CataQuestion::join('question','CataQuestion.id' ,'=' ,'question.idCataQuestion')
-                ->join('department', 'question.idDepartment', '=', 'department.id')
+                ->join('department', 'question.idDepartment', '=', 'department.id_department')
                 ->where('Status',$status)
                 ->where('id_user',$user_info)
                 ->get();
@@ -19,7 +19,7 @@ class CataQuestion extends Model
     }
     public function searchQuestion($user_info,$query){
         $result = CataQuestion::join('question','CataQuestion.id' ,'=' ,'question.idCataQuestion')
-                ->join('department', 'question.idDepartment', '=', 'department.id')
+                ->join('department', 'question.idDepartment', '=', 'department.id_department')
                 ->where('id_user',$user_info)
                 ->where('Title', 'LIKE', "%$query%")
                 ->get();

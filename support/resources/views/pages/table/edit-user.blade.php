@@ -18,38 +18,55 @@
                                     <select class="form-control"  name="idCataQuestion" id="title">
                                       @if  ($Departments)
                                             @php
-                                            $check = '';
+                                            $selected = '';
                                             @endphp
                                         @foreach ($Departments as $Departments )
                                             @if ($Departments->name_depart == $Account->name_depart)
                                             @php
-                                            $check = 'selected';
+                                                $selected = 'selected';
                                             @endphp
                                             @endif
-                                            <option >  {{$Departments->name_depart}}</option>
+                                            <option {{$selected }} >  {{$Departments->name_depart}}</option>
                                        
                                         @endforeach
                                         @endif
                                     </select>    
                                 </div>
-                              
                                 <form class="ml-3 mb-3">
+                                @if ($Roles) 
+                                        @php
+                                        $dem = 0;
+                                        @endphp
+                                    @foreach ($Roles as $Roles) 
+                                            @php
+                                            $dem ++;
+                                            $checked = '';
+                                            @endphp
+                                        @if($Roles->name == $user_info['roles']['name']) 
+                                            @php
+                                            $checked = 'checked';
+                                            @endphp
+                                        @endif
+                             
                                     <div class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Admin</label>
+                                        <input name="roles" type="radio" value="{{$Roles->name}}" class="custom-control-input" id="customCheck{{$dem}}"  {{$checked}}>
+                                        <label class="custom-control-label" for="customCheck{{$dem}}" >{{$Roles->name}}</label>
                                     </div>
-                                    <div class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                    <!-- <div class="custom-control custom-checkbox custom-control-inline">
+                                        <input type="radio" class="custom-control-input" id="customCheck2">
                                         <label class="custom-control-label" for="customCheck2">Trưởng phòng</label>
                                     </div>
                                     <div class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                        <input type="radio" class="custom-control-input" id="customCheck3">
                                         <label class="custom-control-label" for="customCheck3">Sinh viên</label>
                                     </div>
                                     <div class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                        <input type="radio" class="custom-control-input" id="customCheck4">
                                         <label class="custom-control-label" for="customCheck4">Nhân viên</label>
-                                    </div>
+                                    </div> -->
+                                
+                                    @endforeach
+                                @endif
                                 </form>
                                 <div class="form-group col-md-12">
                                     <button type="submit" class="btn btn-success mr-2">Lưu</button>
