@@ -52,19 +52,6 @@
                                         <input name="roles" type="radio" value="{{$Roles->name}}" class="custom-control-input" id="customCheck{{$dem}}"  {{$checked}}>
                                         <label class="custom-control-label" for="customCheck{{$dem}}" >{{$Roles->name}}</label>
                                     </div>
-                                    <!-- <div class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="customCheck2">
-                                        <label class="custom-control-label" for="customCheck2">Trưởng phòng</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="customCheck3">
-                                        <label class="custom-control-label" for="customCheck3">Sinh viên</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="customCheck4">
-                                        <label class="custom-control-label" for="customCheck4">Nhân viên</label>
-                                    </div> -->
-                                
                                     @endforeach
                                 @endif
                                 </form>
