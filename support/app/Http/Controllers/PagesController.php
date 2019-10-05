@@ -30,5 +30,8 @@ class PagesController extends Controller
         
         return view('pages/table/request-new',['Question'=>$Question, 'status'=>$status, 'user_info'=> $user_info]);
     }
+    function RequestDetail($name){
+        return view('pages/table/RequestDetail');
+    }
    
 }

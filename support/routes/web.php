@@ -18,7 +18,8 @@
     // cho sinh viên 
     Route::get('/support/{a}', 'PagesController@Question');
     Route::post('/inser-request', 'RequesController@insert');
-
+    // chi tiet cau hỏi
+    Route::get('question/{name}', 'PagesController@RequestDetail');
 
 
 // router nhân viên -> chỉ nhân viên và admin  truy cập
@@ -40,6 +41,8 @@
         Route::get('punish','controllerNoiBo@ghiphat');
         Route::get('payroll','controllerNoiBo@banluong');
     });
+    // chi tiet cau hỏi
+    // Route::get('question/{name}', 'PagesController@RequestDetail');
 
     });
 // Router admin -> chỉ admin mới có quyền truy cập 
