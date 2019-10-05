@@ -17,15 +17,38 @@ class RequesController extends Controller
     }
     public function view() {
          // echo '<pre>';
-        // $user_info = $this->getUserInfo(); //lây thông tin user 
+        $user_info = $this->getUserInfo(); //lây thông tin user 
         // var_dump($user_info); 
         // echo '</pre>';
         $depart = new Department();
         $department = $depart->getAll();
         $Cata = CataQuestion::all();
 
-        return view('pages/form/new-request', ['department' => $department, 'Cata'=>$Cata]);
+        return view('pages/form/new-request', ['department' => $department, 'Cata'=>$Cata],['user_info'=> $user_info]);
     }
+    // search
+    public function search(){
+        $user_info = $this->getUserInfo(); //lây thông tin user 
+
+        return view('pages/form/search-request', ['user_info'=> $user_info]);
+    }
+    public function getSearchAjax(Request $request){
+       
+        $user_info = $this->getUserInfo(); //lây thông tin user 
+
+        if($request->get('query'))
+        {
+            $query = $request->get('query');
+            // echo $user_info['user_id'];
+            $question = new CataQuestion();
+
+            $data = $question->searchQuestion($user_info['user_id'],$query);
+            
+            echo $data;
+            exit;
+       }
+    }
+
     function insert(Request $request){
         $validate= Validator::make(
             $request->all(),
@@ -70,13 +93,13 @@ class RequesController extends Controller
             $question->idCataQuestion = $request->idCataQuestion;
 
             $user_info = $this->getUserInfo(); //lây thông tin user 
-            // dd($user_info['roles']['id']);
-            $question->id_User = $user_info['roles']['id'];
+            // dd($user_info);
+            $question->id_User = $user_info['user_id'];
             $question->idAdmin = 2;
             $question->save();
             
             
-            return redirect('/new-request') ;
+            return redirect('/new-request')->with('success', 'Bạn đã thêm câu hỏi thành công'); ;
         }
     }
 }

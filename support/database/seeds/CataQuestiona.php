@@ -13,23 +13,23 @@ class CataQuestiona extends Seeder
     public function run()
     {
         $cq = new CataQuestion();
-        $cq->name = 'Dong tien';
+        $cq->name_cata = 'Dong tien';
         $cq->save();
 
         $cq = new CataQuestion();
-        $cq->name = 'Chuyen nganh';
+        $cq->name_cata = 'Chuyen nganh';
         $cq->save();
 
         $cq = new CataQuestion();
-        $cq->name = 'Hoc lai';
+        $cq->name_cata = 'Hoc lai';
         $cq->save();
 
         $cq = new CataQuestion();
-        $cq->name = 'Bao luu';
+        $cq->name_cata = 'Bao luu';
         $cq->save();
 
         $cq = new CataQuestion();
-        $cq->name = 'Khac..';
+        $cq->name_cata = 'Khac..';
         $cq->save();
     }
 }

@@ -15,24 +15,9 @@ class Controller extends BaseController
     private $Account;
     private $Role;
    public function getUserInfo() {
-        $userInFor = Auth::user()->load('roles');
-        $attrUser = $userInFor->getAttributes();
-        $roleUser = $userInFor['roles'][0]->getAttributes();
-        $account = Account::where('user_id',$attrUser['id'])->get()->first();
-        $accountAttr = $account->getAttributes();
-        $arrRole = array(
-            "roles" => $roleUser
-        );
-        // = $userInFor->getAttributes();
-        $AccountInfor =  array_merge($accountAttr,$arrRole);
+    $SessionUser = session()->get('AccountInfor'); // lấy session AccountInfor
         
-       return $this->Account = $AccountInfor;
-     }
-    // public function getAccount($id_user) {
-    //     return $this->Account = Account::where('user_id',$id_user)->get()->first();
-       
-    // }
-
-       
+       return $this->Account = $SessionUser;
+     }     
         
 }
