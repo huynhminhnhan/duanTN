@@ -104,7 +104,9 @@
                   <img class="img-md rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="Profile image">
                   <p class="mb-1 mt-3 font-weight-semibold">{{(session()->get('AccountInfor')['name'])}}</p>
                 </div>
-                <a class="nav-link pl-3" href="/internal/profile">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                {{-- @foreach ($user_info as $pf) --}}
+                <a class="nav-link pl-3" href="profile">My profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                {{-- @endforeach --}}
                 <a class="nav-link pl-3">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
                 <a class="nav-link pl-3">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
                 <a class="nav-link pl-3">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>

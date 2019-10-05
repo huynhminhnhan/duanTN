@@ -22,20 +22,17 @@ class controllerNoiBo extends Controller
     }
     // bảng lương
     public function banluong(Request $Request){
-        
-        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
+
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user
 
         return view('pages.table.payroll',['user_info'=> $userInfor]);
     }
     // xem lịch trực
     public function lichtruc(Request $Request){
-        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user 
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user
 
         return view('pages.table.calendar', ['user_info'=> $userInfor]);
     }
     // Profile
-    public function profile(){
-        $canhan = Trangcanhan::all();
-        return view('pages.noibo.trangcanhan',['canhan'=>$canhan]);
-    }
+
 }

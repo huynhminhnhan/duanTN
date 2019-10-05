@@ -21,7 +21,8 @@
     // chi tiet cau hỏi
     Route::get('question/{name}', 'PagesController@RequestDetail');
 
-
+    // trang cá nhân
+    Route::get('profile','Profile@information');
 // router nhân viên -> chỉ nhân viên và admin  truy cập
     Route::group(['middleware'=> ['checkemployee','auth'] ],function(){
 
@@ -34,8 +35,8 @@
     Route::get('/mission/{a}', 'PagesController@Question');
 
     // Trang chi tiết
-    Route::get('/question/{a}-{id}', 'PagesController@Question');
-    Route::get('/chitietcauhoi', 'PagesController@Question');
+    // Route::get('/question/{a}-{id}', 'PagesController@Question');
+    // Route::get('/chitietcauhoi', 'PagesController@Question');
     // noi bo
     Route::prefix('internal')->group(function () {
         Route::get('timekeeping','controllerNoiBo@chamCong');
