@@ -31,7 +31,7 @@
         return view('pages/table/mission-accept');
     });
 
-    Route::get('/mission/{a}', 'PagesController@Question');
+    Route::get('/mission/{a}', 'PagesController@QuestionEmployee');
 
     // noi bo
     Route::prefix('internal')->group(function () {
