@@ -60,7 +60,7 @@ class RequesController extends Controller
 
             if($request ->hasFile('Images')){
                 $now = date("ymd_His");
-                // $tenfile = "images/".$now.".jpg";
+                $tenfile = "images/".$now.".jpg";
                 $file = $request -> file('Images');
                 
                 // $file -> move('images',$tenfile); 

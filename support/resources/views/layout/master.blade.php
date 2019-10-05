@@ -37,6 +37,12 @@
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.addons.css')}}">
     <!-- endinject -->
+    <!--calendar -->
+    <link href="{{asset('assets/asset/css/fullcalendar.css')}}" rel="stylesheet" >
+    <link href="{{asset('assets/asset/css/fullcalendar.print.css')}}" rel='stylesheet' media='print' >
+    <script src="{{asset('assets/asset/js/jquery-1.10.2.js')}}" type="text/javascript"></script>
+  
+    <!--end calendar --?
     {{-- DatePicker --}}
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="js/jquery-1.11.1.min.js"></script>
@@ -45,9 +51,9 @@
     {{-- FONT AWSOME --}}
     <script src="https://kit.fontawesome.com/1d81d68418.js" crossorigin="anonymous"></script>
     <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
-    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <!-- <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet"> -->
     {{-- END FONTAWSOME --}}
  </body>
     <!-- plugin css for this page -->
@@ -59,6 +65,9 @@
     <link rel="stylesheet" href="{{asset('assets/css/demo_1/style.css')}}">
     <!-- End Layout styles -->
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />
+    <!--calendar -->
+    
+    <!--end calendar -->
   </head>
   <body>
 <body>
@@ -87,6 +96,9 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     <script src="{{asset('assets/js/demo_1/dashboard.js')}}"></script>
+    
+    <script src="{{asset('assets/asset/js/jquery-ui.custom.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/asset/js/fullcalendar.js')}}" type="text/javascript"></script>
     <!-- End custom js for this page-->
 
 </html>

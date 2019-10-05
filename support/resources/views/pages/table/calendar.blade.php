@@ -7,110 +7,145 @@
             <div class="col-md-12 d-flex align-items-stretch grid-margin">
               <div class="row flex-grow">
                 <div class="col-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">XEM LỊCH TRỰC</h4>
-                      <div class="col-md-12 d-flex align-items-stretch grid-margin">
-                        <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-3">
-                            <label for="inputState">Bộ phận</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>...</option>
-                                <option>...</option>
-                            </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                            <label for="inputState">Nhân viên</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>...</option>
-                                <option>...</option>
-                            </select>
-                            </div>
-                            <div class="form-group col-md-1 mr-2">
-                            <label for="inputState">Tháng</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>...</option>
-                                <option>...</option>
-                            </select>
-                            </div>
-                            <div class="form-group col-md-2">
-                            <label for="inputState">Năm</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>...</option>
-                                <option>...</option>
-                            </select>
-                            </div>
-                            <div class="form-group col-md-1 mt-4">
-                            <button type="submit" class="btn btn-primary">GỬI</button>
-                            </div>
-                        </div>
-                        </form>
-                      
-          </div>
-          <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                <th scope="col">Chủ nhật</th>
-                                <th scope="col">Thứ hai</th>
-                                <th scope="col">Thứ ba</th>
-                                <th scope="col">Thứ tư</th>
-                                <th scope="col">Thứ năm</th>
-                                <th scope="col">Thứ sáu</th>
-                                <th scope="col">Thứ bảy</th>
-                                <th scope="col">Chủ nhật</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                                <td>7</td>
-                                <td>8</td>
-                                </tr>
-                                <tr>
-                                <td>9</td>
-                                <td>10</td>
-                                <td>11</td>
-                                <td>12</td>
-                                <td>13</td>
-                                <td>14</td>
-                                <td>15</td>
-                                <td>16</td>
-                                </tr>
-                                <tr>
-                                <td>17</td>
-                                <td>18</td>
-                                <td>19</td>
-                                <td>20</td>
-                                <td>21</td>
-                                <td>22</td>
-                                <td>23</td>
-                                <td>24</td>
-                                </tr>
-                                <tr>
-                                <td>25</td>
-                                <td>26</td>
-                                <td>27</td>
-                                <td>28</td>
-                                <td>29</td>
-                                <td>30</td>
-                                <td>31</td>
-                                <td></td>
-                                </tr>
-                            </tbody>
-                            </table>          
-                    </div>
-                  </div>
+                <div id='wrap'>
+
+<div id='calendar'></div>
+
+<div style='clear:both'></div>
+</div>
+
                 </div>
               </div>
             </div>
               
           </div>
           </div>
-        
+<script>
+
+$(document).ready(function() {
+    var date = new Date();
+  var d = date.getDate();
+  var m = date.getMonth();
+  var y = date.getFullYear();
+
+  $('#external-events div.external-event').each(function() {
+    var eventObject = {
+      title: $.trim($(this).text()) 
+    };
+    $(this).data('eventObject', eventObject);
+    $(this).draggable({
+      zIndex: 999,
+      revert: true,      
+      revertDuration: 0  
+    });
+
+  });
+
+  var calendar =  $('#calendar').fullCalendar({
+    header: {
+      left: 'title',
+      center: 'agendaDay,agendaWeek,month',
+      right: 'prev,next today'
+    },
+    editable: true,
+    firstDay: 1, 
+    selectable: true,
+    defaultView: 'month',
+
+    axisFormat: 'h:mm',
+    columnFormat: {
+              month: 'ddd',   
+              week: 'ddd d', 
+              day: 'dddd M/d',  
+              agendaDay: 'dddd d'
+          },
+          titleFormat: {
+              month: 'MMMM yyyy', 
+              week: "MMMM yyyy", 
+              day: 'MMMM yyyy'                 
+          },
+    allDaySlot: false,
+    selectHelper: true,
+    select: function(start, end, allDay) {
+      var title = prompt('Event Title:');
+      if (title) {
+        calendar.fullCalendar('renderEvent',
+          {
+            title: title,
+            start: start,
+            end: end,
+            allDay: allDay
+          },
+          true 
+        );
+      }
+      calendar.fullCalendar('unselect');
+    },
+    droppable: true, 
+    drop: function(date, allDay) { 
+
+      var originalEventObject = $(this).data('eventObject');
+      var copiedEventObject = $.extend({}, originalEventObject);
+      copiedEventObject.start = date;
+      copiedEventObject.allDay = allDay;
+      $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+      if ($('#drop-remove').is(':checked')) {
+        $(this).remove();
+      }
+
+    },
+
+    events: [
+      {
+        title: 'All Day Event',
+        start: new Date(y, m, 1)
+      },
+      {
+        id: 999,
+        title: 'Repeating Event',
+        start: new Date(y, m, d-3, 16, 0),
+        allDay: false,
+        className: 'info'
+      },
+      {
+        id: 999,
+        title: 'Repeating Event',
+        start: new Date(y, m, d+4, 16, 0),
+        allDay: false,
+        className: 'info'
+      },
+      {
+        title: 'Meeting',
+        start: new Date(y, m, d, 10, 30),
+        allDay: false,
+        className: 'important'
+      },
+      {
+        title: 'Lunch',
+        start: new Date(y, m, d, 12, 0),
+        end: new Date(y, m, d, 14, 0),
+        allDay: false,
+        className: 'important'
+      },
+      {
+        title: 'Birthday Party',
+        start: new Date(y, m, d+1, 19, 0),
+        end: new Date(y, m, d+1, 22, 30),
+        allDay: false,
+      },
+      {
+        title: 'Click for Google',
+        start: new Date(y, m, 28),
+        end: new Date(y, m, 29),
+        url: 'http://google.com/',
+        className: 'success'
+      }
+    ],
+  });
+
+
+});
+
+</script> 
 @endsection
