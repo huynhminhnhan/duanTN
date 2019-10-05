@@ -41,7 +41,7 @@
     <link href="{{asset('assets/asset/css/fullcalendar.css')}}" rel="stylesheet" >
     <link href="{{asset('assets/asset/css/fullcalendar.print.css')}}" rel='stylesheet' media='print' >
     <script src="{{asset('assets/asset/js/jquery-1.10.2.js')}}" type="text/javascript"></script>
-  
+
     <!--end calendar --?
     {{-- DatePicker --}}
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -54,15 +54,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
-<<<<<<< HEAD
     <!-- <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
     <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet"> -->
-=======
-    {{-- <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet"> --}}
->>>>>>> a2788470b275bc3ee6338f3381f246d04b945d3c
     {{-- END FONTAWSOME --}}
  </body>
     <!-- plugin css for this page -->
