@@ -32,24 +32,28 @@
                       </tr>
                     </thead>
                     <tbody>
-                      
+
                       @forelse($Question as $q)
                       {{-- {{dd($q)}} --}}
                         <tr>
                           <td>
-                             <a href="#">{{$q->id}}</a> 
+                             <a href="#">{{$q->id}}</a>
                           </td>
                           <td>
+<<<<<<< HEAD
                             <a href="/question/{{$q->id}}"> {{$q->Title}}</a> 
+=======
+                            <a href="/chitietcauhoi"> {{$q->Title}}</a>
+>>>>>>> d878ff713d5945acbc9910d4a2af2483b07ac19b
                           </td>
                           <td>
-                              <a href="#">{{$q->description}}</a> 
-                          </td>
-                          <td> 
-                            <a href="#">{{$q->created_at}}</a>  
+                              <a href="#">{{$q->description}}</a>
                           </td>
                           <td>
-                            <a href="#"> 
+                            <a href="#">{{$q->created_at}}</a>
+                          </td>
+                          <td>
+                            <a href="#">
                               @if($q->Status === 0)
                               Chưa tiếp nhận
                               @elseif($q->Status === 1)
@@ -59,17 +63,17 @@
                                 @elseif($q->Status === 3)
                               Đã xử xong
                               @endif
-                            </a> 
+                            </a>
                             </td>
-                          <td> 
-                            <a href="#">{{$q->name_cata}}</a>  
+                          <td>
+                            <a href="#">{{$q->name_cata}}</a>
                           </td>
                         </tr>
-                    
+
                       @empty
-                       Chưa có câu hỏi 
+                       Chưa có câu hỏi
                       @endforelse
-                      
+
                     </tbody>
                   </table>
                 </div>
