@@ -58,7 +58,7 @@ class UsersController extends Controller
         $User->save();
 
         $User->roles()->sync($Role); 
-        // sync = nhận một array rule va sau khi thực hiện tất cả các roles trước đó sẽ bị xóa. 
+        // sync = nhận một array rule vsa sau khi thực hiện tất cả các roles trước đó sẽ bị xóa. 
         // dd($User->load('roles'));
         $Account ->name = $input['name'];
         $Account ->department_id = $input['Department'];
