@@ -18,7 +18,7 @@
                                         <option>Choose...</option>
                                     @forelse($department as $de)
 
-                                        <option value="{{$de->id}}">{{$de->name_depart}}</option>
+                                        <option value="{{$de->id_department}}">{{$de->name_depart}}</option>
                                     @empty
                                         Khong co danh muc
                                     @endforelse 
@@ -55,7 +55,7 @@
                                     <input type="file" value=""  name="Images" class="file-upload-default d-none"> 
                                    
                                     <div class="input-group col-xs-12">
-                                        <input type="text" name="ImagesText"  class="form-control file-upload-info"  placeholder="Upload Image">
+                                        <input type="text" readonly name="ImagesText"  class="form-control file-upload-info"  placeholder="Upload Image">
                                       
                                         <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-info" type="button">Upload</button></span>

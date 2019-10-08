@@ -70,7 +70,10 @@
                                         <input name="roles[]" type="checkbox" value="{{$Roles->name}}" class="custom-control-input" id="customCheck{{$dem}}"  {{$checked}}>
                                         <label class="custom-control-label" for="customCheck{{$dem}}" >{{$Roles->name}}</label>
                                     </div>
+<<<<<<< HEAD
                                 
+=======
+>>>>>>> 20aa641f6ac693e9fc8b6b9eafcdd2f5000b1051
                                     @endforeach
                                 @endif
                                 </div>

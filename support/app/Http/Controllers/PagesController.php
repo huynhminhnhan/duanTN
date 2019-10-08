@@ -24,14 +24,22 @@ class PagesController extends Controller
             $status = 3;
         }
 
-        $user_info = $this->getUserInfo(); //lây thông tin user 
+        $user_info = $this->getUserInfo(); //lây thông tin user
         $qs = new CataQuestion();
         $Question = $qs->get3Table($status,$user_info['user_id']);
+
         
-        return view('pages/table/request-new',['Question'=>$Question, 'status'=>$status, 'user_info'=> $user_info]);
+        return view('pages/table/request-new',['Question'=>$Question, 'status'=>$status]);
     }
+    // chi tiet cau hoi
     function RequestDetail($name){
         return view('pages/table/RequestDetail');
+    }
+
+    // cau hoi cho nhan viên
+    function QuestionEmployee($status){
+        
+        return view('pages/table/RequestEmployee');
     }
    
 }

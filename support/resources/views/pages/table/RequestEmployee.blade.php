@@ -6,7 +6,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                    @if($status === 0)
+                    {{-- @if($status === 0)
                   <h4 class="card-title">Yêu cầu mới gửi</h4>
                   <p class="card-description"> Những yêu cầu bạn gửi chưa được nhân viên tiếp nhận </p>
                     @elseif($status === 1)
@@ -18,7 +18,7 @@
                     @elseif($status === 3)
                   <h4 class="card-title">Yêu cầu đã xử lí xong</h4>
                   <p class="card-description"> Những yêu cầu bạn gửi đã được xử lí xong </p>
-                    @endif
+                    @endif --}}
                   <!-- {{-- <code>.table-striped</code> --}} -->
                   <table class="table table-striped">
                     <thead>
@@ -32,29 +32,25 @@
                       </tr>
                     </thead>
                     <tbody>
-
-                      @forelse($Question as $q)
+                      
+                      {{-- @forelse($Question as $q) --}}
                       {{-- {{dd($q)}} --}}
                         <tr>
                           <td>
-                             <a href="#">{{$q->id}}</a>
+                             {{-- <a href="#">{{$q->id}}</a>  --}}
                           </td>
                           <td>
-<<<<<<< HEAD
-                            <a href="/question/{{$q->id}}"> {{$q->Title}}</a> 
-=======
-                            <a href="/chitietcauhoi"> {{$q->Title}}</a>
->>>>>>> d878ff713d5945acbc9910d4a2af2483b07ac19b
+                            {{-- <a href="#"> {{$q->Title}}</a>  --}}
                           </td>
                           <td>
-                              <a href="#">{{$q->description}}</a>
+                              {{-- <a href="#">{{$q->description}}</a>  --}}
+                          </td>
+                          <td> 
+                            {{-- <a href="#">{{$q->created_at}}</a>   --}}
                           </td>
                           <td>
-                            <a href="#">{{$q->created_at}}</a>
-                          </td>
-                          <td>
-                            <a href="#">
-                              @if($q->Status === 0)
+                            <a href="#"> 
+                              {{-- @if($q->Status === 0)
                               Chưa tiếp nhận
                               @elseif($q->Status === 1)
                               Đang xử lí
@@ -62,18 +58,18 @@
                               Đã trả lời
                                 @elseif($q->Status === 3)
                               Đã xử xong
-                              @endif
-                            </a>
+                              @endif --}}
+                            </a> 
                             </td>
-                          <td>
-                            <a href="#">{{$q->name_cata}}</a>
+                          <td> 
+                            {{-- <a href="#">{{$q->name_cata}}</a>   --}}
                           </td>
                         </tr>
-
-                      @empty
-                       Chưa có câu hỏi
-                      @endforelse
-
+                    
+                      {{-- @empty
+                       Chưa có câu hỏi 
+                      @endforelse --}}
+                      
                     </tbody>
                   </table>
                 </div>

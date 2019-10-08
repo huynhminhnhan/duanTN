@@ -56,9 +56,9 @@ class LoginController extends Controller
         $nameUser = str_replace(' ', '',trim($user->name));
         $passwordUser = bcrypt('Svpoly'."$id");
         if (!empty($user->user['hd'])) {
-            $hd = $user->user['hd']; 
+            $hd = $user->user['hd'];
         }
-       
+
 
          if (empty($hd) || $hd != 'fpt.edu.vn' ) {
             return redirect('/login')->with('error', 'Vui lòng đăng nhập bằng email FPT');
@@ -66,9 +66,9 @@ class LoginController extends Controller
          if ($email_verified == false) {
             return redirect('/login')->with('error', 'Vui lòng Xác thực email trước khi đăng nhập ');
          }
-       
+
         $finduser = User::where('googleId', $id)->first();
-       
+
          if ($finduser) {
             $userInFor =  $finduser->load('roles');
             $roleUser = $userInFor['roles'];
@@ -93,13 +93,13 @@ class LoginController extends Controller
             Auth::login($finduser);
             return redirect('/')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
          }
-        
+
         $newUser = User::create([
             'name' => $nameUser,
             'email' => $user->email,
             'googleId' => $id,
             'password' => $passwordUser,
-          
+
         ]);
         // if ()
         $sex = 'Giới tính khác';
@@ -114,7 +114,7 @@ class LoginController extends Controller
             'sex' => $sex,
             'status'=> 1 ,
             'department_id' => 2,
-          
+
         ]);
         $newUser
         ->roles()
@@ -130,7 +130,7 @@ class LoginController extends Controller
         );
 
         $Account = Account::where('user_id',$userInFor->id)->get()->first();
-       
+
         $AccountAttr = $Account->getAttributes();
        
         $AccountInfor =  array_merge($AccountAttr,$arrRoles);
@@ -138,7 +138,7 @@ class LoginController extends Controller
        
         Auth::login($newUser);
         return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
-        
+
     }
     public function authenticated(Request $Request)
 {
@@ -162,17 +162,17 @@ class LoginController extends Controller
      if(!(auth()->user()->hasRole('admin')))
      {
          return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');
-     } 
-     
-    
+     }
+
+
         return redirect('/')->with('success', 'Xin chào admin'.Auth::user()->name.'');
-    
-    
+
+
     // return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');;
 }
     public function __construct()
     {
-       
+
         $this->middleware('guest')->except('logout');
     }
 }

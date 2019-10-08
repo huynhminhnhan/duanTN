@@ -15,13 +15,14 @@
     Route::get('/new-request','RequesController@view');
     Route::get('/search-question','RequesController@search');
     Route::post('/search-question/name', 'RequesController@getSearchAjax')->name('search');
-    // cho sinh viên 
+    // cho sinh viên
     Route::get('/support/{a}', 'PagesController@Question');
     Route::post('/inser-request', 'RequesController@insert');
     // chi tiet cau hỏi
     Route::get('question/{name}', 'PagesController@RequestDetail');
 
-
+    // trang cá nhân
+    Route::get('profile','Profile@information');
 // router nhân viên -> chỉ nhân viên và admin  truy cập
     Route::group(['middleware'=> ['checkemployee','auth'] ],function(){
 
@@ -31,8 +32,11 @@
         return view('pages/table/mission-accept');
     });
 
-    Route::get('/mission/{a}', 'PagesController@Question');
+    Route::get('/mission/{a}', 'PagesController@QuestionEmployee');
 
+    // Trang chi tiết
+    // Route::get('/question/{a}-{id}', 'PagesController@Question');
+    // Route::get('/chitietcauhoi', 'PagesController@Question');
     // noi bo
     Route::prefix('internal')->group(function () {
         Route::get('timekeeping','controllerNoiBo@chamCong');
@@ -45,13 +49,10 @@
     // Route::get('question/{name}', 'PagesController@RequestDetail');
 
     });
-// Router admin -> chỉ admin mới có quyền truy cập 
+// Router admin -> chỉ admin mới có quyền truy cập
     Route::group(['middleware'=> ['checkAdmin','auth'] ],function(){
         Route::get('admin/user', 'UsersController@Viewusers');
         Route::get('admin/user/{id}', 'UsersController@ViewEditUser');
-        Route::post('/admin/user/', 'UsersController@EditUser');
-        
-        
     });
 
 

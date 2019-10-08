@@ -10,7 +10,7 @@
         <div class="navbar-menu-wrapper d-flex align-items-center">
           <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block">Help : +050 2992 709</li>
-            
+
           </ul>
           <form class="ml-auto search-form d-none d-md-block" action="#">
             <div class="form-group">
@@ -104,10 +104,12 @@
                   <img class="img-md rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="Profile image">
                   <p class="mb-1 mt-3 font-weight-semibold">{{(session()->get('AccountInfor')['name'])}}</p>
                 </div>
-                <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
-                <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
-                <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
-                <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
+                {{-- @foreach ($user_info as $pf) --}}
+                <a class="nav-link pl-3" href="profile">My profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                {{-- @endforeach --}}
+                <a class="nav-link pl-3">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
+                <a class="nav-link pl-3">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
+                <a class="nav-link pl-3">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -195,7 +197,7 @@
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
 
-                          
+
                             <a class="nav-link" href="/mission/must-accept
                             ">Nhiệm vụ phải nhận</a>
                         </li>
@@ -258,6 +260,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/internal/payroll">Xem bảng lương</a>
                         </li>
+
                     </ul>
                 </div>
             </li>
