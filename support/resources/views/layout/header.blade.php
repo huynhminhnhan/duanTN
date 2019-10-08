@@ -2,46 +2,15 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html">
+          <a class="navbar-brand brand-logo" href="/">
             <img src="../assets/images/logo.svg" alt="logo" /> </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html">
+          <a class="navbar-brand brand-logo-mini" href="/">
             <img src="../assets/images/logo-mini.svg" alt="logo" /> </a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
           <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block">Help : +050 2992 709</li>
-            <li class="nav-item dropdown language-dropdown">
-              <a class="nav-link dropdown-toggle px-2 d-flex align-items-center" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="d-inline-flex mr-0 mr-md-3">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-us"></i>
-                  </div>
-                </div>
-                <span class="profile-text font-weight-medium d-none d-md-block">English</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-us"></i>
-                  </div>English
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-fr"></i>
-                  </div>French
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-ae"></i>
-                  </div>Arabic
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-ru"></i>
-                  </div>Russian
-                </a>
-              </div>
-            </li>
+
           </ul>
           <form class="ml-auto search-form d-none d-md-block" action="#">
             <div class="form-group">
@@ -125,19 +94,22 @@
                 </a>
               </div>
             </li>
+            
             <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image"> </a>
+                <img class="img-xs rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="Profile image"> </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
-                  <img class="img-md rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image">
-                  <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
+       
+                  <img class="img-md rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="Profile image">
+                  <p class="mb-1 mt-3 font-weight-semibold">{{(session()->get('AccountInfor')['name'])}}</p>
                 </div>
-                <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
-                <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
-                <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
-                <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
+                {{-- @foreach ($user_info as $pf) --}}
+                <a class="nav-link pl-3" href="profile">My profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                {{-- @endforeach --}}
+                <a class="nav-link pl-3">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
+                <a class="nav-link pl-3">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
+                <a class="nav-link pl-3">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -155,20 +127,22 @@
           </button>
         </div>
       </nav>
-      <!-- partial -->
+    
+      
       <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
+       
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="profile image">
+                  <img class="img-xs rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="profile image">
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Allen Moreno</p>
-                  <p class="designation">Premium user</p>
+               {{-- {{dd((session()->get('AccountInfor'))['roles'])}} --}}
+                  <p class="profile-name">{{(session()->get('AccountInfor')['name'])}}</p>
+                <p class="designation">{{(session()->get('AccountInfor')['roles'][0])}} user</p> 
                 </div>
               </a>
             </li>
@@ -180,8 +154,9 @@
                 <span class="menu-title">Trang Chủ</span>
               </a>
             </li>
-            {{-- {{dd($user_info['roles']['name'])}} --}}
-            @if($user_info['roles']['name'] === 'student')
+        
+            {{--  {{dd(session()->get('AccountInfor')['roles'])}} --}}
+            @if(in_array('student',session()->get('AccountInfor')['roles']))
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
@@ -222,7 +197,7 @@
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
 
-                          
+
                             <a class="nav-link" href="/mission/must-accept
                             ">Nhiệm vụ phải nhận</a>
                         </li>
@@ -285,6 +260,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/internal/payroll">Xem bảng lương</a>
                         </li>
+
                     </ul>
                 </div>
             </li>

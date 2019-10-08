@@ -14,7 +14,7 @@ class ChamcongSeeder extends Seeder
     public function run()
     {
         $cc = new Chamcong();
-        $cc -> id_user = 1;
+        $cc ->id_user = 1;
         $cc->ngay = '01/12/2019';
         $cc->thu = '2'; //Thứ
         $cc->gio_vao1 = '07:05';
@@ -36,7 +36,7 @@ class ChamcongSeeder extends Seeder
         $cc->save();
 
         $cc = new Chamcong();
-        $cc -> id_user = 1;
+        $cc ->id_user = 1;
         $cc->ngay = '03/12/2019';
         $cc->thu = '4'; //Thứ
         $cc->gio_vao1 = '07:35';
@@ -47,7 +47,7 @@ class ChamcongSeeder extends Seeder
         $cc->save();
 
         $cc = new Chamcong();
-        $cc -> id_user = 1;
+        $cc ->id_user = 1;
         $cc->ngay = '03/12/2019';
         $cc->thu = '4'; //Thứ
         $cc->gio_vao1 = '09:32';

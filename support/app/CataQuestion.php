@@ -11,20 +11,19 @@ class CataQuestion extends Model
 
     public function get3Table($status,$user_info){
         $result = CataQuestion::join('question','CataQuestion.id' ,'=' ,'question.idCataQuestion')
-                ->join('department', 'question.idDepartment', '=', 'department.id')
+                ->join('department', 'question.idDepartment', '=', 'department.id_department')
                 ->where('Status',$status)
                 ->where('id_user',$user_info)
-                ->paginate(10);
+                ->get();
         return $result;
-        // CataQuestion.name as Dichvu', 'question.id as MaCauHoi', 'department.name as PhongBan', 'question.created_at As Time', 'question.Status as Status' , 'question.Title as Dichvu
     }
     public function searchQuestion($user_info,$query){
         $result = CataQuestion::join('question','CataQuestion.id' ,'=' ,'question.idCataQuestion')
-                ->join('department', 'question.idDepartment', '=', 'department.id')
+                ->join('department', 'question.idDepartment', '=', 'department.id_department')
                 ->where('id_user',$user_info)
-                ->where('Content', 'LIKE', "%{$query}%")
-                ->paginate(10);
+                ->where('Title', 'LIKE', "%$query%")
+                ->get();
         return $result;
-        // CataQuestion.name as Dichvu', 'question.id as MaCauHoi', 'department.name as PhongBan', 'question.created_at As Time', 'question.Status as Status' , 'question.Title as Dichvu
     }
+    
 }

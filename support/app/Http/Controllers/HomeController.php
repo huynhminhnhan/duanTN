@@ -14,8 +14,9 @@ class HomeController extends Controller
      */
     public function __construct(Request $Request)
     {
+
         $this->middleware('auth');
-        
+
     }
 
 
@@ -28,8 +29,9 @@ class HomeController extends Controller
     public function index(Request $Request)
     {
 
-         $user_info = $this->getUserInfo(); //lây thông tin user 
-       
+         $user_info = $this->getUserInfo(); //lây thông tin user
+// dd($user_info);
+//         exit;
         return view('welcome', ['user_info'=>$user_info]);
     }
 }

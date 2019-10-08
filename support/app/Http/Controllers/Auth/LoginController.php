@@ -54,9 +54,9 @@ class LoginController extends Controller
         $nameUser = str_replace(' ', '',trim($user->name));
         $passwordUser = bcrypt('Svpoly'."$id");
         if (!empty($user->user['hd'])) {
-            $hd = $user->user['hd']; 
+            $hd = $user->user['hd'];
         }
-       
+
 
          if (empty($hd) || $hd != 'fpt.edu.vn' ) {
             return redirect('/login')->with('error', 'Vui lòng đăng nhập bằng email FPT');
@@ -64,32 +64,40 @@ class LoginController extends Controller
          if ($email_verified == false) {
             return redirect('/login')->with('error', 'Vui lòng Xác thực email trước khi đăng nhập ');
          }
-       
+
         $finduser = User::where('googleId', $id)->first();
-       
+
          if ($finduser) {
             $userInFor =  $finduser->load('roles');
-            $roleUser = $userInFor['roles'][0]->getAttributes();
-       
-            $roleUser = $userInFor['roles'][0]->getAttributes();
+            $roleUser = $userInFor['roles'];
+            $arrRole = [];
+            foreach ($roleUser as $roleUser) {
+               array_push($arrRole,$roleUser->name);
+            } 
+            $arrRoles = array(
+                "roles" => $arrRole
+            );
             $Account = Account::where('user_id',$userInFor->id)->get()->first();
-          
+            if ($user->avatar != $Account->avatar ) {
+                $Account->avatar = $user->avatar;
+                $Account->save();
+            }
             $AccountAttr = $Account->getAttributes();
             $arrRole = array(
                "roles" => $roleUser
            );
-            $AccountInfor =  array_merge($AccountAttr,$arrRole);
+            $AccountInfor =  array_merge($AccountAttr,$arrRoles);
             $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
             Auth::login($finduser);
             return redirect('/')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
          }
-        
+
         $newUser = User::create([
             'name' => $nameUser,
             'email' => $user->email,
             'googleId' => $id,
             'password' => $passwordUser,
-          
+
         ]);
         // if ()
         $sex = 'Giới tính khác';
@@ -104,58 +112,65 @@ class LoginController extends Controller
             'sex' => $sex,
             'status'=> 1 ,
             'department_id' => 2,
-          
+
         ]);
         $newUser
         ->roles()
         ->attach(Role::where('name', 'student')->first());
         $userInFor =  $newUser->load('roles');
-        $roleUser = $userInFor['roles'][0]->getAttributes();
-       
-        $roleUser = $userInFor['roles'][0]->getAttributes();
+        $roleUser = $userInFor['roles'];
+        $arrRole = [];
+        foreach ($roleUser as $roleUser) {
+           array_push($arrRole,$roleUser->name);
+        } 
+        $arrRoles = array(
+            "roles" => $arrRole
+        );
+
         $Account = Account::where('user_id',$userInFor->id)->get()->first();
-       
+
         $AccountAttr = $Account->getAttributes();
-        $arrRole = array(
-           "roles" => $roleUser
-       );
-        $AccountInfor =  array_merge($AccountAttr,$arrRole);
+       
+        $AccountInfor =  array_merge($AccountAttr,$arrRoles);
         $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
-        // echo '<pre>';
-        //     var_dump($newUser->load('roles'));
-        //     echo '</pre>';
-        //     exit;
+       
         Auth::login($newUser);
         return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
-        
+
     }
     public function authenticated(Request $Request)
 {
      $id = $Request->user()->id;
      $userInFor = Auth::user()->load('roles');
      
-     $roleUser = $userInFor['roles'][0]->getAttributes();
+     $roleUser = $userInFor['roles'];
+     $arrRole = [];
+     foreach ($roleUser as $roleUser) {
+        array_push($arrRole,$roleUser->name);
+     } 
+     
      $Account = Account::where('user_id',$id)->get()->first();
      $AccountAttr = $Account->getAttributes();
-     $arrRole = array(
-        "roles" => $roleUser
+     $arrRoles = array(
+        "roles" => $arrRole
     );
-     $AccountInfor =  array_merge($AccountAttr,$arrRole);
+     $AccountInfor =  array_merge($AccountAttr,$arrRoles);
+    //  dd ($AccountInfor);
      $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
      if(!(auth()->user()->hasRole('admin')))
      {
          return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');
-     } 
-     
-    
+     }
+
+
         return redirect('/')->with('success', 'Xin chào admin'.Auth::user()->name.'');
-    
-    
+
+
     // return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');;
 }
     public function __construct()
     {
-       
+
         $this->middleware('guest')->except('logout');
     }
 }

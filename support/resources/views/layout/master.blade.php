@@ -74,6 +74,43 @@
           </div>
           </div>
         @endif
+        @if (session('error'))
+       
+<div class="modal fade modelAlert" id="modelAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content alert alert-danger" role="alert">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="alert alert-danger" role="alert">
+      {{ session('error') }}
+</div>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+@endif
+@if (session('successResurt'))
+    <div class="purchase-banner-active"> 
+    <div class= "alert-successs item-purchase-banner">
+            <p class="banner-text"> {{ session('successResurt') }}</p>
+            
+              <span class="toggler-close"><i class="mdi mdi-close"></i></span>
+          </div>
+          </div>
+        @endif
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modelAlert">Large modal</button> -->
+
+
   @include('layout.header')
   @yield('content')
   @include('layout.footer')
@@ -91,5 +128,14 @@
     <!-- Custom js for this page-->
     <script src="{{asset('assets/js/demo_1/dashboard.js')}}"></script>
     <!-- End custom js for this page-->
-
+    <script>
+  $('.modelAlert').modal();
+  </script>
+  <style>
+  .alert-successs {
+    color: #0d704d!important;
+    background-color: #75c1a6!important;
+    border-color: #bff4e1!important;
+}
+  </style>
 </html>
