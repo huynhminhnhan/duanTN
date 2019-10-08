@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ChamcongSeeder::class);
         $this->call(QuestionSeeder::class);
         $this->call(CataQuestiona::class);
-        $this->call(information::class);
 
 
 

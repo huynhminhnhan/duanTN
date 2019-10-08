@@ -53,6 +53,7 @@
     Route::group(['middleware'=> ['checkAdmin','auth'] ],function(){
         Route::get('admin/user', 'UsersController@Viewusers');
         Route::get('admin/user/{id}', 'UsersController@ViewEditUser');
+        Route::post('admin/user', 'UsersController@EditUser');
     });
 
 

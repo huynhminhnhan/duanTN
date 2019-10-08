@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     public function Viewusers() {
-        $Accounts = Account::join('department','Account.department_id' ,'=','department.id_department')->get();
+        
+        $Accounts = Account::join('department','department.id_department' ,'=','account.department_id')->get();
         // dd($Accounts);
         return view('pages/table/user',["Accounts" => $Accounts]);
     }
@@ -20,8 +21,8 @@ class UsersController extends Controller
         $user_info = $this->getUserInfo(); //lây thông tin user 
         // $userInFor = User::where('id',$)
         // ::load('roles');
-        $Account = Account::join('department','Account.department_id' ,'=','department.id_department')
-        ->where('Account.id',$idAccount)
+        $Account = Account::join('department','account.department_id' ,'=','department.id_department')
+        ->where('account.id',$idAccount)
         ->get()->first();;
 
          $Departments = Department::all();
@@ -47,13 +48,17 @@ class UsersController extends Controller
        if (empty($input['name']) ) {
         return redirect('/admin/user/')->with('erro', 'trường họ tên không được bỏ trống');
        }
-       $Account = Account::join('department','Account.department_id' ,'=','department.id_department')
-       ->where('Account.id',$input['idAccount'])
+       $Account = Account::join('department','account.department_id' ,'=','department.id_department')
+       ->where('account.id',$input['idAccount'])
        ->get()->first();
+
         $Role = Role::whereIn('name',$input['roles'])->get();
+       
         $User = User::where('id' ,$Account ->user_id)->get()->first();
         $User->save();
-        $User->roles()->attach($Role);
+
+        $User->roles()->sync($Role); 
+        // sync = nhận một array rule va sau khi thực hiện tất cả các roles trước đó sẽ bị xóa. 
         // dd($User->load('roles'));
         $Account ->name = $input['name'];
         $Account ->department_id = $input['Department'];
