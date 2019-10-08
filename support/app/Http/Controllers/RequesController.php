@@ -39,13 +39,13 @@ class RequesController extends Controller
         if($request->get('query'))
         {
             $query = $request->get('query');
-            // echo $user_info['user_id'];
+
             $question = new CataQuestion();
 
             $data = $question->searchQuestion($user_info['user_id'],$query);
             
-            echo $data;
-            exit;
+            echo($data);
+        exit;
        }
     }
 
@@ -99,7 +99,7 @@ class RequesController extends Controller
             $question->save();
             
             
-            return redirect('/new-request')->with('success', 'Bạn đã thêm câu hỏi thành công'); ;
+            return redirect('/new-request')->with('success', 'Bạn đã thêm câu hỏi thành công');
         }
     }
 }

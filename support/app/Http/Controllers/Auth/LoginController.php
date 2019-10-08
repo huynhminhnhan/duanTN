@@ -71,20 +71,24 @@ class LoginController extends Controller
        
          if ($finduser) {
             $userInFor =  $finduser->load('roles');
-            $roleUser = $userInFor['roles'][0]->getAttributes();
-       
-            $roleUser = $userInFor['roles'][0]->getAttributes();
+            $roleUser = $userInFor['roles'];
+            $arrRole = [];
+            foreach ($roleUser as $roleUser) {
+               array_push($arrRole,$roleUser->name);
+            } 
+            $arrRoles = array(
+                "roles" => $arrRole
+            );
             $Account = Account::where('user_id',$userInFor->id)->get()->first();
             if ($user->avatar != $Account->avatar ) {
                 $Account->avatar = $user->avatar;
                 $Account->save();
             }
-            // dd($Account->avatar);
             $AccountAttr = $Account->getAttributes();
             $arrRole = array(
                "roles" => $roleUser
            );
-            $AccountInfor =  array_merge($AccountAttr,$arrRole);
+            $AccountInfor =  array_merge($AccountAttr,$arrRoles);
             $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
             Auth::login($finduser);
             return redirect('/')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
@@ -116,21 +120,22 @@ class LoginController extends Controller
         ->roles()
         ->attach(Role::where('name', 'student')->first());
         $userInFor =  $newUser->load('roles');
-        $roleUser = $userInFor['roles'][0]->getAttributes();
-       
-        $roleUser = $userInFor['roles'][0]->getAttributes();
+        $roleUser = $userInFor['roles'];
+        $arrRole = [];
+        foreach ($roleUser as $roleUser) {
+           array_push($arrRole,$roleUser->name);
+        } 
+        $arrRoles = array(
+            "roles" => $arrRole
+        );
+
         $Account = Account::where('user_id',$userInFor->id)->get()->first();
        
         $AccountAttr = $Account->getAttributes();
-        $arrRole = array(
-           "roles" => $roleUser
-       );
-        $AccountInfor =  array_merge($AccountAttr,$arrRole);
+       
+        $AccountInfor =  array_merge($AccountAttr,$arrRoles);
         $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
-        // echo '<pre>';
-        //     var_dump($newUser->load('roles'));
-        //     echo '</pre>';
-        //     exit;
+       
         Auth::login($newUser);
         return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
         
@@ -140,13 +145,19 @@ class LoginController extends Controller
      $id = $Request->user()->id;
      $userInFor = Auth::user()->load('roles');
      
-     $roleUser = $userInFor['roles'][0]->getAttributes();
+     $roleUser = $userInFor['roles'];
+     $arrRole = [];
+     foreach ($roleUser as $roleUser) {
+        array_push($arrRole,$roleUser->name);
+     } 
+     
      $Account = Account::where('user_id',$id)->get()->first();
      $AccountAttr = $Account->getAttributes();
-     $arrRole = array(
-        "roles" => $roleUser
+     $arrRoles = array(
+        "roles" => $arrRole
     );
-     $AccountInfor =  array_merge($AccountAttr,$arrRole);
+     $AccountInfor =  array_merge($AccountAttr,$arrRoles);
+    //  dd ($AccountInfor);
      $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
      if(!(auth()->user()->hasRole('admin')))
      {

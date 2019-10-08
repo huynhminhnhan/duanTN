@@ -16,10 +16,9 @@ class checkAdmin
     public function handle($request, Closure $next)
     {
         $SessionUser = session()->get('AccountInfor'); // lấy session AccountInfor
-        if ($SessionUser['roles']['name'] != 'admin') {
+        if (!in_array('admin',$SessionUser['roles'])) {
             return redirect('/')->with('error', 'Bạn không có quyền truy cập ');
         }
-        // var_dump($SessionUser['roles']['name']);
         return $next($request);
     }
 }

@@ -25,7 +25,7 @@ class Account extends Migration
             $table->string('specialized')->nullable(); // chuyên ngành 
             $table->string('semester')->nullable(); // học kì 
             $table->string('status')->nullable();
-            $table->string('avatar')->nullable();
+            $table->longText('avatar')->nullable();
             $table->integer('department_id')->unsigned();
             $table->foreign('department_id')->references('id_department')->on('department');
             
