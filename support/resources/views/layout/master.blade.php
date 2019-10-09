@@ -99,6 +99,15 @@
   </div>
 </div>
 @endif
+@if (session('successResurt'))
+    <div class="purchase-banner-active"> 
+    <div class= "alert-successs item-purchase-banner">
+            <p class="banner-text"> {{ session('successResurt') }}</p>
+            
+              <span class="toggler-close"><i class="mdi mdi-close"></i></span>
+          </div>
+          </div>
+        @endif
         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modelAlert">Large modal</button> -->
 
 
@@ -122,5 +131,11 @@
     <script>
   $('.modelAlert').modal();
   </script>
-  
+  <style>
+  .alert-successs {
+    color: #0d704d!important;
+    background-color: #75c1a6!important;
+    border-color: #bff4e1!important;
+}
+  </style>
 </html>

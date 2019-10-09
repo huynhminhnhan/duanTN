@@ -5,12 +5,14 @@ use App\User;
 use App\Account;
 use App\Department;
 use App\Role;
+use Validator;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function Viewusers() {
-        $Accounts = Account::join('department','Account.department_id' ,'=','department.id_department')->get();
+        
+        $Accounts = Account::join('department','department.id_department' ,'=','account.department_id')->get();
         // dd($Accounts);
         return view('pages/table/user',["Accounts" => $Accounts]);
     }
@@ -24,15 +26,50 @@ class UsersController extends Controller
         ->get()->first();;
 
          $Departments = Department::all();
+         $User= User::where('id',$Account->user_id)->get()->first()->load('roles');
+         $Role= $User['roles'];
          $Roles = Role::all();
-        //  dd($user_info);
+        
+        // dd($Role);
         return view('pages/table/edit-user',
         [
             "Account" => $Account,
             "Departments" => $Departments,
             "Roles"=>$Roles,
+            "RoleUser"=>$Role,
             "user_info"=>$user_info
         ]);
     }
+   public function EditUser(Request $Request) 
+   {    
+     
+       $input = $Request->all();
+      
+       if (empty($input['name']) ) {
+        return redirect('/admin/user/')->with('erro', 'trường họ tên không được bỏ trống');
+       }
+       $Account = Account::join('department','account.department_id' ,'=','department.id_department')
+       ->where('account.id',$input['idAccount'])
+       ->get()->first();
+
+        $Role = Role::whereIn('name',$input['roles'])->get();
+       
+        $User = User::where('id' ,$Account ->user_id)->get()->first();
+        $User->save();
+
+        $User->roles()->sync($Role); 
+        // sync = nhận một array rule vsa sau khi thực hiện tất cả các roles trước đó sẽ bị xóa. 
+        // dd($User->load('roles'));
+        $Account ->name = $input['name'];
+        $Account ->department_id = $input['Department'];
+        $resurt = $Account->save();
+        if ($resurt == true) {
+             return redirect('/admin/user/'.$input['idAccount'].'')->with('successResurt', 'cập nhật thông tin tài khoản  thành công');
+            // return redirect('/admin/user/'.$input['idAccount'].'')->with('successResurt', 'cập nhật thông tin tài khoản  thành công');
+        }
+        else {
+            return redirect('/admin/user/'.$input['idAccount'].'')->with('error', 'Có lỗi xãy ra ');
+        }
+   }
     
 }

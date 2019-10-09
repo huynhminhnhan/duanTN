@@ -17,8 +17,8 @@ class employee
     {
         // var_dump('haha');
         $SessionUser = session()->get('AccountInfor'); // lấy session AccountInfor
-        $acceptRouter = array('employees','admin');
-        if (! in_array($SessionUser['roles']['name'],$acceptRouter)) {
+        // $acceptRouter = array('employees','admin');
+        if (! in_array('employees',$SessionUser['roles'])) {
             return redirect('/')->with('error', 'Bạn không có quyền truy cập ');
         }
         return $next($request);

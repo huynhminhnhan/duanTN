@@ -1,6 +1,4 @@
     <div class="container-scroller">
-        {{-- {{dd(session()->get('AccountInfor'))}} --}}
-
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
@@ -96,11 +94,13 @@
                 </a>
               </div>
             </li>
+            
             <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <img class="img-xs rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="Profile image"> </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
+       
                   <img class="img-md rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="Profile image">
                   <p class="mb-1 mt-3 font-weight-semibold">{{(session()->get('AccountInfor')['name'])}}</p>
                 </div>
@@ -127,9 +127,10 @@
           </button>
         </div>
       </nav>
-      <!-- partial -->
+    
+      
       <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
+       
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item nav-profile">
@@ -139,8 +140,9 @@
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
+               {{-- {{dd((session()->get('AccountInfor'))['roles'])}} --}}
                   <p class="profile-name">{{(session()->get('AccountInfor')['name'])}}</p>
-                  <p class="designation">{{(session()->get('AccountInfor')['roles']['name'])}} user</p>
+                <p class="designation">{{(session()->get('AccountInfor')['roles'][0])}} user</p> 
                 </div>
               </a>
             </li>
@@ -152,8 +154,9 @@
                 <span class="menu-title">Trang Chủ</span>
               </a>
             </li>
-            {{-- {{dd($user_info['roles']['name'])}} --}}
-            @if(session()->get('AccountInfor')['roles']['name']  === 'student')
+        
+            {{--  {{dd(session()->get('AccountInfor')['roles'])}} --}}
+            @if(in_array('student',session()->get('AccountInfor')['roles']))
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
