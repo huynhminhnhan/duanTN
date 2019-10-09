@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Quotation;
 use App\Question;
 use App\CataQuestion;
+use App\AnswerModel;
 use App\Department;
 use HomeController;
 use Validator;
@@ -95,11 +96,11 @@ class RequesController extends Controller
             $user_info = $this->getUserInfo(); //lây thông tin user
             // dd($user_info);
             $question->id_User = $user_info['user_id'];
-            $question->idAdmin = 2;
+            // $question->idAdmin = 2;
             $question->save();
 
 
-            return redirect('/new-request')->with('success', 'Bạn đã thêm câu hỏi thành công'); ;
+            return redirect('/new-request')->with('success', 'Bạn đã thêm câu hỏi thành công'); 
         }
     }
 
@@ -107,5 +108,31 @@ class RequesController extends Controller
         // var_dump($request->id);
         // exit;
         return view('pages.table.chitietcauhoi');
+    }
+    // chap nhan cau hoi 
+    public function Receive($id_admin, $id_question){
+        // dd($id_admin);
+        //  dd($id_question);
+        $question = Question::find($id_question);
+
+        $question->idAdmin = $id_admin;
+        $question->Status = 1;
+        $question->save();
+        return back()->with('success', 'Bạn đã tiếp nhận câu hỏi thành công'); 
+    }
+    // phan hoi cau hoi tu nhien vien
+    public function RepReceive(Request $request, $id_user, $id_question){
+        $Ans = new AnswerModel();
+        $Ans->id_people = $id_user;
+        $Ans->id_question = $id_question;
+        $Ans->Content_Answer = $request->rep;
+        $Ans->save();
+
+        $question = Question::find($id_question);
+        $question->Status = 2;
+        $question->save();
+
+        return back()->with('success', 'Bạn đã trả lời câu hỏi thành công'); 
+        
     }
 }

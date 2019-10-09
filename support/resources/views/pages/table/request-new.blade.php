@@ -37,27 +37,23 @@
                       {{-- {{dd($q)}} --}}
                         <tr>
                           <td>
-                             <a href="#">{{$q->id}}</a>
+                             <a href="/question/{{$q->id_question}}">{{$q->id_question}}</a>
                           </td>
                           <td>
-<<<<<<< HEAD
-                            <a href="/question/{{$q->id}}"> {{$q->Title}}</a> 
-=======
-                            <a href="/chitietcauhoi"> {{$q->Title}}</a>
->>>>>>> d878ff713d5945acbc9910d4a2af2483b07ac19b
+                            <a href="/question/{{$q->id_question}}"> {{$q->Title}}</a> 
                           </td>
                           <td>
-                              <a href="#">{{$q->description}}</a>
+                              <a href="/question/{{$q->id_question}}">{{$q->description}}</a>
                           </td>
                           <td>
-                            <a href="#">{{$q->created_at}}</a>
+                            <a href="/question/{{$q->id_question}}">{{$q->created_at}}</a>
                           </td>
                           <td>
-                            <a href="#">
+                            <a href="/question/{{$q->id_question}}">
                               @if($q->Status === 0)
                               Chưa tiếp nhận
                               @elseif($q->Status === 1)
-                              Đang xử lí
+                              Đang xử lí by {{$q->name}}
                               @elseif($q->Status === 2)
                               Đã trả lời
                                 @elseif($q->Status === 3)
@@ -66,7 +62,7 @@
                             </a>
                             </td>
                           <td>
-                            <a href="#">{{$q->name_cata}}</a>
+                            <a href="/question/{{$q->id_question}}">{{$q->name_cata}}</a>
                           </td>
                         </tr>
 

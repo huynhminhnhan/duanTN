@@ -17,7 +17,7 @@ class controllerNoiBo extends Controller
     public function chamCong(Request $Request){
         $userInfor = $Request->session()->get('userInfor'); // lây thông tin user
         //dd($userInfor['userInfo']['id']); exit;
-        $chamcong = Chamcong::all()->where('id_user', $userInfor['userInfo']['id']);
+        $chamcong = Chamcong::all()->where('id_user', $userInfor['userInfo']['id_users']);
         return view('pages.noibo.chamcong',['chamcong'=>$chamcong, 'user_info'=> $userInfor]);
     }
     // bảng lương

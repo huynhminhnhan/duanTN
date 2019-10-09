@@ -15,12 +15,12 @@ class UsersController extends Controller
         return view('pages/table/user',["Accounts" => $Accounts]);
     }
     public function ViewEditUser(Request $Request) {
-        $idAccount = $Request->id;
+        $idAccount = $Request->id_account;
         $user_info = $this->getUserInfo(); //lây thông tin user 
         // $userInFor = User::where('id',$)
         // ::load('roles');
         $Account = Account::join('department','Account.department_id' ,'=','department.id_department')
-        ->where('Account.id',$idAccount)
+        ->where('Account.id_account',$idAccount)
         ->get()->first();;
 
          $Departments = Department::all();

@@ -46,7 +46,11 @@
         Route::get('payroll','controllerNoiBo@banluong');
     });
     // chi tiet cau hỏi
-    // Route::get('question/{name}', 'PagesController@RequestDetail');
+    Route::get('questionEmployee/{name}', 'PagesController@RequestDetail');
+    // tiep nhan cau hoi
+    Route::get('receive/{id_admin}/{id_question}','RequesController@Receive');
+    // phan hoi khách hàng
+    Route::post('rep/{id_user}/{id_question}','RequesController@RepReceive');
 
     });
 // Router admin -> chỉ admin mới có quyền truy cập

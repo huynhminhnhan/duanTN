@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class payroll extends Model
 {
     public $table='payroll';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_payroll';
 }

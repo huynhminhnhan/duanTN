@@ -9,29 +9,59 @@
                 <!-- {{-- <code>.table-striped</code> --}} -->
                 <table class="table">
                 <thead>
-                    <h4>Trạng thái hỗ trợ  => <code>Chưa tiếp nhận</code> </h4>
+                    @php 
+                    
+                    $b = $Question[0]->idAdmin;
+                 
+                    $a = $Question[0]->Status;
+                    $Emp = $model->questionEmployee($b);
+                    $Status = '';
+                    if($a == 0){
+                        $Status = 'Chưa tiếp nhận';
+                    }
+                    if($a == 1){
+                        $Status = 'Xử lý bởi '.$Emp[0]->name;
+                    }
+                    // {{dd($Emp[0]->name)}}
+                    
+                    // dd($Emp); 
+                    
+                    @endphp
+                    <h4>Trạng thái hỗ trợ  => <code>{{$Status}}</code> </h4>
                 </thead>
                 <tbody>
+                    {{-- {{var_dump($Question)}}  --}}
+
                     <tr>
                         <th scope="row">Mã câu hỏi:</th>
-                        <td colspan="2"> 12 </td>
+                        <td colspan="2"> {{$Question[0]->id_question.$id_cauhoi}} </td>
                     </tr>
                     <tr>
                         <th scope="row">Phòng xử lí:</th>
                         <td colspan="2">
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Phòng nhân sự</option>
-                                <option value="1">Phòng ban</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                        {{-- <select value="{{$Emp[0]->department_id}}" class="custom-select"> --}}
+                        <select value="" class="custom-select">
+
+                            <option value="0">ALL</option>
+
+                                @forelse($Depart as $dep)
+                            <option value="{{$dep->id_department}}">{{$dep->name_depart}}</option>
+                                @empty
+                                Chưa có phòng ban
+                                @endforelse
                             </select>
                         </td>
                     </tr>
+
                     <tr>
                         <th scope="row">Người xử lí: </th>
                         <td colspan="2"> 
                             <div class="row">
-                                <h5 class=" ml-3"> All</h5>
+                                @if($a == '')
+                                    <h5 class=" ml-3"> All</h5>
+                                @else
+                                    <h5 class=" ml-3"> {{$Emp[0]->name}}</h5>
+                                @endif
                                 <a href="" class=" ml-md-auto mt-2">Chuyển nhân viên</a> 
                             </div>
                             
@@ -39,7 +69,7 @@
                     </tr>
                     <tr>
                         <th>Thời gian: </th>
-                        <td colspan="2"> 2019-10-05 04:09:48</td>
+                        <td colspan="2"> {{$Question[0]->created_at}}</td>
                     </tr>
                 </tbody>
                 </table>
@@ -52,7 +82,7 @@
                 <div class="card-body">
                 <table class="table">
                     <thead>
-                    <h4>Sinh viên - <code>Hữu Hùng</code> </h4>
+                    <h4>Sinh viên - <code> {{$Question[0]->name}}</code> </h4>
                     </thead>
                         <tbody>
                             <tr>
@@ -87,46 +117,83 @@
                     <table class="table mt-2 mb-4">
                         <thead>
                             <tr>
-                               <td class="boder border-dark"> <p>Nội dung yêu cầu [<code>2019-10-05 04:09:48</code>] : <strong> Học phí học kì fall </strong></p></td>
+                               <td class="boder border-dark"> <p>Nội dung yêu cầu [<code>{{$Question[0]->created_at}}</code>] : <strong>{{$Question[0]->Title}} </strong></p></td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Học phí kì trước em còn dự 200 nghìn, không biết đã được cộng dồn vào học phí kì này chưa ạ .</td>
+                                <td>{{$Question[0]->Content}}</td>
                             </tr>
                         </tbody>
                     </table>
+                    {{-- cau phan hoi --}}
+                    @forelse($rep as $rep)
+                    <table class="table mt-2 mb-4">
+                        <thead>
+                            <tr>
+                                    <td class="boder border-dark"> <p> <strong>{{$rep->name}}</strong> [<code>{{$rep->created_at}}</code>]</p></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$rep->Content_Answer}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    @empty
+                    @endforelse
                     
-                    <table class="table pb-4 bg-secondary">
+                @if(session()->get('AccountInfor')['roles']['name']  === 'student')
+                {{-- sinh vien phan hoi  --}}
+                <table class="table pb-4" bgcolor="f3fdfd">
+                    <form action="" method="POST">
                         <thead>
                             <tr>
-                               <td class="boder border-dark"> <p>Mr.Nhân Huỳnh [<code>2019-10-05 04:09:48</code>]</p></td>
+                                <td class="boder border-dark"> <p>{{$Question[0]->name}} </p></td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>anh đã ăn chặn. a xl em nhé, e gửi stk a đền.</td>
+                                <td> <textarea name="rep" id="" cols="120" rows="10"></textarea></td>
                             </tr>
                         </tbody>
                     </table>
-
-                    <table class="table">
+                    <div class="button mt-4">
+                        <button type="submit" class="btn btn-primary"> Phản hồi</button>
+                    </div>
+                    </form>
+                @else
+                {{-- nhan vien tiep nhan --}}
+                    @if($a == 0)
+                        <div class="button mt-4">
+                            <button type="button" class="btn btn-primary"> <a href="/receive/{{(session()->get('AccountInfor')['user_id'])}}/{{$Question[0]->id_question}}"> Tiếp Nhận</a></button>
+        
+                            <button type="button" class="btn btn-success">Đóng</button>
+                        </div>
+                 
+                    @else
+                {{-- Nhan vien phan hoi --}}
+                    <table class="table pb-4" bgcolor="f3fdfd">
+                        <form action="/rep/{{(session()->get('AccountInfor')['user_id'])}}/{{$Question[0]->id_question}}" method="POST">
+                            @csrf
                         <thead>
                             <tr>
-                                <td class="boder border-dark"> <p>Sinh viên: Hữu Hùng [<code>2019-10-05 04:09:48</code>]</p></td>
+                                <td class="boder border-dark"> <p>{{(session()->get('AccountInfor')['name'])}} </p></td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>DMM.</td>
+                                <td> <textarea name="rep" id="" cols="120" rows="10"></textarea></td>
                             </tr>
                         </tbody>
-                    </table>
-                <div class="button mt-4">
-                    <button type="button" class="btn btn-primary">Tiếp Nhận</button>
-                    <button type="button" class="btn btn-danger">Xóa</button>
-                    <button type="button" class="btn btn-success">Đóng</button>
-                </div>
+                        </table>
+                        <div class="button mt-4">
+                                <button type="submit" class="btn btn-primary"> Phản hồi</button>
+                                <button type="button" class="btn btn-primary"> <a href="/done"> Đóng</a></button>
+                        </div>
+                        </form>  
+                    @endif
+                    @endif
             </div>
                 </div>
             </div>

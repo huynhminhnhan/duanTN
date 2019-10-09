@@ -14,10 +14,10 @@ class CreateQuestionTable extends Migration
     public function up()
     {
         Schema::create('question', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_question');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
-            $table->integer('idAdmin');
+            $table->integer('idAdmin')->default('0');;
             $table->integer('idDepartment');
             // $table->foreign('idDepartment')->references('id')->on('department');;
             $table->tinyInteger('Status')->default('0');

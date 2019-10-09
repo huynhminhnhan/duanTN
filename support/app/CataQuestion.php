@@ -7,13 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 class CataQuestion extends Model
 {
     public $table='CataQuestion';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_CataQuestion';
 
     public function get3Table($status,$user_info){
-        $result = CataQuestion::join('question','CataQuestion.id' ,'=' ,'question.idCataQuestion')
+        $result = CataQuestion::join('question','CataQuestion.id_CataQuestion' ,'=' ,'question.idCataQuestion')
+                ->join('department', 'question.idDepartment', '=', 'department.id_department')
+                ->join('account', 'question.idAdmin', '=', 'account.user_id')
+                ->where('question.Status',$status)
+                ->where('id_user',$user_info)
+                ->get();
+        return $result;
+    }
+    public function get3TableEmployee($status){
+        $result = CataQuestion::join('question','CataQuestion.id_CataQuestion' ,'=' ,'question.idCataQuestion')
                 ->join('department', 'question.idDepartment', '=', 'department.id_department')
                 ->where('Status',$status)
-                ->where('id_user',$user_info)
                 ->get();
         return $result;
     }
@@ -25,5 +33,19 @@ class CataQuestion extends Model
                 ->get();
         return $result;
     }
-    
+
+    public function QuestionFindId($id){
+        $result = CataQuestion::join('question','CataQuestion.id_CataQuestion' ,'=' ,'question.idCataQuestion')
+                ->join('department', 'question.idDepartment', '=', 'department.id_department')
+                ->join('account', 'question.id_user', '=', 'account.user_id')
+                // ->where('id_user',$user_info)
+                ->where('question.id_question', $id)
+                ->get();
+        return $result;
+    }
+    function random_password( $length = 6 ) {
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $password = substr( str_shuffle( $chars ), 0, $length );
+        return $password;
+    }
 }

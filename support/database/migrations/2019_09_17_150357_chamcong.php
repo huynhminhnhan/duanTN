@@ -14,7 +14,7 @@ class Chamcong extends Migration
     public function up()
     {
         Schema::create('chamcong', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_chamcong');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
             $table->string('ngay')->nullable();

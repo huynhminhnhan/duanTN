@@ -33,7 +33,7 @@
                                         
                                         <option value="">Choose...</option>
                                         @forelse($Cata as $Cata)
-                                            <option value="{{$Cata->id}}">{{$Cata->name_cata}}</option>
+                                            <option value="{{$Cata->id_CataQuestion}}">{{$Cata->name_cata}}</option>
                                         @empty
                                             Khong co danh muc cau hoi
                                         @endforelse

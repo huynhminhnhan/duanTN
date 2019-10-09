@@ -18,6 +18,11 @@ class Controller extends BaseController
     $SessionUser = session()->get('AccountInfor'); // lấy session AccountInfor
         
        return $this->Account = $SessionUser;
-     }     
+    }
+    function random_password( $length = 6 ) {
+      $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      $password = substr( str_shuffle( $chars ), 0, $length );
+      return $password;
+  }
         
 }

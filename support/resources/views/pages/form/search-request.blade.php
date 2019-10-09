@@ -98,7 +98,7 @@
 
       for(response of json ){
         // console.log(response);
-        $('tbody').append("<tr><td> "+ response.id +"</td> <td>"+ response.Title+"</td><td>"+response.description+"</td><td>"+response.created_at+"</td><td>"+response.Status+"</td> <td>"+response.name_cata+"</td></tr>")
+        $('tbody').append("<tr><td> "+ response.id_question +"</td> <td>"+ response.Title+"</td><td>"+response.description+"</td><td>"+response.created_at+"</td><td>"+response.Status+"</td> <td>"+response.name_cata+"</td></tr>")
       }
      }
    });

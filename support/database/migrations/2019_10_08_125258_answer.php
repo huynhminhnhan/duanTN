@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CataQuestion extends Migration
+class Answer extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CataQuestion extends Migration
      */
     public function up()
     {
-        Schema::create('CataQuestion', function (Blueprint $table) {
-            $table->bigIncrements('id_CataQuestion');
-            $table->string('name_cata');
+        Schema::create('Answer', function (Blueprint $table) {
+            $table->bigIncrements('id_Answer');
+            $table->integer('id_people');
+
+            $table->integer('id_question');
+            $table->string('Content_Answer');
+
             $table->timestamps();
         });
     }

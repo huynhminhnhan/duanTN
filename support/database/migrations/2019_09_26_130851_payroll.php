@@ -14,7 +14,7 @@ class Payroll extends Migration
     public function up()
     {
         Schema::create('payroll', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_payroll');
             $table->integer('user_id');
             $table->integer('thang');
             $table->integer('nam');
