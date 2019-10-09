@@ -51,9 +51,8 @@ class PagesController extends Controller
         // các câu trả lời
         $Ans = new Account();
         $rep = $Ans->connectAnswerAccount($id);
+
         
-
-
         return view('pages/table/RequestDetail', ['Question'=>$Question,
                     'model'=>$model,'Depart'=>$Depart,'id_cauhoi'=>$id_cauhoi, 'rep'=>$rep]);
     }

@@ -15,6 +15,7 @@
                  
                     $a = $Question[0]->Status;
                     $Emp = $model->questionEmployee($b);
+                    
                     $Status = '';
                     if($a == 0){
                         $Status = 'Chưa tiếp nhận';

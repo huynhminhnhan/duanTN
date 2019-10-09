@@ -13,7 +13,7 @@ class AnswerSeeder extends Seeder
     public function run()
     {
         $ans = new AnswerModel();
-        $ans->id_user = 4;
+        $ans->id_user = 1;
         $ans->id_admin = 2;
 
         $ans->id_question = 3;
