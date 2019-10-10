@@ -12,7 +12,7 @@ class CataQuestion extends Model
     public function get3Table($status,$user_info){
         $result = CataQuestion::join('question','CataQuestion.id_CataQuestion' ,'=' ,'question.idCataQuestion')
                 ->join('department', 'question.idDepartment', '=', 'department.id_department')
-                ->join('account', 'question.idAdmin', '=', 'account.user_id')
+                // ->join('account', 'question.idAdmin', '=', 'account.user_id')
                 ->where('question.Status',$status)
                 ->where('id_user',$user_info)
                 ->get();

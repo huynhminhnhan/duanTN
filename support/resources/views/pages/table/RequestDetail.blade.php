@@ -10,19 +10,24 @@
                 <table class="table">
                 <thead>
                     @php 
-                    
+                    // var_dump($Question[0]);
+                   
                     $b = $Question[0]->idAdmin;
-                 
+                    // dd('aa');
                     $a = $Question[0]->Status;
-                    $Emp = $model->questionEmployee($b);
                     
+                    //  dd(session()->get('AccountInfor')['roles']);
                     $Status = '';
+                    $Emp = $model->questionEmployee($b);
                     if($a == 0){
                         $Status = 'Chưa tiếp nhận';
                     }
-                    if($a == 1){
+                    if($a == 1 ){
                         $Status = 'Xử lý bởi '.$Emp[0]->name;
+                    }else{
+                        $Status = 'Đã xử lý xong';
                     }
+                   $color ='';
                     // {{dd($Emp[0]->name)}}
                     
                     // dd($Emp); 
@@ -118,18 +123,22 @@
                     <table class="table mt-2 mb-4">
                         <thead>
                             <tr>
-                               <td class="boder border-dark"> <p>Nội dung yêu cầu [<code>{{$Question[0]->created_at}}</code>] : <strong>{{$Question[0]->Title}} </strong></p></td>
+                               <th class="boder border-dark"> <p>Nội dung yêu cầu [<code>{{$Question[0]->created_at}}</code>] : <strong>{{$Question[0]->Title}} </strong></p></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{$Question[0]->Content}}</td>
+                                <td colspan="2">{{$Question[0]->Content}}</td>
+                            </tr>
+                            <tr>
+                                <td>Các file đính kèm</td>
+                                <td><a href="{{asset($Question[0]->Images)}}" target="_blank" ><img style="width: 200px;border-radius: 0; height: 100; height: 100px;Object-fit: cover; " src="{{asset($Question[0]->Images)}}" alt=""></a> </td>
                             </tr>
                         </tbody>
                     </table>
                     {{-- cau phan hoi --}}
                     @forelse($rep as $rep)
-                    <table class="table mt-2 mb-4">
+                    <table class="table mt-2 mb-4 {{$color}}">
                         <thead>
                             <tr>
                                     <td class="boder border-dark"> <p> <strong>{{$rep->name}}</strong> [<code>{{$rep->created_at}}</code>]</p></td>
@@ -144,10 +153,12 @@
                     @empty
                     @endforelse
                     
-                @if(session()->get('AccountInfor')['roles']['name']  === 'student')
+                    {{-- {{dd((session()->get('AccountInfor')['roles'])')}} --}}
+                @if((session()->get('AccountInfor')['roles'][0])  == 'student')
                 {{-- sinh vien phan hoi  --}}
                 <table class="table pb-4" bgcolor="f3fdfd">
-                    <form action="" method="POST">
+                    <form action="/rep/{{(session()->get('AccountInfor')['user_id'])}}/{{$Question[0]->id_question}}" method="POST">
+                        @csrf
                         <thead>
                             <tr>
                                 <td class="boder border-dark"> <p>{{$Question[0]->name}} </p></td>
@@ -155,7 +166,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td> <textarea name="rep" id="" cols="120" rows="10"></textarea></td>
+                                <td> <textarea name="rep" id="editor" cols="120" rows="10"></textarea></td>
                             </tr>
                         </tbody>
                     </table>
@@ -169,13 +180,13 @@
                         <div class="button mt-4">
                             <button type="button" class="btn btn-primary"> <a href="/receive/{{(session()->get('AccountInfor')['user_id'])}}/{{$Question[0]->id_question}}"> Tiếp Nhận</a></button>
         
-                            <button type="button" class="btn btn-success">Đóng</button>
+                            <button type="button" class="btn btn-success"><a href="/done/{{$Question[0]->id_question}}"> Đóng</a></button>
                         </div>
                  
                     @else
                 {{-- Nhan vien phan hoi --}}
                     <table class="table pb-4" bgcolor="f3fdfd">
-                        <form action="/rep/{{(session()->get('AccountInfor')['user_id'])}}/{{$Question[0]->id_question}}" method="POST">
+                        <form action="/repEmployee/{{(session()->get('AccountInfor')['user_id'])}}/{{$Question[0]->id_question}}" method="POST">
                             @csrf
                         <thead>
                             <tr>
@@ -184,13 +195,13 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td> <textarea name="rep" id="" cols="120" rows="10"></textarea></td>
+                                <td> <textarea name="rep" id="editor" cols="120" rows="10"></textarea></td>
                             </tr>
                         </tbody>
                         </table>
                         <div class="button mt-4">
                                 <button type="submit" class="btn btn-primary"> Phản hồi</button>
-                                <button type="button" class="btn btn-primary"> <a href="/done"> Đóng</a></button>
+                                <button type="button" class="btn btn-primary"> <a href="/done/{{$Question[0]->id_question}}"> Đóng</a></button>
                         </div>
                         </form>  
                     @endif
@@ -200,4 +211,20 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('assets/ckeditor.js')}}"></script>
+    <script src="{{asset('assets/plugin.js')}}"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ), {
+                
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+    
 @endsection

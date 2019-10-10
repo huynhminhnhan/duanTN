@@ -6,6 +6,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
+                  {{-- {{dd($status)}} --}}
                     @if($status === 0)
                   <h4 class="card-title">Yêu cầu mới gửi</h4>
                   <p class="card-description"> Những yêu cầu bạn gửi chưa được nhân viên tiếp nhận </p>
@@ -34,7 +35,6 @@
                     <tbody>
 
                       @forelse($Question as $q)
-                      {{-- {{dd($q)}} --}}
                         <tr>
                           <td>
                              <a href="/question/{{$q->id_question}}">{{$q->id_question}}</a>
@@ -57,7 +57,7 @@
                               @elseif($q->Status === 2)
                               Đã trả lời
                                 @elseif($q->Status === 3)
-                              Đã xử xong
+                              Đã xử lý xong
                               @endif
                             </a>
                             </td>

@@ -84,10 +84,10 @@ class RequesController extends Controller
 
             if($request ->hasFile('Images')){
                 $now = date("ymd_His");
-                // $tenfile = "images/".$now.".jpg";
+                $tenfile = 'upload/'.$now.".jpg";
                 $file = $request -> file('Images');
 
-                // $file -> move('images',$tenfile);
+                $file -> move('upload',$tenfile);
                 $question->Images = $tenfile;
             }
             // chu de
@@ -102,12 +102,6 @@ class RequesController extends Controller
 
             return redirect('/new-request')->with('success', 'Bạn đã thêm câu hỏi thành công'); 
         }
-    }
-
-    public function chitietcauhoi(Request $request){
-        // var_dump($request->id);
-        // exit;
-        return view('pages.table.chitietcauhoi');
     }
     // chap nhan cau hoi 
     public function Receive($id_admin, $id_question){
@@ -133,6 +127,12 @@ class RequesController extends Controller
         $question->save();
 
         return back()->with('success', 'Bạn đã trả lời câu hỏi thành công'); 
-        
+    }
+    public function done($id_question){
+        $question = Question::find($id_question);
+        $question->Status = 3;
+        $question->save();
+
+        return redirect('/mission/done-handling')->with('success', 'Bạn đã đóng câu hỏi'); 
     }
 }
