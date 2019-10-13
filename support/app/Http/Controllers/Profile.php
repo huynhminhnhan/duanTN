@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Trangcanhan;
-
+use App\Account;
+use Auth;
 class Profile extends Controller
 {
     // public function __construct(Request $Request)
@@ -13,14 +13,40 @@ class Profile extends Controller
     //     $this->middleware('auth');
 
     // }
-    // public function index(Request $Request)
-    // {
+    public function index(Request $Request)
+    {
+        $disable = 'disabled';
+        if (isset($_GET['edit'])) {
+            $disable = '';
+        }
 
-    //      $user_info = $this->getUserInfo(); //lây thông tin user
-    //     return view('welcome', ['user_info'=>$user_info]);
-    // }
-    public function information(){
-        $canhan = Trangcanhan::all();
-        return view('pages.noibo.trangcanhan',['canhan'=>$canhan]);
+
+         $user_info = $this->getUserInfo(); //lây thông tin user
+        return view('pages.noibo.trangcanhan',
+        ['user_info'=>$user_info,
+        'disable' => $disable
+
+        ]
+
+    );
+    }
+
+
+
+
+    public function update(Request $request, $user_id){
+        $update = Account::find($user_id);
+
+        $update->phone = $request->phone; //phone
+        $update->birthday = $request->birthday;
+        $update->address = $request->address;
+        $update->specialized = $request->specialized;
+        $update->semester = $request->semester;
+        $update->avatar = $request->avatar;
+
+
+        $update->save();
+        return redirect('login')->with(Auth::logout());
+
     }
 }

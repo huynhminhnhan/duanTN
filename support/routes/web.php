@@ -22,7 +22,12 @@
     Route::get('question/{name}', 'PagesController@RequestDetail');
 
     // trang cá nhân
-    Route::get('profile','Profile@information');
+    Route::get('profile','Profile@index');
+    Route::get('profile/edit','Profile@editProfile');
+    // insert du lieu vao profile
+    Route::post('/profile/{user_id}', 'Profile@update');
+
+
 // router nhân viên -> chỉ nhân viên và admin  truy cập
     Route::group(['middleware'=> ['checkemployee','auth'] ],function(){
 
