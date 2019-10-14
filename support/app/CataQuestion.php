@@ -15,6 +15,17 @@ class CataQuestion extends Model
                 // ->join('account', 'question.idAdmin', '=', 'account.user_id')
                 ->where('question.Status',$status)
                 ->where('id_user',$user_info)
+                ->select('question.id_question' , 'Title', 'Content','Images', 'Status','question.created_at', 'name_cata', 'description')
+                ->get();
+        return $result;
+    }
+    public function testColumn($status,$user_info){
+        $result = CataQuestion::join('question','CataQuestion.id_CataQuestion' ,'=' ,'question.idCataQuestion')
+                ->join('department', 'question.idDepartment', '=', 'department.id_department')
+                // ->join('account', 'question.idAdmin', '=', 'account.user_id')
+                ->where('question.Status',$status)
+                ->where('id_user',$user_info)
+                ->select('question.id_question' , 'department.id_department', 'question.Content')
                 ->get();
         return $result;
     }

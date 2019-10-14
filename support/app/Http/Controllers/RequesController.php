@@ -2,8 +2,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Quotation;
+use App\User;
 use App\Question;
 use App\CataQuestion;
+// mail
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderShipped;
+// use Mail;
+
+
 use App\AnswerModel;
 use App\Department;
 use HomeController;
@@ -114,17 +121,29 @@ class RequesController extends Controller
         $question->save();
         return back()->with('success', 'Bạn đã tiếp nhận câu hỏi thành công'); 
     }
-    // phan hoi cau hoi tu nhien vien
+    // phan hoi cau hoi tu nhan vien
     public function RepReceive(Request $request, $id_user, $id_question){
         $Ans = new AnswerModel();
         $Ans->id_people = $id_user;
         $Ans->id_question = $id_question;
         $Ans->Content_Answer = $request->rep;
         $Ans->save();
+        if((session()->get('AccountInfor')['roles'][0])  != 'student'){
+            $question = Question::find($id_question);
+            $question->Status = 2;
+            $question->save();
+            // mail
+            // ($mail_user['email']);
+            $mail_user = User::find($id_user);
+            // dd($mail_user['email']);
+            $order = $Ans->getNewAnswer();
+            $messenger = $order[0]['Content_Answer'];
+            // dd($messenger);
+            Mail::to('hungnhps06785@fpt.edu.vn')->send(new OrderShipped($messenger));
 
-        $question = Question::find($id_question);
-        $question->Status = 2;
-        $question->save();
+            // dd($request->user());
+            // Mail::to('hungnhps06785@fpt.edu.vn')->send('');
+        }
 
         return back()->with('success', 'Bạn đã trả lời câu hỏi thành công'); 
     }

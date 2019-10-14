@@ -145,8 +145,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                                {{-- {{!!$rep->Content_Answer!!}} --}}
                             <tr>
-                                <td>{{$rep->Content_Answer}}</td>
+                                <td>{!!$rep->Content_Answer!!}</td>
                             </tr>
                         </tbody>
                     </table>

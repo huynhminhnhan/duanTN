@@ -15,6 +15,7 @@ class Account extends Model
     public function connectAnswerAccount($id_question){
         $result = Account::join('Answer', 'account.user_id' , '=' , 'Answer.id_people')
                 ->where('Answer.id_question', $id_question)
+                ->select('Answer.created_at', 'Content_Answer', 'name')
                 ->get();
         return $result;
     } 
