@@ -20,6 +20,8 @@
     Route::post('/inser-request', 'RequesController@insert');
     // chi tiet cau hỏi
     Route::get('question/{name}', 'PagesController@RequestDetail');
+    // sinh vien rep cau hoi
+    Route::post('rep/{id_user}/{id_question}','RequesController@RepReceive');
 
     // trang cá nhân
     Route::get('profile','Profile@information');
@@ -50,8 +52,9 @@
     // tiep nhan cau hoi
     Route::get('receive/{id_admin}/{id_question}','RequesController@Receive');
     // phan hoi khách hàng
-    Route::post('rep/{id_user}/{id_question}','RequesController@RepReceive');
-
+    Route::post('repEmployee/{id_user}/{id_question}','RequesController@RepReceive');
+    // đóng câu hỏi
+    Route::get('/done/{id_question}','RequesController@done');
     });
 // Router admin -> chỉ admin mới có quyền truy cậpp
     Route::group(['middleware'=> ['checkAdmin'] ],function(){

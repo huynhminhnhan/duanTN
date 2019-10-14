@@ -195,20 +195,20 @@
                 </a>
                 <div class="collapse" id="ui-basic1">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
 
 
                             <a class="nav-link" href="/mission/must-accept
                             ">Nhiệm vụ phải nhận</a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/mission/handling">Nhiệm vụ đang xử lý</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/mission/must-do">Nhiệm vụ phải làm</a>
+                            <a class="nav-link" href="/mission/answered">Câu hỏi đã trả lời</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/mission/move-in">Câu hỏi chuyển đến</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/mission/move-away">Câu hỏi chuyển đi</a>
+                            <a class="nav-link" href="/mission/done-handling">Câu hỏi đã xong</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/mission/research">Đang nghiêm cứu</a>

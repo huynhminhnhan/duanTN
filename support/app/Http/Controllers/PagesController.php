@@ -29,7 +29,13 @@ class PagesController extends Controller
 
         $user_info = $this->getUserInfo(); //lây thông tin user
         $qs = new CataQuestion();
+        // $test = $qs->testColumn($status,$user_info['user_id']);
+        // foreach($test as $test){
+        //     // DD($test);
+        // }
+        // dd($test);
         $Question = $qs->get3Table($status,$user_info['user_id']);
+        // dd($Question);
         $id_cauhoi = $this->random_password(8);
 
         
