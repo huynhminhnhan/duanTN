@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class OrderShipped extends Mailable
 {
+    public $content;
     use Queueable, SerializesModels;
 
     /**
@@ -16,9 +17,9 @@ class OrderShipped extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($content)
     {
-        //
+       $this->content = $content;
     }
 
     /**
@@ -28,6 +29,7 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        $e_content = $this->content;
+        return $this->view('templateMail.mailDepart',compact("e_content"));
     }
 }

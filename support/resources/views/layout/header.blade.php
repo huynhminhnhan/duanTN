@@ -260,7 +260,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/internal/payroll">Xem bảng lương</a>
                         </li>
-
+                        @if(in_array('admin',session()->get('AccountInfor')['roles']))
+                        <li class="nav-item">
+                            <a class="nav-link" href="internal/sendNotification">Gửi thông báo đến các phòng</a>
+                        </li>
+                          @endif
                     </ul>
                 </div>
             </li>
