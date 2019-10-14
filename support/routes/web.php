@@ -54,13 +54,17 @@
 
     });
 // Router admin -> chỉ admin mới có quyền truy cậpp
-    Route::group(['middleware'=> ['checkAdmin','auth'] ],function(){
-        Route::get('admin/', 'UsersController@EditUser');
+    Route::group(['middleware'=> ['checkAdmin'] ],function(){
+        Route::get('admin/', 'UsersController@homeAdmin');
         Route::get('admin/user', 'UsersController@Viewusers');
-        Route::get('admin/user/{id}', 'UsersController@ViewEditUser');
+        Route::get('admin/user/{id_account}', 'UsersController@ViewEditUser');
         Route::post('admin/user', 'UsersController@EditUser');
+        // phòng ban 
+        Route::get('admin/Departments/', 'Departments@showDepartments');
+        Route::post('admin/addDepartment', 'Departments@addDepartments');
+       
     });
-
+   
 
 Auth::routes();
 Route::get('google/redirect', 'Auth\LoginController@redirectToProvider')->name('googleRedirect');

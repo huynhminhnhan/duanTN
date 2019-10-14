@@ -45,7 +45,7 @@ class AccountsTableSeeder extends Seeder
 
         $Accounts = new Account();
         $Accounts->name = 'ADMIN Nhân';
-        $Accounts->user_id = 3;
+        $Accounts->user_id = 2;
 
         $Accounts->phone = '0583255203';
         $Accounts->birthday = '03/01/1999';

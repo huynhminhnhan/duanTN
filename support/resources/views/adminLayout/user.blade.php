@@ -1,8 +1,13 @@
 @extends('layout.master')
 @section('content')
+
       <div class="main-panel">
         <div class="content-wrapper">
-          
+        <div class="row" >
+        <div class="col-md-12">
+         @include('adminLayout.header')
+        </div>
+        </div>
           <div class="row">
             <div class="col-md-12 d-flex align-items-stretch grid-margin">
               <div class="row flex-grow">
@@ -28,8 +33,8 @@
                         
                         <tr>
                         <td class="py-1">
-                          <a href="/admin/user/{{$Accounts->id}}"> <img src="{{$Accounts->avatar}}" alt="image" /></a>  </td>
-                          <td> <a href="/admin/user/{{$Accounts->id}}"> {{$Accounts->name}} </a></td>
+                          <a href="/admin/user/{{$Accounts->id_account}}"> <img src="{{$Accounts->avatar}}" alt="image" /></a>  </td>
+                          <td> <a href="/admin/user/{{$Accounts->id_account}}"> {{$Accounts->name}} </a></td>
                           <td> {{$Accounts->name_depart}} </td>
                          
                         </tr>

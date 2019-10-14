@@ -2,6 +2,11 @@
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
+    <div class="row" >
+        <div class="col-md-12">
+         @include('adminLayout.header')
+        </div>
+        </div>
         <div class="row" >
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -74,7 +79,7 @@
                                 @endif
                                 </div>
                                 <div class="form-group col-md-12">
-                                <input name="idAccount"  type="hidden" value="{{$Account->id}}">
+                                <input name="idAccount"  type="hidden" value="{{$Account->id_account}}">
                                     <button type="submit" class="btn btn-success mr-2">Lưu</button>
                                     <button type="reset" class="btn btn-secondary">Tạo lại mật khẩu</button>
                                     <button name="removeAccount" class="btn btn-warning">Xóa tài khoản</button>

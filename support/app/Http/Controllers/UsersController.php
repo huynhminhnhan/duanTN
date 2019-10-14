@@ -13,25 +13,29 @@ class UsersController extends Controller
     public function Viewusers() {
         
         $Accounts = Account::join('department','department.id_department' ,'=','account.department_id')->get();
-        // dd($Accounts);
-        return view('pages/table/user',["Accounts" => $Accounts]);
+        
+        return view('adminLayout/user',["Accounts" => $Accounts]);
     }
+    public function homeAdmin() {
+        return view('adminLayout/home');
+    }
+    
     public function ViewEditUser(Request $Request) {
         $idAccount = $Request->id_account;
+       
         $user_info = $this->getUserInfo(); //lây thông tin user 
         // $userInFor = User::where('id',$)
         // ::load('roles');
         $Account = Account::join('department','Account.department_id' ,'=','department.id_department')
         ->where('Account.id_account',$idAccount)
         ->get()->first();;
-
          $Departments = Department::all();
          $User= User::where('id',$Account->user_id)->get()->first()->load('roles');
          $Role= $User['roles'];
          $Roles = Role::all();
-        
+         
         // dd($Role);
-        return view('pages/table/edit-user',
+        return view('adminLayout/edit-user',
         [
             "Account" => $Account,
             "Departments" => $Departments,
@@ -49,11 +53,10 @@ class UsersController extends Controller
         return redirect('/admin/user/')->with('erro', 'trường họ tên không được bỏ trống');
        }
        $Account = Account::join('department','account.department_id' ,'=','department.id_department')
-       ->where('account.id',$input['idAccount'])
+       ->where('account.id_account',$input['idAccount'])
        ->get()->first();
 
         $Role = Role::whereIn('name',$input['roles'])->get();
-       
         $User = User::where('id' ,$Account ->user_id)->get()->first();
         $User->save();
 
