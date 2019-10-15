@@ -57,7 +57,7 @@
     Route::get('/done/{id_question}','RequesController@done');
     });
 // Router admin -> chỉ admin mới có quyền truy cậpp
-    Route::group(['middleware'=> ['checkAdmin'],'prefix' => 'admin' ],function(){
+    Route::group(['middleware'=> ['checkAdmin','auth'],'prefix' => 'admin' ],function(){
         Route::get('/', 'UsersController@homeAdmin');
         Route::get('user', 'UsersController@Viewusers');
         Route::get('user/{id_account}', 'UsersController@ViewEditUser');
@@ -69,9 +69,14 @@
         // sentmailDepart
         Route::get('sendNotification', 'Sendmail@viewSendMailDepartments');
         Route::post('sentMailDepartment', 'Sendmail@SendMailDepartments');
-
+        
+        // adminlogin
     });
 Auth::routes();
+// login admin
+Route::get('admin/login', 'admin\LoginAdminController@viewAdminLogin');
+Route::post('/login/admin', 'admin\LoginAdminController@authenticated')->name('postLogin');
+
 Route::get('google/redirect', 'Auth\LoginController@redirectToProvider')->name('googleRedirect');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
