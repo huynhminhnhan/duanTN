@@ -7,17 +7,20 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                 <div class="card-body">
+                <form action="/sentMailDepartment" method="POST">
+                        @csrf
                 <div class="form-group">
                                     <label for="title">Phòng ban</label>
                                     <select class="form-control" name="Department" id="title">
-                                             <option selected="" value=" 1">  Giam Doc</option>
-                                             <option value=" 2">  Student</option>
-                                            <option value=" 3">  phong quan li</option>
+                                    @foreach ($Departments as $Department)
+                                            <option selected="" value="{{$Department->id_department}}"> {{$Department->name_depart}}</option>
+
+                                            @endforeach
                                              </select>    
-                                </div>
+                                </div>                
+                                 <label for="tieude">Subject</label>
+                                    <input type="text"  name="subject" class="form-control" id="tieude" placeholder="Subject">
                 <table class="table pb-4" bgcolor="f3fdfd">
-                    <form action="/sentMailDepartment" method="POST">
-                        @csrf
                         <thead>
                             <tr>
                                 <td class="boder border-dark"> <p></p></td>
@@ -41,8 +44,7 @@
     <script src="{{asset('assets/plugin.js')}}"></script>
     <script>
         ClassicEditor
-            .create( document.querySelector( '#editor' ), {
-                
+            .create( document.querySelector( '#editor' ),{
                 // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
             } )
             .then( editor => {
@@ -52,5 +54,9 @@
                 console.error( err.stack );
             } );
     </script>
-    
+    <style>
+    .ck-editor__editable_inline {
+    min-height: 300px !important;
+}
+    </style>
 @endsection

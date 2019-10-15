@@ -67,7 +67,7 @@
         Route::post('admin/addDepartment', 'Departments@addDepartments');
        
         // sentmailDepart
-        Route::get('internal/sendNotification/', 'Sendmail@viewSendMailDepartments');
+        Route::get('internal/sendNotification', 'Sendmail@viewSendMailDepartments');
         Route::post('/sentMailDepartment', 'Sendmail@SendMailDepartments');
 
     });
