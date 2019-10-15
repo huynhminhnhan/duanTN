@@ -20,7 +20,7 @@ class Sendmail extends Controller
         $userEmail = User::select('email')
         ->join('account','account.user_id' ,'=' ,'users.id')
         ->join('department','account.department_id','=','department.id_department')
-        ->where('id_department',$input['Department'])
+        ->wherein('id_department',$input['Department'])
         ->get();
         foreach($userEmail as $email) {
             mail::to($email->email)->send(new OrderShipped($input['content'],$input['subject']));

@@ -7,17 +7,22 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                 <div class="card-body">
-                <form action="/sentMailDepartment" method="POST">
+                <form action="/admin/sentMailDepartment" method="POST">
                         @csrf
                 <div class="form-group">
                                     <label for="title">Phòng ban</label>
-                                    <select class="form-control" name="Department" id="title">
+                                    <div class="row">
                                     @foreach ($Departments as $Department)
-                                            <option selected="" value="{{$Department->id_department}}"> {{$Department->name_depart}}</option>
-
-                                            @endforeach
-                                             </select>    
-                                </div>                
+                                    <div class="col-md-4">
+                                    <div class="form-check form-check-flat">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" name="Department[]" value="{{$Department->id_department}}" class="form-check-input" > {{$Department->name_depart}}<i class="input-helper"></i></label>
+                                    </div>
+                                    </div>
+                                    @endforeach
+                                    </div>
+                                       
+                                </div>          
                                  <label for="tieude">Subject</label>
                                     <input type="text"  name="subject" class="form-control" id="tieude" placeholder="Subject">
                 <table class="table pb-4" bgcolor="f3fdfd">
