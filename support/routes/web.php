@@ -72,11 +72,12 @@
         
         // adminlogin
     });
+// login default
 Auth::routes();
 // login admin
 Route::get('admin/login', 'admin\LoginAdminController@viewAdminLogin');
 Route::post('/login/admin', 'admin\LoginAdminController@authenticated')->name('postLogin');
-
+//login google
 Route::get('google/redirect', 'Auth\LoginController@redirectToProvider')->name('googleRedirect');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
