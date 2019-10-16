@@ -24,8 +24,6 @@
                     }
                     if($a == 1 ){
                         $Status = 'Xử lý bởi '.$Emp[0]->name;
-                    }else{
-                        $Status = 'Đã xử lý xong';
                     }
                    $color ='';
                     // {{dd($Emp[0]->name)}}

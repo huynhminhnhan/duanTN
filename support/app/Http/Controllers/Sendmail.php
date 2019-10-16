@@ -12,6 +12,9 @@ class Sendmail extends Controller
     }
     public function SendMailDepartments(Request $Request) {
         $input = $Request->all();
-        mail::to('huynhminhnhan69@gmail.com')->send(new OrderShipped($input['content'],'haha'));
+
+        mail::to('huuhung112999@gmail.com')->send(new OrderShipped('ccc'));
+        return redirect('/')->with('success', 'Bạn đã thêm câu hỏi thành công'); 
+
     }
 }

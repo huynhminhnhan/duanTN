@@ -16,6 +16,7 @@ class Account extends Model
         $result = Account::join('Answer', 'account.user_id' , '=' , 'Answer.id_people')
                 ->where('Answer.id_question', $id_question)
                 ->select('Answer.created_at', 'Content_Answer', 'name')
+                ->orderBY('Answer.id_Answer', 'ASC')
                 ->get();
         return $result;
     } 

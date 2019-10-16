@@ -31,5 +31,6 @@ class OrderShipped extends Mailable
     {
         $e_content = $this->content;
         return $this->view('templateMail.mailDepart',compact("e_content"));
+        
     }
 }

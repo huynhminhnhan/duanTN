@@ -7,6 +7,7 @@
     <title>mail</title>
 </head>
 <body>
-{{$e_content}}
+    <b>{!$e_content!}</b>
+
 </body>
 </html>
