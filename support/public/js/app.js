@@ -1384,7 +1384,7 @@ module.exports = function spread(callback) {
 
 
 var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
-var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/axios/node_modules/is-buffer/index.js");
+var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/is-buffer/index.js");
 
 /*global toString:true*/
 
@@ -1684,28 +1684,6 @@ module.exports = {
   extend: extend,
   trim: trim
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/node_modules/is-buffer/index.js":
-/*!************************************************************!*\
-  !*** ./node_modules/axios/node_modules/is-buffer/index.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-module.exports = function isBuffer (obj) {
-  return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
 
 
 /***/ }),
@@ -2849,34 +2827,7 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  methods: {
-    activeMenu: function activeMenu() {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this.menu[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var item = _step.value;
-          item.active == true; //  console.log(item);
-        } // return this.title = 'change';
-
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-            _iterator["return"]();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -2956,13 +2907,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'newRequest',
   data: function data() {
     return {
-      title: ''
+      title: 'hhhhhhhh',
+      abc: ''
     };
+  },
+  methods: {
+    checkform: function checkform(e) {
+      var _this = this;
+
+      axios.post('/new-request', {
+        title: this.title
+      }).then(function (response) {
+        _this.abc = response.data;
+      });
+      e.preventDefault();
+    }
   }
 });
 
@@ -2977,426 +2940,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -36418,6 +35961,28 @@ var warnNoMutationObserverSupport = function warnNoMutationObserverSupport(sourc
 
 }));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/is-buffer/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/is-buffer/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+module.exports = function isBuffer (obj) {
+  return obj != null && obj.constructor != null &&
+    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
 
 
 /***/ }),
@@ -70350,66 +69915,51 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm._l(_vm.menu, function(item, i) {
-            return _c(
-              "li",
-              {
-                key: i,
-                staticClass: "nav-item",
-                on: { click: _vm.activeMenu }
-              },
-              [
+            return _c("li", { key: i, staticClass: "nav-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    "data-toggle": "collapse",
+                    href: "#" + item.url,
+                    "aria-expanded": "false",
+                    "aria-controls": item.url
+                  }
+                },
+                [
+                  _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "menu-title" }, [
+                    _vm._v(_vm._s(item.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("i", { staticClass: "menu-arrow" })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "collapse", attrs: { id: item.url } }, [
                 _c(
-                  "a",
-                  {
-                    staticClass: "nav-link",
-                    attrs: {
-                      "data-toggle": "collapse",
-                      href: "#" + item.url,
-                      "aria-expanded": "false",
-                      "aria-controls": item.url
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "menu-icon typcn typcn-coffee" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "menu-title" }, [
-                      _vm._v(_vm._s(item.title))
-                    ]),
-                    _vm._v(" "),
-                    _c("i", { staticClass: "menu-arrow" })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "collapse", attrs: { id: item.url } },
-                  [
-                    _c(
-                      "ul",
-                      { staticClass: "nav flex-column sub-menu" },
-                      _vm._l(item.childrenMenu, function(menus, i) {
-                        return _c(
-                          "li",
-                          { key: i, staticClass: "nav-item" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "nav-link",
-                                attrs: { to: menus.url }
-                              },
-                              [_vm._v(_vm._s(menus.title))]
-                            )
-                          ],
-                          1
+                  "ul",
+                  { staticClass: "nav flex-column sub-menu" },
+                  _vm._l(item.childrenMenu, function(menus, i) {
+                    return _c(
+                      "li",
+                      { key: i, staticClass: "nav-item" },
+                      [
+                        _c(
+                          "router-link",
+                          { staticClass: "nav-link", attrs: { to: menus.url } },
+                          [_vm._v(_vm._s(menus.title))]
                         )
-                      }),
-                      0
+                      ],
+                      1
                     )
-                  ]
+                  }),
+                  0
                 )
-              ]
-            )
+              ])
+            ])
           })
         ],
         2
@@ -70468,43 +70018,229 @@ var render = function() {
               staticClass: "forms-sample",
               attrs: {
                 name: "callback",
-                method: "POST",
-                action: "/insert-request",
                 role: "form",
                 enctype: "multipart/form-data"
               },
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.submitForm($event)
-                }
-              }
+              on: { submit: _vm.checkform }
             },
-            [_vm._m(0)]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.title,
-                expression: "title"
-              }
-            ],
-            attrs: { type: "text" },
-            domProps: { value: _vm.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col-md-6" }, [
+                  _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
+                    _vm._v("Chọn phòng ban")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.department,
+                          expression: "department"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "exampleFormControlSelect1" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.department = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", [_vm._v("Choose...")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("3")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("4")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("5")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6" }, [
+                  _c("label", { attrs: { for: "title" } }, [_vm._v("Chủ đề")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.cataquestion,
+                          expression: "cataquestion"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "title" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.cataquestion = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", [_vm._v("Choose...")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("3")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("4")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("5")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6" }, [
+                  _c("label", { attrs: { for: "tieude" } }, [
+                    _vm._v("Tiêu đề yêu cầu")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.content,
+                        expression: "content"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "tieude",
+                      placeholder: "Nhập tiêu đề"
+                    },
+                    domProps: { value: _vm.content },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.content = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-6" }, [
+                  _c("label", [_vm._v("File upload")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "file-upload-default",
+                    attrs: { type: "file", name: "img[]" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group col-xs-12" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.images,
+                          expression: "images"
+                        }
+                      ],
+                      staticClass: "form-control file-upload-info",
+                      attrs: { type: "text", placeholder: "Upload Image" },
+                      domProps: { value: _vm.images },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.images = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-12" }, [
+                  _c("label", { attrs: { for: "noidung" } }, [
+                    _vm._v("Nội dung")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.images,
+                        expression: "images"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "noidung", cols: "2", rows: "2" },
+                    domProps: { value: _vm.images },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.images = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.title,
+                    expression: "title"
+                  }
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.title = $event.target.value
+                  }
                 }
-                _vm.title = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Message is: " + _vm._s(_vm.title))])
+              }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Message is: " + _vm._s(_vm.title))])
+            ]
+          )
         ])
       ])
     ])
@@ -70515,105 +70251,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
-          _vm._v("Chọn phòng ban")
-        ]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-control ",
-            attrs: { id: "exampleFormControlSelect1" }
-          },
-          [
-            _c("option", [_vm._v("Choose...")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("3")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("4")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("5")])
-          ]
-        )
-      ]),
+    return _c("span", { staticClass: "input-group-append" }, [
+      _c(
+        "button",
+        {
+          staticClass: "file-upload-browse btn btn-info",
+          attrs: { type: "button" }
+        },
+        [_vm._v("Upload")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group col-md-12" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success mr-2", attrs: { type: "submit" } },
+        [_vm._v("Submit")]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", { attrs: { for: "title" } }, [_vm._v("Chủ đề")]),
-        _vm._v(" "),
-        _c("select", { staticClass: "form-control ", attrs: { id: "title" } }, [
-          _c("option", [_vm._v("Choose...")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("2")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("3")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("4")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("5")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", { attrs: { for: "tieude" } }, [_vm._v("Tiêu đề yêu cầu")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", id: "tieude", placeholder: "Nhập tiêu đề" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-6" }, [
-        _c("label", [_vm._v("File upload")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "file-upload-default",
-          attrs: { type: "file", name: "img[]" }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group col-xs-12" }, [
-          _c("input", {
-            staticClass: "form-control file-upload-info",
-            attrs: { type: "text", placeholder: "Upload Image" }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "input-group-append" }, [
-            _c(
-              "button",
-              {
-                staticClass: "file-upload-browse btn btn-info",
-                attrs: { type: "button" }
-              },
-              [_vm._v("Upload")]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-12" }, [
-        _c("label", { attrs: { for: "noidung" } }, [_vm._v("Nội dung")]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { id: "noidung", cols: "2", rows: "2" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-12" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-success mr-2", attrs: { type: "submit" } },
-          [_vm._v("Submit")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-light", attrs: { type: "reset" } },
-          [_vm._v("Reset")]
-        )
+      _c("button", { staticClass: "btn btn-light", attrs: { type: "reset" } }, [
+        _vm._v("Reset")
       ])
     ])
   }
@@ -70639,145 +70300,152 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
+  return _c("transition", { attrs: { name: "fade" } }, [
+    _c("div", { staticClass: "row" }, [
       _c(
         "div",
-        { staticClass: "col-md-6 d-flex align-items-stretch grid-margin" },
+        { staticClass: "col-md-12 d-flex align-items-stretch grid-margin" },
         [
           _c("div", { staticClass: "row flex-grow" }, [
             _c("div", { staticClass: "col-12" }, [
               _c("div", { staticClass: "card" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _c("h4", { staticClass: "card-title" }, [_vm._v("Search")]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-description" }, [
-                    _vm._v(" Basic form layout ")
-                  ]),
-                  _vm._v(" "),
-                  _c("form", { staticClass: "forms-sample" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Email address")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "email",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter email"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                        _vm._v("Password")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "password",
-                          id: "exampleInputPassword1",
-                          placeholder: "Password"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-success mr-2",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("Submit")]
-                    ),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "btn btn-light" }, [
-                      _vm._v("Cancel")
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 stretch-card" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-body" }, [
                   _c("h4", { staticClass: "card-title" }, [
-                    _vm._v("Horizontal Form")
+                    _vm._v("MY SUPPORT")
                   ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "card-description" }, [
-                    _vm._v(" Horizontal form layout ")
+                    _vm._v(" TÌM KIẾM ")
                   ]),
                   _vm._v(" "),
-                  _c("form", { staticClass: "forms-sample" }, [
-                    _c("div", { staticClass: "form-group row" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-sm-3 col-form-label",
-                          attrs: { for: "exampleInputEmail2" }
-                        },
-                        [_vm._v("Email")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-9" }, [
+                  _c(
+                    "form",
+                    { staticClass: "forms-sample" },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                          _vm._v("Từ khóa:")
+                        ]),
+                        _vm._v(" "),
                         _c("input", {
                           staticClass: "form-control",
                           attrs: {
-                            type: "email",
-                            id: "exampleInputEmail2",
-                            placeholder: "Enter email"
+                            type: "search",
+                            id: "exampleInput",
+                            placeholder: ""
                           }
                         })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group row" }, [
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "exampleInput" } }, [
+                        _vm._v("Trạng thái:")
+                      ]),
+                      _vm._v(" "),
                       _c(
-                        "label",
+                        "b-form-checkbox-group",
                         {
-                          staticClass: "col-sm-3 col-form-label",
-                          attrs: { for: "exampleInputPassword2" }
+                          attrs: { id: "checkbox-group-2", name: "flavour-2" },
+                          model: {
+                            value: _vm.selected,
+                            callback: function($$v) {
+                              _vm.selected = $$v
+                            },
+                            expression: "selected"
+                          }
                         },
-                        [_vm._v("Password")]
+                        [
+                          _c("b-form-checkbox", { attrs: { value: "1" } }, [
+                            _vm._v("Yêu cầu mới gửi")
+                          ]),
+                          _vm._v(" "),
+                          _c("b-form-checkbox", { attrs: { value: "2" } }, [
+                            _vm._v("Đang xử lý")
+                          ]),
+                          _vm._v(" "),
+                          _c("b-form-checkbox", { attrs: { value: "3" } }, [
+                            _vm._v("Đã trả lời")
+                          ]),
+                          _vm._v(" "),
+                          _c("b-form-checkbox", { attrs: { value: "4" } }, [
+                            _vm._v("Đã xử lý xong")
+                          ])
+                        ],
+                        1
                       ),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-9" }, [
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "password",
-                            id: "exampleInputPassword2",
-                            placeholder: "Password"
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-success mr-2",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("Submit")]
-                    ),
-                    _vm._v(" "),
-                    _c("button", { staticClass: "btn btn-light" }, [
-                      _vm._v("Cancel")
-                    ])
-                  ])
+                      _c(
+                        "label",
+                        { staticClass: "mt-2", attrs: { for: "exampleInput" } },
+                        [_vm._v("Nơi tìm kiếm:")]
+                      ),
+                      _vm._v(" "),
+                      _c("form", { attrs: { action: "" } }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "custom-control custom-radio custom-control-inline"
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: {
+                                type: "radio",
+                                id: "customRadioInline1",
+                                name: "customRadioInline1"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "customRadioInline1" }
+                              },
+                              [_vm._v("Nội dung câu hỏi")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "custom-control custom-radio custom-control-inline"
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: {
+                                type: "radio",
+                                id: "customRadioInline2",
+                                name: "customRadioInline1"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "customRadioInline2" }
+                              },
+                              [_vm._v("Phần trao đổi")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success mr-2 mt-2",
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("Tìm kiếm")]
+                      )
+                    ],
+                    1
+                  )
                 ])
               ])
             ])
@@ -70785,1024 +70453,53 @@ var staticRenderFns = [
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 grid-margin stretch-card" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [_vm._v("Basic form")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-description" }, [
-              _vm._v(" Basic form elements ")
+      _c(
+        "div",
+        { staticClass: "col-md-12 d-flex align-items-stretch grid-margin" },
+        [
+          _c("table", { staticClass: "table table-striped" }, [
+            _c("thead", [
+              _c("tr", [
+                _c("th", [_vm._v(" Mã câu hỏi ")]),
+                _vm._v(" "),
+                _c("th", [_vm._v(" Lĩnh vực ")]),
+                _vm._v(" "),
+                _c("th", [_vm._v(" Gửi đến ")]),
+                _vm._v(" "),
+                _c("th", [_vm._v(" Thời gian ")]),
+                _vm._v(" "),
+                _c("th", [_vm._v(" Trạng thái ")]),
+                _vm._v(" "),
+                _c("th", [_vm._v(" Dịch vụ ")])
+              ])
             ]),
             _vm._v(" "),
-            _c("form", { staticClass: "forms-sample" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exampleInputName1" } }, [
-                  _vm._v("Name")
-                ]),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", [_vm._v(" cc ")]),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "exampleInputName1",
-                    placeholder: "Name"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exampleInputEmail3" } }, [
-                  _vm._v("Email address")
-                ]),
+                _c("td", [_vm._v(" cc ")]),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "email",
-                    id: "exampleInputEmail3",
-                    placeholder: "Email"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exampleInputPassword4" } }, [
-                  _vm._v("Password")
-                ]),
+                _c("td", [_vm._v(" cc ")]),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "password",
-                    id: "exampleInputPassword4",
-                    placeholder: "Password"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("File upload")]),
+                _c("td", [_vm._v(" cc ")]),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "file-upload-default",
-                  attrs: { type: "file", name: "img[]" }
-                }),
+                _c("td", [_vm._v(" cc ")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "input-group col-xs-12" }, [
-                  _c("input", {
-                    staticClass: "form-control file-upload-info",
-                    attrs: {
-                      type: "text",
-                      disabled: "",
-                      placeholder: "Upload Image"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "input-group-append" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "file-upload-browse btn btn-info",
-                        attrs: { type: "button" }
-                      },
-                      [_vm._v("Upload")]
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exampleInputCity1" } }, [
-                  _vm._v("City")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "exampleInputCity1",
-                    placeholder: "Location"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exampleTextarea1" } }, [
-                  _vm._v("Textarea")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  staticClass: "form-control",
-                  attrs: { id: "exampleTextarea1", rows: "2" }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-success mr-2",
-                  attrs: { type: "submit" }
-                },
-                [_vm._v("Submit")]
-              ),
-              _vm._v(" "),
-              _c("button", { staticClass: "btn btn-light" }, [_vm._v("Cancel")])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-5 d-flex align-items-stretch" }, [
-        _c("div", { staticClass: "row flex-grow" }, [
-          _c("div", { staticClass: "col-12 grid-margin" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "card-title" }, [
-                  _vm._v("Basic input groups")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-description" }, [
-                  _vm._v(" Basic bootstrap input groups ")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "input-group" }, [
-                    _c("div", { staticClass: "input-group-prepend" }, [
-                      _c("span", { staticClass: "input-group-text" }, [
-                        _vm._v("@")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Username",
-                        "aria-label": "Username",
-                        "aria-describedby": "basic-addon1"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "input-group" }, [
-                    _c("div", { staticClass: "input-group-prepend" }, [
-                      _c("span", { staticClass: "input-group-text" }, [
-                        _vm._v("$")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        "aria-label": "Amount (to the nearest dollar)"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "input-group-append" }, [
-                      _c("span", { staticClass: "input-group-text" }, [
-                        _vm._v(".00")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "input-group" }, [
-                    _c("div", { staticClass: "input-group-prepend" }, [
-                      _c("span", { staticClass: "input-group-text" }, [
-                        _vm._v("$")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "input-group-prepend" }, [
-                      _c("span", { staticClass: "input-group-text" }, [
-                        _vm._v("0.00")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        "aria-label": "Amount (to the nearest dollar)"
-                      }
-                    })
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 grid-margin stretch-card" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "card-title" }, [
-                  _vm._v("Colored input groups")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-description" }, [
-                  _vm._v(" Input groups with colors ")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "input-group" }, [
-                    _c("div", { staticClass: "input-group-prepend bg-info" }, [
-                      _c(
-                        "span",
-                        { staticClass: "input-group-text bg-transparent" },
-                        [
-                          _c("i", {
-                            staticClass: "mdi mdi-shield-outline text-white"
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Username",
-                        "aria-label": "Username",
-                        "aria-describedby": "colored-addon1"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "input-group" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "input-group-prepend bg-primary border-primary"
-                      },
-                      [
-                        _c(
-                          "span",
-                          { staticClass: "input-group-text bg-transparent" },
-                          [
-                            _c("i", {
-                              staticClass: "mdi mdi mdi-menu text-white"
-                            })
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Username",
-                        "aria-label": "Username",
-                        "aria-describedby": "colored-addon2"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "input-group" }, [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Username",
-                        "aria-label": "Username",
-                        "aria-describedby": "colored-addon3"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "input-group-append bg-primary border-primary"
-                      },
-                      [
-                        _c(
-                          "span",
-                          { staticClass: "input-group-text bg-transparent" },
-                          [_c("i", { staticClass: "mdi mdi-menu text-white" })]
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "input-group" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "input-group-prepend bg-primary border-primary"
-                      },
-                      [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "input-group-text bg-transparent text-white"
-                          },
-                          [_vm._v("$")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        "aria-label": "Amount (to the nearest dollar)"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "input-group-append bg-primary border-primary"
-                      },
-                      [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "input-group-text bg-transparent text-white"
-                          },
-                          [_vm._v(".00")]
-                        )
-                      ]
-                    )
-                  ])
+                _c("td", [
+                  _vm._v(
+                    " cc\r\n                          \r\n                  "
+                  )
                 ])
               ])
             ])
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-7 grid-margin stretch-card" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [_vm._v("Input size")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-description" }, [
-              _vm._v(" This is the default bootstrap form layout ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Large input")]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control form-control-lg",
-                attrs: {
-                  type: "text",
-                  placeholder: "Username",
-                  "aria-label": "Username"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Default input")]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  placeholder: "Username",
-                  "aria-label": "Username"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", [_vm._v("Small input")]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control form-control-sm",
-                attrs: {
-                  type: "text",
-                  placeholder: "Username",
-                  "aria-label": "Username"
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [_vm._v("Selectize")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
-                _vm._v("Large select")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control form-control-lg",
-                  attrs: { id: "exampleFormControlSelect1" }
-                },
-                [
-                  _c("option", [_vm._v("1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("5")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "exampleFormControlSelect2" } }, [
-                _vm._v("Default select")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: { id: "exampleFormControlSelect2" }
-                },
-                [
-                  _c("option", [_vm._v("1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("5")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "exampleFormControlSelect3" } }, [
-                _vm._v("Small select")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control form-control-sm",
-                  attrs: { id: "exampleFormControlSelect3" }
-                },
-                [
-                  _c("option", [_vm._v("1")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("2")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("3")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("4")]),
-                  _vm._v(" "),
-                  _c("option", [_vm._v("5")])
-                ]
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 grid-margin stretch-card" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [
-              _vm._v("Checkbox Controls")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-description" }, [
-              _vm._v("Checkbox and radio controls")
-            ]),
-            _vm._v(" "),
-            _c("form", { staticClass: "forms-sample" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox" }
-                        }),
-                        _vm._v(" Default ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", checked: "" }
-                        }),
-                        _vm._v(" Checked ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", disabled: "" }
-                        }),
-                        _vm._v(" Disabled ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", disabled: "", checked: "" }
-                        }),
-                        _vm._v(" Disabled checked ")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("div", { staticClass: "form-radio" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "optionsRadios",
-                            id: "optionsRadios1",
-                            value: "",
-                            checked: ""
-                          }
-                        }),
-                        _vm._v(" Option one ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-radio" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "optionsRadios",
-                            id: "optionsRadios2",
-                            value: "option2"
-                          }
-                        }),
-                        _vm._v(" Option two ")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("div", { staticClass: "form-radio disabled" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "optionsRadios2",
-                            id: "optionsRadios3",
-                            value: "option3",
-                            disabled: ""
-                          }
-                        }),
-                        _vm._v(" Option three is disabled ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-radio disabled" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "optionsRadio2",
-                            id: "optionsRadios4",
-                            value: "option4",
-                            disabled: "",
-                            checked: ""
-                          }
-                        }),
-                        _vm._v(" Option four is selected and disabled ")
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 grid-margin stretch-card" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [
-              _vm._v("Checkbox Flat Controls")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-description" }, [
-              _vm._v("Checkbox and radio controls with flat design")
-            ]),
-            _vm._v(" "),
-            _c("form", { staticClass: "forms-sample" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("div", { staticClass: "form-check form-check-flat" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox" }
-                        }),
-                        _vm._v(" Default ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check form-check-flat" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", checked: "" }
-                        }),
-                        _vm._v(" Checked ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check form-check-flat" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", disabled: "" }
-                        }),
-                        _vm._v(" Disabled ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check form-check-flat" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", disabled: "", checked: "" }
-                        }),
-                        _vm._v(" Disabled checked ")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("div", { staticClass: "form-radio form-radio-flat" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "flatRadios1",
-                            id: "flatRadios1",
-                            value: "",
-                            checked: ""
-                          }
-                        }),
-                        _vm._v(" Option one ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-radio form-radio-flat" }, [
-                      _c("label", { staticClass: "form-check-label" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "flatRadios2",
-                            id: "flatRadios2",
-                            value: "option2"
-                          }
-                        }),
-                        _vm._v(" Option two ")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-radio form-radio-flat disabled" },
-                      [
-                        _c("label", { staticClass: "form-check-label" }, [
-                          _c("input", {
-                            staticClass: "form-check-input",
-                            attrs: {
-                              type: "radio",
-                              name: "flatRadios3",
-                              id: "flatRadios3",
-                              value: "option3",
-                              disabled: ""
-                            }
-                          }),
-                          _vm._v(" Option three is disabled ")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "form-radio form-radio-flat disabled" },
-                      [
-                        _c("label", { staticClass: "form-check-label" }, [
-                          _c("input", {
-                            staticClass: "form-check-input",
-                            attrs: {
-                              type: "radio",
-                              name: "flatRadios4",
-                              id: "flatRadios4",
-                              value: "option4",
-                              disabled: "",
-                              checked: ""
-                            }
-                          }),
-                          _vm._v(" Option four is selected and disabled ")
-                        ])
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 grid-margin" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [
-              _vm._v("Horizontal Two column")
-            ]),
-            _vm._v(" "),
-            _c("form", { staticClass: "form-sample" }, [
-              _c("p", { staticClass: "card-description" }, [
-                _vm._v(" Personal info ")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("First Name")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text" }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Last Name")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text" }
-                      })
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Gender")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("select", { staticClass: "form-control" }, [
-                        _c("option", [_vm._v("Male")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Female")])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Date of Birth")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { placeholder: "dd/mm/yyyy" }
-                      })
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Category")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("select", { staticClass: "form-control" }, [
-                        _c("option", [_vm._v("Category1")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Category2")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Category3")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Category4")])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Membership")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c("div", { staticClass: "form-radio" }, [
-                        _c("label", { staticClass: "form-check-label" }, [
-                          _c("input", {
-                            staticClass: "form-check-input",
-                            attrs: {
-                              type: "radio",
-                              name: "membershipRadios",
-                              id: "membershipRadios1",
-                              value: "",
-                              checked: ""
-                            }
-                          }),
-                          _vm._v(" Free ")
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-5" }, [
-                      _c("div", { staticClass: "form-radio" }, [
-                        _c("label", { staticClass: "form-check-label" }, [
-                          _c("input", {
-                            staticClass: "form-check-input",
-                            attrs: {
-                              type: "radio",
-                              name: "membershipRadios",
-                              id: "membershipRadios2",
-                              value: "option2"
-                            }
-                          }),
-                          _vm._v(" Professional ")
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-description" }, [
-                _vm._v(" Address ")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Address 1")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text" }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("State")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text" }
-                      })
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Address 2")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text" }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Postcode")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text" }
-                      })
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("City")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text" }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c("label", { staticClass: "col-sm-3 col-form-label" }, [
-                      _vm._v("Country")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-9" }, [
-                      _c("select", { staticClass: "form-control" }, [
-                        _c("option", [_vm._v("America")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Italy")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Russia")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Britain")])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+        ]
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -88767,8 +87464,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/huynhminhnhan/Documents/FPT Poly/duanTN/support/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /Users/huynhminhnhan/Documents/FPT Poly/duanTN/support/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\Users\admin\Desktop\duan\duanTN\support\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\admin\Desktop\duan\duanTN\support\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

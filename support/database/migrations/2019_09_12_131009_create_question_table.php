@@ -15,12 +15,15 @@ class CreateQuestionTable extends Migration
     {
         Schema::create('question', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('idUser');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users');
             $table->integer('idAdmin');
             $table->integer('idDepartment');
-            $table->tinyInteger('Status');
+            // $table->foreign('idDepartment')->references('id')->on('department');;
+            $table->tinyInteger('Status')->default('0');
             $table->string('Content');
-            $table->string('Images');
+            $table->string('Title');
+            $table->string('Images')->nullable();
             $table->string('idCataQuestion');
             $table->timestamps();
         });

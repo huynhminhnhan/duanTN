@@ -1,48 +1,18 @@
-<body>
     <div class="container-scroller">
+        {{-- {{dd(session()->get('AccountInfor'))}} --}}
+
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html">
+          <a class="navbar-brand brand-logo" href="/">
             <img src="../assets/images/logo.svg" alt="logo" /> </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html">
+          <a class="navbar-brand brand-logo-mini" href="/">
             <img src="../assets/images/logo-mini.svg" alt="logo" /> </a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
           <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block">Help : +050 2992 709</li>
-            <li class="nav-item dropdown language-dropdown">
-              <a class="nav-link dropdown-toggle px-2 d-flex align-items-center" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="d-inline-flex mr-0 mr-md-3">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-us"></i>
-                  </div>
-                </div>
-                <span class="profile-text font-weight-medium d-none d-md-block">English</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-us"></i>
-                  </div>English
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-fr"></i>
-                  </div>French
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-ae"></i>
-                  </div>Arabic
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-ru"></i>
-                  </div>Russian
-                </a>
-              </div>
-            </li>
+            
           </ul>
           <form class="ml-auto search-form d-none d-md-block" action="#">
             <div class="form-group">
@@ -128,18 +98,25 @@
             </li>
             <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image"> </a>
+                <img class="img-xs rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="Profile image"> </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
-                  <img class="img-md rounded-circle" src="../assets/images/faces/face8.jpg" alt="Profile image">
-                  <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
+                  <img class="img-md rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="Profile image">
+                  <p class="mb-1 mt-3 font-weight-semibold">{{(session()->get('AccountInfor')['name'])}}</p>
                 </div>
                 <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
                 <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
                 <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
                 <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
-                <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                <!-- <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a> -->
               </div>
             </li>
           </ul>
@@ -156,12 +133,12 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="profile image">
+                  <img class="img-xs rounded-circle" src="{{(session()->get('AccountInfor')['avatar'])}}" alt="profile image">
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Allen Moreno</p>
-                  <p class="designation">Premium user</p>
+                  <p class="profile-name">{{(session()->get('AccountInfor')['name'])}}</p>
+                  <p class="designation">{{(session()->get('AccountInfor')['roles']['name'])}} user</p>
                 </div>
               </a>
             </li>
@@ -173,6 +150,8 @@
                 <span class="menu-title">Trang Chủ</span>
               </a>
             </li>
+            {{-- {{dd($user_info['roles']['name'])}} --}}
+            @if(session()->get('AccountInfor')['roles']['name']  === 'student')
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
@@ -185,16 +164,16 @@
                         <a class="nav-link" href="/new-request">Gửi yêu cầu mới</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/request-new">Yêu cầu mới gửi</a>
+                        <a class="nav-link" href="/support/request-new">Yêu cầu mới gửi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/handling">Nhân viên đang xử lý</a>
+                        <a class="nav-link" href="/support/handling">Nhân viên đang xử lý</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/answered">Nhân viên đã trả lời</a>
+                        <a class="nav-link" href="/support/answered">Nhân viên đã trả lời</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/done-handling">Nhân viên đã xử lý xong</a>
+                        <a class="nav-link" href="/support/done-handling">Nhân viên đã xử lý xong</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/search-question">Tra cứu câu hỏi</a>
@@ -202,6 +181,7 @@
                 </ul>
               </div>
             </li>
+            @else
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1">
                     <i class="menu-icon typcn typcn-coffee"></i>
@@ -211,19 +191,22 @@
                 <div class="collapse" id="ui-basic1">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhiệm vụ phải nhận</a>
+
+                          
+                            <a class="nav-link" href="/mission/must-accept
+                            ">Nhiệm vụ phải nhận</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhiệm vụ phải làm</a>
+                            <a class="nav-link" href="/mission/must-do">Nhiệm vụ phải làm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Câu hỏi chuyển đến</a>
+                            <a class="nav-link" href="/mission/move-in">Câu hỏi chuyển đến</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Câu hỏi chuyển đi</a>
+                            <a class="nav-link" href="/mission/move-away">Câu hỏi chuyển đi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đang nghiêm cứu</a>
+                            <a class="nav-link" href="/mission/research">Đang nghiêm cứu</a>
                         </li>
                     </ul>
                 </div>
@@ -237,13 +220,13 @@
                 <div class="collapse" id="ui-basic2">
                     <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Xem yêu cầu mới</a>
+                        <a class="nav-link" href="/mission/new-request">Xem yêu cầu mới</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Xem yêu cầu chưa tiếp nhận</a>
+                        <a class="nav-link" href="/mission/request">Xem yêu cầu chưa tiếp nhận</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Đang xử lý</a>
+                        <a class="nav-link" href="/mission/handling">Đang xử lý</a>
                     </li>
                     </ul>
                 </div>
@@ -257,74 +240,24 @@
                 <div class="collapse" id="ui-basic3">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Xem chấm công</a>
+                            <a class="nav-link" href="/internal/timekeeping">Xem chấm công</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Xem lịch trực</a>
+                            <a class="nav-link" href="/internal/calendar">Xem lịch trực</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tạo đơn xin phép</a>
+                            <a class="nav-link" href="/internal/permission-form
+                            ">Tạo đơn xin phép</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ghi phạt nội bộ</a>
+                            <a class="nav-link" href="/internal/punish">Ghi phạt nội bộ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Xem bảng lương</a>
+                            <a class="nav-link" href="/internal/payroll">Xem bảng lương</a>
                         </li>
                     </ul>
                 </div>
             </li>
-            {{-- <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
-                <i class="menu-icon typcn typcn-shopping-bag"></i>
-                <span class="menu-title">Form elements</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
-                <i class="menu-icon typcn typcn-th-large-outline"></i>
-                <span class="menu-title">Charts</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
-                <i class="menu-icon typcn typcn-bell"></i>
-                <span class="menu-title">Tables</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/icons/font-awesome.html">
-                <i class="menu-icon typcn typcn-user-outline"></i>
-                <span class="menu-title">Icons</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <i class="menu-icon typcn typcn-document-add"></i>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/login.html"> Login </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/register.html"> Register </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
-                  </li>
-                </ul>
-              </div>
-            </li> --}}
+            @endif
           </ul>
         </nav>
-        <!-- partial -->
-        <!-- het  header   -->
