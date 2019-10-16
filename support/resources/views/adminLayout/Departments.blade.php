@@ -22,12 +22,10 @@
                     $name = 'Thêm phòng ban';
                     $name_depart = '';
                     $class = 'btn btn-outline-success';
-                    $Attrname = 'Department';
-                    
                     if (isset($name_depart) && !empty($name_depart))  {
                         $name = 'Sửa tên phòng ban';
                         $class = 'btn btn-warning';
-                        $Attrname = 'EdDepartment';
+                       
                     }
                     @endphp
                     @if( isset($id_depart))
@@ -36,10 +34,7 @@
                     @endphp
                     @endif
                                  <label for="tieude">Thêm mới phòng ban</label>
-                                 <input type="text" value="{{$name_depart}}" name="{{$Attrname}}" class="form-control" id="tieude" placeholder="Thêm mới phòng ban">
-                                 <input type="hidden" value="{{$id__depart}}" name="id_depart">
-                                   
-
+                                 <input type="text" value="{{$name_depart}}" name="Department" class="form-control" id="tieude" placeholder="Thêm mới phòng ban">
                             <input value="{{$name}}" type="submit" class="{{$class}} mt-3"style="font-size: 20px"/>
                             
                          
