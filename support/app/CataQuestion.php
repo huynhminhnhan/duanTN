@@ -33,6 +33,7 @@ class CataQuestion extends Model
         $result = CataQuestion::join('question','CataQuestion.id_CataQuestion' ,'=' ,'question.idCataQuestion')
                 ->join('department', 'question.idDepartment', '=', 'department.id_department')
                 ->where('Status',$status)
+                ->select('question.id_question' , 'Title', 'Content','Images', 'Status','question.created_at', 'name_cata', 'description')
                 ->get();
         return $result;
     }
