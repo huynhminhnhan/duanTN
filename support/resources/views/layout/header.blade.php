@@ -169,7 +169,9 @@
                         <a class="nav-link" href="/new-request">Gửi yêu cầu mới</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/support/request-new">Yêu cầu mới gửi</a>
+                        <a class="nav-link" href="/support/request-new">Yêu cầu mới gửi
+                          <strong style="color:yellow">&nbsp; (2)</strong>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/support/handling">Nhân viên đang xử lý</a>
@@ -225,7 +227,7 @@
                 <div class="collapse" id="ui-basic2">
                     <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/mission/new-request">Xem yêu cầu mới</a>
+                        <a class="nav-link" href="/mission/new-request">Xem yêu cầu mới</a>2
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/mission/request">Xem yêu cầu chưa tiếp nhận</a>

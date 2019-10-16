@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class OrderShipped extends Mailable
 {
     public $content;
-    public $subject;
+    // public $subject;
     use Queueable, SerializesModels;
 
     /**
@@ -18,10 +18,10 @@ class OrderShipped extends Mailable
      *
      * @return void
      */
-    public function __construct($content,$subject)
+    public function __construct($content)
     {
        $this->content = $content;
-       $this->subject = $subject;
+    //    $this->subject = $subject;
     }
 
     /**
@@ -32,7 +32,7 @@ class OrderShipped extends Mailable
     public function build()
     {
         $e_content = $this->content;
-        $e_subject = $this->subject;
+        $e_subject = 'Bạn có câu trả lời từ hệ thống Support';
         return $this->view('templateMail.mailDepart',compact("e_content"))->subject($e_subject);
     }
 }
