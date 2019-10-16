@@ -12,26 +12,26 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $role_employee = Role::where('name', 'employees')->first();
+        $role_employee = Role::where('name', 'employee')->first();
         $role_manager  = Role::where('name', 'admin')->first();
-        $role_student = Role::where('name', 'student')->first();
+        $role_saler = Role::where('name', 'saler')->first();
  
         $employee = new User();
-        $employee->name = 'Nhân viên 1';
+        $employee->name = 'Employee Name';
         $employee->email = 'employee@example.com';
         $employee->password = bcrypt('123456');
         $employee->save();
         $employee->roles()->attach($role_employee);
  
         $saler = new User();
-        $saler->name = 'học sinh 1';
-        $saler->email = 'student@example.com';
+        $saler->name = 'Saler Name';
+        $saler->email = 'saler@example.com';
         $saler->password = bcrypt('123456');
         $saler->save();
-        $saler->roles()->attach($role_student);
+        $saler->roles()->attach($role_saler);
  
         $manager = new User();
-        $manager->name = 'Admin 1';
+        $manager->name = 'Admin Name';
         $manager->email = 'admin@example.com';
         $manager->password = bcrypt('123456');
         $manager->save();
