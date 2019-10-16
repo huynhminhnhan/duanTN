@@ -16,8 +16,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','googleId'
     ];
+  
+
+    //protected $dateFormat = 'Y-m-d H:i';
+   // protected $dateFormat = 'Y-m-d H:i:sO';
 
     /**
      * The attributes that should be hidden for arrays.
@@ -27,7 +31,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    
     /**
      * The attributes that should be cast to native types.
      *
@@ -43,6 +47,7 @@ class User extends Authenticatable
     /**
 * @param string|array $roles
 */
+
 public function authorizeRoles($roles)
 {
   if (is_array($roles)) {
