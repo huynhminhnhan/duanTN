@@ -57,23 +57,27 @@
     Route::get('/done/{id_question}','RequesController@done');
     });
 // Router admin -> chỉ admin mới có quyền truy cậpp
-    Route::group(['middleware'=> ['checkAdmin'] ],function(){
-        Route::get('admin/', 'UsersController@homeAdmin');
-        Route::get('admin/user', 'UsersController@Viewusers');
-        Route::get('admin/user/{id_account}', 'UsersController@ViewEditUser');
+    Route::group(['middleware'=> ['checkAdmin','auth'],'prefix' => 'admin' ],function(){
+        Route::get('/', 'UsersController@homeAdmin');
+        Route::get('user', 'UsersController@Viewusers');
+        Route::get('user/{id_account}', 'UsersController@ViewEditUser');
         Route::post('admin/user', 'UsersController@EditUser');
         // phòng ban 
         Route::get('admin/Departments/', 'Departments@showDepartments');
         Route::post('admin/addDepartment', 'Departments@addDepartments');
        
         // sentmailDepart
-        Route::get('internal/sendNotification/', 'Sendmail@viewSendMailDepartments');
-        Route::post('/sentMailDepartment', 'Sendmail@SendMailDepartments');
-
+        Route::get('sendNotification', 'Sendmail@viewSendMailDepartments');
+        Route::post('sentMailDepartment', 'Sendmail@SendMailDepartments');
+        
+        // adminlogin
     });
-   
-
+// login default
 Auth::routes();
+// login admin
+Route::get('admin/login', 'admin\LoginAdminController@viewAdminLogin');
+Route::post('/login/admin', 'admin\LoginAdminController@authenticated')->name('postLogin');
+//login google
 Route::get('google/redirect', 'Auth\LoginController@redirectToProvider')->name('googleRedirect');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 

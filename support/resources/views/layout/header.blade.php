@@ -262,7 +262,7 @@
                         </li>
                         @if(in_array('admin',session()->get('AccountInfor')['roles']))
                         <li class="nav-item">
-                            <a class="nav-link" href="/internal/sendNotification">Gửi thông báo đến các phòng</a>
+                            <a class="nav-link" href="/admin/sendNotification">Gửi thông báo đến các phòng</a>
                         </li>
                           @endif
                     </ul>

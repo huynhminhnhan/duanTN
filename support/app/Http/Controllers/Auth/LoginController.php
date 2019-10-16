@@ -138,36 +138,6 @@ class LoginController extends Controller
         return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
 
     }
-    public function authenticated(Request $Request)
-{
-     $id = $Request->user()->id;
-     $userInFor = Auth::user()->load('roles');
-     
-     $roleUser = $userInFor['roles'];
-     $arrRole = [];
-     foreach ($roleUser as $roleUser) {
-        array_push($arrRole,$roleUser->name);
-     } 
-     
-     $Account = Account::where('user_id',$id)->get()->first();
-     $AccountAttr = $Account->getAttributes();
-     $arrRoles = array(
-        "roles" => $arrRole
-    );
-     $AccountInfor =  array_merge($AccountAttr,$arrRoles);
-    //  dd ($AccountInfor);
-     $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
-     if(!(auth()->user()->hasRole('admin')))
-     {
-         return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');
-     }
-
-
-        return redirect('/')->with('success', 'Xin chào admin'.Auth::user()->name.'');
-
-
-    // return redirect('/')->with('success', 'Xin chào '.Auth::user()->name.'');;
-}
     public function __construct()
     {
 
