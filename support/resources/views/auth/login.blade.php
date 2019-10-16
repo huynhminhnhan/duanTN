@@ -5,13 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }} 
-                @if (session('error'))
-    <div class="alert alert-danger" role="alert">
-            {{ session('error') }}
-    </div>
-        @endif
-                </div>
+                <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -71,13 +65,6 @@
                             </div>
                         </div>
                     </form>
-                    <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                            <a class="btn btn-link" href="{{ route('googleRedirect') }}">
-                                       Login google
-                                    </a>
-                            </div>
-                        </div>
                 </div>
             </div>
         </div>

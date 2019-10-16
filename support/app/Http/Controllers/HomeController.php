@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Role;
+
 class HomeController extends Controller
 {
     /**
@@ -12,12 +11,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct(Request $Request)
-    {
-        $this->middleware('auth');
-        
-    }
-
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -26,10 +23,22 @@ class HomeController extends Controller
      */
 
     public function index(Request $Request)
-    {
+    {     
 
-         $user_info = $this->getUserInfo(); //lây thông tin user 
+        // $input = $Request;
+        // // $arr = [
+        // //     "name" => 'nhan',
+        // //     "age"=> 'hung'
+        // // ];
         
-        return view('welcome', ['user_info'=>$user_info]);
+        // return $input;
+       // $user = $Request;
+      $user = json_encode($Request);
+       
+       
+    //    $user = $Request->user()->authorizeRoles(['employee', 'admin']);
+
+       
+        return $user;
     }
 }
