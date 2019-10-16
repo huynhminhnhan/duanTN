@@ -61,10 +61,10 @@
         Route::get('/', 'UsersController@homeAdmin');
         Route::get('user', 'UsersController@Viewusers');
         Route::get('user/{id_account}', 'UsersController@ViewEditUser');
-        Route::post('admin/user', 'UsersController@EditUser');
+        Route::post('user', 'UsersController@EditUser');
         // phòng ban 
-        Route::get('admin/Departments/', 'Departments@showDepartments');
-        Route::post('admin/addDepartment', 'Departments@addDepartments');
+        Route::get('Departments/', 'Departments@showDepartments');
+        Route::post('addDepartment', 'Departments@addDepartments');
        
         // sentmailDepart
         Route::get('sendNotification', 'Sendmail@viewSendMailDepartments');

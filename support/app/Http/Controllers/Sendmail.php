@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Mail;
 use App\User;
 use App\Department;
-use App\mail\OrderShipped;
+use App\mail\sendmailDepart;
 class Sendmail extends Controller
 {
     public function viewSendMailDepartments() {
@@ -23,9 +23,9 @@ class Sendmail extends Controller
         ->wherein('id_department',$input['Department'])
         ->get();
         foreach($userEmail as $email) {
-            mail::to($email->email)->send(new OrderShipped($input['content'],$input['subject']));
+            mail::to($email->email)->send(new sendmailDepart($input['content'],$input['subject']));
         }
-        return redirect('/internal/sendNotification')->with('success', 'Mail đã gửi thành công'); 
+        return redirect('/admin/sendNotification')->with('success', 'Mail đã gửi thành công'); 
       
     }
 }
