@@ -43,7 +43,7 @@
                                     <h3 class="pl-3 pt-3 mb-0">Cá nhân</h3>
                                     <hr>
                                     <div class="card-body row">
-                                        <label class="col-lg-2 col-form-label" for=""><strong>Họ tên:</strong></label>
+                                        <label class="col-lg-2 d-flex align-items-center col-form-label" for=""><strong>Họ tên:</strong></label>
                                         <div class="col-lg-10">
                                                 <input class="form-control-plaintext col-lg-10" value="{{$user_info['name']}}" style="width: 100%" type="text"{{$disable}}>
                                         </div>
@@ -53,17 +53,17 @@
                                         <div class="row">
                                             <div class="col-lg-6">
 
-                                                    <h5 class="mb-2"><strong>Phone:</strong><input type="text"  name="phone" class="form-control" placeholder="Điền thêm Phone" required> </h5>
+                                                    <h5 class="mb-2 d-flex align-items-center"><strong>Phone:</strong><input type="text"  name="phone" class="form-control" placeholder="Điền thêm Phone" required> </h5>
 
 
 
 
-                                                <h5 class="mb-2"><strong>Ngày sinh:</strong><input type="text" name="birthday" class="form-control" placeholder="Điền thêm birthday" required></h5>
+                                                <h5 class="mb-2 d-flex align-items-center"><strong>Ngày sinh:</strong><input type="text" name="birthday" class="form-control" placeholder="Điền thêm birthday" required></h5>
 
 
 
 
-                                                <h5 class="mb-2"><strong>Giới tính:</strong><input type="text" name="sex" disabled placeholder="Giới tính" id="" required></h5>
+                                                <h5 class="mb-2 d-flex align-items-center"><strong>Giới tính:</strong><input type="text" name="sex" disabled placeholder="Giới tính" id="" required></h5>
 
 
 
@@ -92,20 +92,20 @@
                                                 {{-- @if ( $user_info['phone'] == '' )
                                                     <h5><strong>Phone:</strong><input type="text"  name="phone" class="form-control" placeholder="Điền thêm Phone" required> </h5>
                                                 @else --}}
-                                                <h5><strong>Phone:</strong> {{$user_info['phone']}} </h5>
+                                                <h5 class="mb-2 d-flex align-items-center"><strong>Phone:</strong> {{$user_info['phone']}} </h5>
                                                 {{-- @endif --}}
                                                 {{-- birthday --}}
                                                 {{-- @if ( $user_info['birthday'] =='')
                                                 <h5 class="mb-2"><strong>Ngày sinh:</strong><input type="text" name="birthday" class="form-control" placeholder="Điền thêm birthday" required></h5>
                                                 @else --}}
-                                                <h5><strong>Ngày sinh:</strong> {{$user_info['birthday']}} </h5>
+                                                <h5 class="mb-2 d-flex align-items-center"><strong>Ngày sinh:</strong> {{$user_info['birthday']}} </h5>
                                                 {{-- @endif --}}
 
                                                 {{-- Sex --}}
                                                 {{-- @if ($user_info['sex']=='')
                                                 <h5 class="mb-2"><strong>Giới tính:</strong><input type="text" name="sex" placeholder="Giới tính" id="" required></h5>
                                                 @else --}}
-                                                <h5 class="mb-2"><strong>Giới tính:</strong> {{$user_info['sex']}}</h5>
+                                                <h5 class="mb-2 d-flex align-items-center"><strong>Giới tính:</strong> {{$user_info['sex']}}</h5>
                                                 {{-- @endif --}}
 
 

@@ -34,8 +34,13 @@ class Profile extends Controller
 
 
 
-    public function update(Request $request, $user_id){
-        $update = Account::find($user_id);
+    public function update(Request $request, $user_info){
+        $user_info = $this->getUserInfo(); //lây thông tin user
+        $user_id = $user_info['user_id'];
+
+        $update = Account::Where('user_id', $user_id)->get()->first();
+        // dd($update);
+        // exit;
 
         $update->phone = $request->phone; //phone
         $update->birthday = $request->birthday;
