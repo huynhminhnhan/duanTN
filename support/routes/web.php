@@ -37,7 +37,7 @@
         return view('pages/table/mission-accept');
     });
 
-    Route::get('/mission/{a}', 'PagesController@Question');
+    Route::get('/mission/{a}', 'PagesController@QuestionEmployee');
 
     // Trang chi tiết
     // Route::get('/question/{a}-{id}', 'PagesController@Question');
