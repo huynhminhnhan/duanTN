@@ -139,7 +139,7 @@ class RequesController extends Controller
             $order = $Ans->getNewAnswer();
             $messenger = $order[0]['Content_Answer'];
             // dd($messenger);
-            Mail::to('')->send(new OrderShipped($messenger));
+            Mail::to('huynhminhnhan69@gmail.com')->send(new OrderShipped($messenger));
 
             // dd($request->user());
             // Mail::to('hungnhps06785@fpt.edu.vn')->send('');
