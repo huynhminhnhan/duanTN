@@ -55,6 +55,13 @@
     Route::post('repEmployee/{id_user}/{id_question}','RequesController@RepReceive');
     // đóng câu hỏi
     Route::get('/done/{id_question}','RequesController@done');
+
+    // check phong ban
+    Route::group(['middleware'=> ['checkPhongNhanSu']],function(){
+        Route::get('Employee/importChamCong','nhansu\nhansuController@viewImportChamCong');
+        Route::post('Employee/importData','nhansu\nhansuController@importData');
+        
+    });
     });
 // Router admin -> chỉ admin mới có quyền truy cậpp
     Route::group(['middleware'=> ['checkAdmin','auth'],'prefix' => 'admin' ],function(){

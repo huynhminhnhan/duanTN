@@ -26,9 +26,9 @@ class UsersController extends Controller
         $user_info = $this->getUserInfo(); //lây thông tin user 
         // $userInFor = User::where('id',$)
         // ::load('roles');
-        $Account = Account::join('department','Account.department_id' ,'=','department.id_department')
-        ->where('Account.id_account',$idAccount)
-        ->get()->first();;
+        $Account = Account::join('department','account.department_id' ,'=','department.id_department')
+        ->where('account.id_account','=',$idAccount)
+        ->get()->first();
          $Departments = Department::all();
          $User= User::where('id',$Account->user_id)->get()->first()->load('roles');
          $Role= $User['roles'];

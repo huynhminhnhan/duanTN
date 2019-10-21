@@ -318,5 +318,21 @@
             </div>
         </li>
         @endif
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic3">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Nhân sự</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic4">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Employee/importChamCong">Import Chấm công</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </li>
       </ul>
     </nav>
