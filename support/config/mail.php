@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', '_mainaccount@hungthinhcorp24h.com'),
-        'name' => env('MAIL_FROM_NAME', 'Ban giám đốc'),
+        'name' => env('MAIL_FROM_NAME', 'Support FPT'),
     ],
 
     /*

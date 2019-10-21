@@ -22,13 +22,15 @@
                     if($a == 0){
                         $Status = 'Chưa tiếp nhận';
                     }
-                    if($a == 1 ){
+                    if($a == 1 || $a == 2 ){
                         $Status = 'Xử lý bởi '.$Emp[0]->name;
                     }
-                   $color ='';
-                    // {{dd($Emp[0]->name)}}
-                    
-                    // dd($Emp); 
+                    if($a == 3 ){
+                        $Status = 'Xử lý xong bởi '.$Emp[0]->name;
+                    }
+
+
+
                     
                     @endphp
                     <h4>Trạng thái hỗ trợ  => <code>{{$Status}}</code> </h4>
@@ -136,7 +138,13 @@
                     </table>
                     {{-- cau phan hoi --}}
                     @forelse($rep as $rep)
-                    <table class="table mt-2 mb-4 {{$color}}">
+                    @php
+                    $color = '';
+                    if($rep->id_people <= 4){
+                        $color = 'bgcolor=f3fdfd';
+                    }
+                    @endphp
+                    <table class="table mt-2 mb-4" {{$color}}>
                         <thead>
                             <tr>
                                     <td class="boder border-dark"> <p> <strong>{{$rep->name}}</strong> [<code>{{$rep->created_at}}</code>]</p></td>

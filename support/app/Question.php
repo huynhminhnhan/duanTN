@@ -35,4 +35,29 @@ class Question extends Model
                 ->get();
         return $result;
     }   
+    // cau hoi join user 
+    public function questionUser($id){
+        $result = Question::join('users' , 'Question.id_user', '=' , 'users.id')
+                ->where('Question.id_question', $id)
+                ->get()->first();
+        return $result;
+    }
+    // dem so cau hoi :((
+    public function coutQuestionUser($id,$Status){
+        $result = Question::where('Status', $Status)
+                ->where('id_user', $id)
+                ->count();
+        return $result;
+    }
+    public function coutAll($Status){
+        $result = Question::where('Status', $Status)
+                ->count();
+        return $result;
+    }
+    public function coutEmployee($id,$Status){
+        $result = Question::where('Status', $Status)
+                ->where('idAdmin', $id)
+                ->count();
+        return $result;
+    }
 }

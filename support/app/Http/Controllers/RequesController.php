@@ -132,14 +132,17 @@ class RequesController extends Controller
             $question = Question::find($id_question);
             $question->Status = 2;
             $question->save();
+            $qs = new Question();
+            $user = $qs->questionUser($id_question);
             // mail
-            // ($mail_user['email']);
-            $mail_user = User::find($id_user);
+            // dd($user->email);
+            // dd($question);
+            // $mail_user = User::find($id_question);
             // dd($mail_user['email']);
             $order = $Ans->getNewAnswer();
             $messenger = $order[0]['Content_Answer'];
             // dd($messenger);
-            Mail::to('huynhminhnhan69@gmail.com')->send(new OrderShipped($messenger));
+            Mail::to($user->email)->send(new OrderShipped($messenger));
 
             // dd($request->user());
             // Mail::to('hungnhps06785@fpt.edu.vn')->send('');

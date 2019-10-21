@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use App\Question;
 use App\Account;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -23,6 +24,5 @@ class Controller extends BaseController
       $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       $password = substr( str_shuffle( $chars ), 0, $length );
       return $password;
-  }
-        
+  }     
 }
