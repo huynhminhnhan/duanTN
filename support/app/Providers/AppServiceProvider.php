@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
       Schema::defaultStringLength(191);
 
       $number = new Question();
+      
       View::share(['number'=>$number]);
     }
 }

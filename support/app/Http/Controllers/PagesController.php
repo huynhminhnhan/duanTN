@@ -36,9 +36,8 @@ class PagesController extends Controller
         // dd($test);
         $Question = $qs->get3Table($status,$user_info['user_id']);
         // dd($Question);
-        $id_cauhoi = $this->random_password(8);
+        $id_cauhoi = '';
 
-        
         return view('pages/table/request-new',['Question'=>$Question, 'status'=>$status, 'id_cauhoi'=>$id_cauhoi]);
     }
     // chi tiet cau hoi
@@ -52,7 +51,7 @@ class PagesController extends Controller
         $model = new Question();
         //phong ban
         $Depart = Department::all();
-        $id_cauhoi = $this->random_password(8);
+        $id_cauhoi = '';
 
         // các câu trả lời
         $Ans = new Account();
@@ -74,7 +73,7 @@ class PagesController extends Controller
         }else if($status === 'done-handling'){
             $status = 3;
         }
-        $id_cauhoi = $this->random_password(8);
+        
 
         // $user_info = $this->getUserInfo(); //lây thông tin user
         $qs = new CataQuestion();

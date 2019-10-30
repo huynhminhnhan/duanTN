@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Mail;
 use App\User;
 use App\Department;
-use App\mail\sendmailDepart;
+use App\Mail\sendmailDepart;
 class Sendmail extends Controller
 {
     public function viewSendMailDepartments() {
