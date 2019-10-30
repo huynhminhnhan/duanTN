@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 use App\Question;
+use App\CataQuestion;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -30,7 +31,9 @@ class AppServiceProvider extends ServiceProvider
       Schema::defaultStringLength(191);
 
       $number = new Question();
+
+      $qs = new CataQuestion();
       
-      View::share(['number'=>$number]);
+      View::share(['number'=>$number, 'qs'=>$qs]);
     }
 }

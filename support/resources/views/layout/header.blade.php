@@ -13,86 +13,53 @@
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block">Help : +050 2992 709</li>
       </ul>
-      <form class="ml-auto search-form d-none d-md-block" action="#">
-        <div class="form-group">
-          <input type="search" class="form-control" placeholder="Search Here">
-        </div>
-      </form>
+    {{-- dem so cau hoi --}}
+    @php 
+    if((session()->get('AccountInfor')['roles'][0])== 'student'){
+      $functionCount = 'coutQuestionUser';
+    }else{
+      $functionCount = 'coutEmployee';
+    }
+    $qs_new = $number->$functionCount((session()->get('AccountInfor')['user_id']),0);
+    $qs_handling = $number->$functionCount((session()->get('AccountInfor')['user_id']),1);
+    $qs_answered = $number->$functionCount((session()->get('AccountInfor')['user_id']),2);
+    $qs_done = $number->$functionCount((session()->get('AccountInfor')['user_id']),3);
+    @endphp
+    {{-- het dem so  --}}
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link count-indicator" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
             <i class="mdi mdi-bell-outline"></i>
-            <span class="count">7</span>
+            @if($qs_answered != 0)
+              <span class="count">{{$qs_answered}}</span>
+            @endif
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+            @if($qs_answered != 0)
+            <a class="dropdown-item py-3" href="/support/answered">
+                  <p class="mb-0 font-weight-medium float-left">Hiện bạn đang có {{$qs_answered}} câu trả lời từ nhân viên </p>
+                  <span class="badge badge-pill badge-primary float-right">View all</span>
+                </a>
+            @else
             <a class="dropdown-item py-3">
-              <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
-              <span class="badge badge-pill badge-primary float-right">View all</span>
-            </a>
+                  <p class="mb-0 font-weight-medium float-left">Bạn không có câu trả lời nào từ nhân viên </p></a>
+            @endif
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
+            @php 
+              $Question = $qs->get3Table(2,(session()->get('AccountInfor')['user_id']));
+            @endphp
+            @forelse($Question as $q)
+            <a class="dropdown-item preview-item" href="/question/{{$q->id_question}}">
               <div class="preview-thumbnail">
                 <img src="../assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic"> </div>
               <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                <p class="font-weight-light small-text"> The meeting is cancelled </p>
+              <p class="preview-subject ellipsis font-weight-medium text-dark">{{$q->Title}}</p>
+                <p class="font-weight-light small-text">{{$q->created_at}} </p>
               </div>
             </a>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <img src="../assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic"> </div>
-              <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                <p class="font-weight-light small-text"> The meeting is cancelled </p>
-              </div>
-            </a>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <img src="../assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic"> </div>
-              <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                <p class="font-weight-light small-text"> The meeting is cancelled </p>
-              </div>
-            </a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-toggle="dropdown">
-            <i class="mdi mdi-email-outline"></i>
-            <span class="count bg-success">3</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
-            <a class="dropdown-item py-3 border-bottom">
-              <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
-              <span class="badge badge-pill badge-primary float-right">View all</span>
-            </a>
-            <a class="dropdown-item preview-item py-3">
-              <div class="preview-thumbnail">
-                <i class="mdi mdi-alert m-auto text-primary"></i>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-normal text-dark mb-1">Application Error</h6>
-                <p class="font-weight-light small-text mb-0"> Just now </p>
-              </div>
-            </a>
-            <a class="dropdown-item preview-item py-3">
-              <div class="preview-thumbnail">
-                <i class="mdi mdi-settings m-auto text-primary"></i>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-normal text-dark mb-1">Settings</h6>
-                <p class="font-weight-light small-text mb-0"> Private message </p>
-              </div>
-            </a>
-            <a class="dropdown-item preview-item py-3">
-              <div class="preview-thumbnail">
-                <i class="mdi mdi-airballoon m-auto text-primary"></i>
-              </div>
-              <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-normal text-dark mb-1">New user registration</h6>
-                <p class="font-weight-light small-text mb-0"> 2 days ago </p>
-              </div>
-            </a>
+            @empty
+            
+            @endforelse
           </div>
         </li>
         
@@ -155,19 +122,7 @@
             <span class="menu-title">Trang Chủ</span>
           </a>
         </li>
-        {{-- dem so cau hoi --}}
-        @php 
-        if((session()->get('AccountInfor')['roles'][0])== 'student'){
-          $functionCount = 'coutQuestionUser';
-        }else{
-          $functionCount = 'coutEmployee';
-        }
-        $qs_new = $number->$functionCount((session()->get('AccountInfor')['user_id']),0);
-        $qs_handling = $number->$functionCount((session()->get('AccountInfor')['user_id']),1);
-        $qs_answered = $number->$functionCount((session()->get('AccountInfor')['user_id']),2);
-        $qs_done = $number->$functionCount((session()->get('AccountInfor')['user_id']),3);
-        @endphp
-        {{-- het dem so  --}}
+        {{-- vị trí đếm số câu hỏi củ  --}}
             @if(in_array('student',session()->get('AccountInfor')['roles']))
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
