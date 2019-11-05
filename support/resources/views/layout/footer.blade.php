@@ -1,26 +1,9 @@
 <footer class="footer">
   <div class="container-fluid clearfix">
     <div class="container">
-      <div class="row">
-        <div class="col-sm border-right border-dark">
-          One of three columns
-        </div>
-        <div class="col-sm border-right border-dark">
-          One of three columns
-        </div>
-        <div class="col-sm border-right border-dark">
-          One of three columns
-        </div>
-        <div class="col-sm border-right border-dark">
-          One of three columns
-        </div>
-        <div class="col-sm border-right border-dark">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-      </div>
+      
+      <p class="copyright">Design and developed by Fsupport</p>
+       
     </div>
   </div>
 </footer>
