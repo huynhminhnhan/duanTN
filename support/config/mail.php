@@ -57,7 +57,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', '_mainaccount@hungthinhcorp24h.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'mail@fsupport.com'),
         'name' => env('MAIL_FROM_NAME', 'Support FPT'),
     ],
 

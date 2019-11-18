@@ -29,7 +29,8 @@ class RequesController extends Controller
         // var_dump($user_info);
         // echo '</pre>';
         $depart = new Department();
-        $department = $depart->getAll();
+        $department = $depart->where("state" ,"=", "0")->get();
+       
         $Cata = CataQuestion::all();
 
         return view('pages/form/new-request', ['department' => $department, 'Cata'=>$Cata],['user_info'=> $user_info]);

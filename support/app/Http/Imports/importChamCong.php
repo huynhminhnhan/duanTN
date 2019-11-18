@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Imports;
+namespace App\Http\Imports;
 
 use App\chamcong;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class chamCongImport implements ToModel
+class importChamCong implements ToModel
 {
     /**
     * @param array $row
@@ -14,6 +14,7 @@ class chamCongImport implements ToModel
     */
     public function model(array $row)
     {
+        dd ($row);
         return new chamcong([
             //
         ]);

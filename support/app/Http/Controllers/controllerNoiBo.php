@@ -33,6 +33,11 @@ class controllerNoiBo extends Controller
 
         return view('pages.table.calendar', ['user_info'=> $userInfor]);
     }
+    public function ghiphat(Request $Request){
+        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user
+
+        return view('pages.table.calendar', ['user_info'=> $userInfor]);
+    }
     // Profile
 
 }

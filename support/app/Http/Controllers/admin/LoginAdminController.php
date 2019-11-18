@@ -66,7 +66,8 @@ class LoginAdminController extends Controller
     $AccountInfor =  array_merge($AccountAttr,$arrRoles);
    //  dd ($AccountInfor);
     $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
-    return redirect('/')->with('success', 'Xin chào admin'.$user->name.'');
+
+    return redirect('/mission/request-new')->with('success', 'Xin chào admin'.$user->name.'');
 
 
  } else {

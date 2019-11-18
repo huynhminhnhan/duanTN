@@ -12,7 +12,7 @@
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label>File upload</label>
-                                    <input type="file" value=""  name="Images" class="file-upload-default d-none"> 
+                                    <input type="file" value=""  name="filechamcong" class="file-upload-default d-none"> 
                                    
                                     <div class="input-group col-xs-12">
                                         <input type="text" readonly name="ImagesText"  class="form-control file-upload-info"  placeholder="Upload Image">

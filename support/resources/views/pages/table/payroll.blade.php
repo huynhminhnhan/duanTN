@@ -58,7 +58,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                        @forelse($banluong as $bl)
+                        {{-- @forelse($banluong as $bl)
                           <tr>
                             <th scope="row">Lương cơ bản</th>
                             <td>{{$bl->luong_can_ban}}</td>
@@ -116,7 +116,7 @@
                           @empty
                             Chưa cập nhật
                           @endforelse
-                      
+                       --}}
                         </tbody>
                       </table>
           </div>

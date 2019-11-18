@@ -45,6 +45,7 @@ class LoginController extends Controller
     {
         
         $user = Socialite::driver('google')->stateless()->user();
+       // dd($user);
         // exit;
         $id =  $user->getId();
         $family_name = $user->user['family_name'];
@@ -81,16 +82,13 @@ class LoginController extends Controller
                 $Account->avatar = $user->avatar;
                 $Account->save();
             }
-           
             $AccountAttr = $Account->getAttributes();
             $arrRole = array(
                "roles" => $roleUser
            );
             $AccountInfor =  array_merge($AccountAttr,$arrRoles);
             $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
-           
             Auth::login($finduser);
-           
             return redirect('/new-request')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
          }
 
@@ -137,7 +135,7 @@ class LoginController extends Controller
         $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
        
         Auth::login($newUser);
-        return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
+        return redirect('/new-request')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
 
     }
     public function __construct()

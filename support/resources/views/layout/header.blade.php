@@ -193,9 +193,7 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="/mission/done-handling">Câu hỏi đã xong
-                    @if($qs_done !== 0)
-                    <strong style="color:yellow">&nbsp; ({{$qs_done}})</strong>
-                    @endif</a>
+                   </a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="/mission/research">Đang nghiêm cứu</a>
@@ -255,7 +253,7 @@
                         <a class="nav-link" href="/internal/calendar">Xem lịch trực</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/internal/permission-form
+                        <a class="nav-link" href="#
                         ">Tạo đơn xin phép</a>
                     </li>
                     <li class="nav-item">

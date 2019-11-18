@@ -30,8 +30,7 @@ class HomeController extends Controller
     {
 
          $user_info = $this->getUserInfo(); //lây thông tin user
-// dd($user_info);
-//         exit;
+
         return view('welcome', ['user_info'=>$user_info]);
     }
 }
