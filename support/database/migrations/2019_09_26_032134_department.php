@@ -17,6 +17,7 @@ class Department extends Migration
             $table->Increments('id_department')->unsigned();
             $table->string('name_depart')->nullable();
             $table->string('description')->nullable();
+            $table->tinyInteger('state')->default('0');
             $table->timestamps();
         });
     }
