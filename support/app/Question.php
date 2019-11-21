@@ -21,7 +21,7 @@ class Question extends Model
     }
     public function questionAllEmp($iduser){
         $result = Question::orderBy('id_question','desc')
-                ->where('id_user',$iduser)
+                ->where('idAdmin',$iduser)
                 // ->select('id_question','id_user','Title','created_at','Status' )
                 ->get();
         return $result;

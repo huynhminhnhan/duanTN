@@ -89,7 +89,7 @@ class LoginController extends Controller
             $AccountInfor =  array_merge($AccountAttr,$arrRoles);
             $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
             Auth::login($finduser);
-            return redirect('/new-request')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
+            return redirect('/')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
          }
 
         $newUser = User::create([
@@ -135,7 +135,7 @@ class LoginController extends Controller
         $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
        
         Auth::login($newUser);
-        return redirect('/new-request')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
+        return redirect('/')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
 
     }
     public function __construct()

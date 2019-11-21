@@ -333,10 +333,10 @@ Nhân viên
                 <div class="card-body">
                   <h4 class="card-title mb-0">Câu hỏi của bạn</h4>
                   <div class="scroll-one">
-                  @forelse($viewquestion as $qsv)
+                  @forelse($questionOfEmp as $qse)
                   {{-- {{dd($qs)}} --}}
                   @php 
-                  $idstt = $qsv->Status;
+                  $idstt = $qse->Status;
                   $trangthai = '';
                     if($idstt == 1){
                       $trangthai = 'Đang xử lí';
@@ -353,16 +353,15 @@ Nhân viên
                   @endphp
                   <div class="d-flex py-2 border-bottom position-re">
                     <div class="wrapper">
-                      <small class="text-muted">{{$qsv->created_at}}</small>
-                      <p class="font-weight-semibold text-gray mb-0 text-cut-qs">{{$qsv->Title}}</p>
+                      <small class="text-muted">{{$qse->created_at}}</small>
+                      <p class="font-weight-semibold text-gray mb-0 text-cut-qs">{{$qse->Title}}</p>
                     </div>
                     <small class="text-muted position-ab"> {{$trangthai}}</small>
-                    <small class="text-muted ml-auto"><a href="/question/{{$qsv->id_question}}"> Xem</a></small>
+                    <small class="text-muted ml-auto"><a href="/question/{{$qse->id_question}}"> Xem</a></small>
                   </div>
                   @empty
                     <div class="d-flex py-2 mt-2">
                       <div class="wrapper">
-                        {{-- <small class="text-muted">Mar 14, 2019</small> --}}
                         <p class="font-weight-semibold text-gray mb-0">Bạn chưa có câu hỏi nào</p>
                       </div>
                       <small class="text-muted ml-auto"><a href="/mission/new-request"> Tiếp nhận</a></small>
@@ -378,21 +377,21 @@ Nhân viên
                   <div class="wrapper">
                     <h4 class="card-title mb-0">Lịch sử hoạt động</h4>
                     <div class="scroll-one">
-                    @forelse($viewquestion as $lsqs)
+                    @forelse($questionOfEmp as $lsqsemp)
                     @php 
     
                     @endphp
                     <div class="d-flex py-2 border-bottom position-re">
                         <div class="wrapper">
-                          <small class="text-muted">{{$lsqs->created_at}}</small>
-                        <p class="font-weight-semibold text-gray mb-0 cut-text-ls">{{$lsqs->Title}}</p>
+                          <small class="text-muted">{{$lsqsemp->created_at}}</small>
+                        <p class="font-weight-semibold text-gray mb-0 cut-text-ls">{{$lsqsemp->Title}}</p>
                         </div>
                         <small class="text-muted position-ab">Gửi câu hỏi</small>
-                        <small class="text-muted ml-auto"><a href="/question/{{$lsqs->id_question}}"> Xem</a></small>
+                        <small class="text-muted ml-auto"><a href="/question/{{$lsqsemp->id_question}}"> Xem</a></small>
                     </div>
                     {{-- rep --}}
                     @php
-                    $aws = $aw->getAnswerFlQs($lsqs->id_question, (session()->get('AccountInfor')['user_id']));   
+                    $aws = $aw->getAnswerFlQs($lsqsemp->id_question, (session()->get('AccountInfor')['user_id']));   
                     @endphp
                       @forelse($aws as $an)
                         <div class="d-flex py-2 border-bottom position-re ml-2">
@@ -405,10 +404,8 @@ Nhân viên
                         @empty
                         <div class="d-flex py-2 border-bottom position-re ml-3">
                             <div class="wrapper">
-                              {{-- <small class="text-muted">time</small> --}}
-                              <p class="  text-gray mb-0 mt-1">Chưa được trả lời</p>
+                              <p class="  text-gray mb-0 mt-1">Bạn chưa trả lời</p>
                             </div>
-                            {{-- <small class="text-muted position-ab"> <a href="/question/{{$lsqs->id_question}}">Trả lời</a> </small> --}}
                         </div>
                         @endforelse
                     @empty
@@ -417,7 +414,7 @@ Nhân viên
                           {{-- <small class="text-muted">time</small> --}}
                           <p class="font-weight-semibold text-gray mb-0">Không có hoạt động nào gần đây</p>
                         </div>
-                        <small class="text-muted ml-auto"><a href="/new-request"> Hỏi</a></small>
+                        <small class="text-muted ml-auto"><a href="/mission/request"> Tiếp nhận câu hỏi</a></small>
                     </div>
                     @endforelse
     

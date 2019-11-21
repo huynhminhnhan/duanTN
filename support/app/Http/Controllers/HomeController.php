@@ -37,8 +37,9 @@ class HomeController extends Controller
 
         $aw = new AnswerModel();
         // nhân viên
-
+        $questionOfEmp = $qsv->questionAllEmp($user_info['user_id']);
         
-        return view('welcome', ['user_info'=>$user_info,'viewquestion'=>$questionNew, 'aw'=> $aw]);
+        return view('welcome', ['user_info'=>$user_info,'viewquestion'=>$questionNew, 'aw'=> $aw ,
+                             'questionOfEmp'=>$questionOfEmp]);
     }
 }

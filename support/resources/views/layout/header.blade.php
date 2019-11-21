@@ -194,7 +194,10 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="/mission/done-handling">Câu hỏi đã xong
-                   </a>
+                  
+                   @if($qs_done !== 0)
+                    <strong style="color:yellow">&nbsp; ({{$qs_done}})</strong>
+                    @endif</a>
               </li>
               
             </ul>
