@@ -39,8 +39,8 @@
                           <td>
                              <a href="/question/{{$q->id_question}}">{{$q->id_question}}</a>
                           </td>
-                          <td>
-                            <a href="/question/{{$q->id_question}}"> {{$q->Title}}</a> 
+                          <td >
+                           <p class="cut-text-ls m-0"> <a  href="/question/{{$q->id_question}}"> {{$q->Title}}</a> </p>
                           </td>
                           <td>
                               <a href="/question/{{$q->id_question}}">{{$q->description}}</a>

@@ -12,7 +12,20 @@ class Question extends Model
     public $table='question';
     protected $primaryKey = 'id_question';
 
-    
+    public function questionAll($iduser){
+        $result = Question::orderBy('id_question','desc')
+                ->where('id_user',$iduser)
+                ->select('id_question','id_user','Title','created_at','Status' )
+                ->get();
+        return $result;
+    }
+    public function questionAllEmp($iduser){
+        $result = Question::orderBy('id_question','desc')
+                ->where('id_user',$iduser)
+                // ->select('id_question','id_user','Title','created_at','Status' )
+                ->get();
+        return $result;
+    }
     public function questionNew($status){
         
         $result = Question::orderBy('id_question','desc')
