@@ -6,7 +6,7 @@
 <h1 class="mt-2"> Fsupport </h1>
       </a>
       <a class="navbar-brand brand-logo-mini" href="/">
-        <img src="../assets/images/logo-mini.svg" alt="logo" /> 
+        <img src="../assets/images/logo-mini.svg" alt="logo" />  
       </a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -183,7 +183,8 @@
               <a class="nav-link" href="/mission/handling">Nhiệm vụ đang xử lý 
                 @if($qs_handling !== 0)
                   <strong style="color:yellow">&nbsp; ({{$qs_handling}})</strong>
-                  @endif</a>
+                @endif
+              </a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="/mission/answered">Câu hỏi đã trả lời
@@ -193,11 +194,12 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="/mission/done-handling">Câu hỏi đã xong
-                   </a>
+                  
+                   @if($qs_done !== 0)
+                    <strong style="color:yellow">&nbsp; ({{$qs_done}})</strong>
+                    @endif</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/mission/research">Đang nghiêm cứu</a>
-              </li>
+              
             </ul>
           </div>
         </li>
@@ -206,10 +208,9 @@
             <i class="menu-icon typcn typcn-coffee"></i>
               <span class="menu-title">NHIỆM VỤ CHUNG</span>
                 @php 
-                $qs_new = $number->coutAll(0);
-                $qs_handling = $number->coutAll(1);
-                
-              @endphp
+                  $qs_new = $number->coutAll(0);
+                  $qs_handling = $number->coutAll(1);
+                @endphp
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic2">

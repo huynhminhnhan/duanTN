@@ -729,8 +729,8 @@
       .quick-links li:last-child a {
         padding-right: 0; }
 
-.page-title-header {
-  margin-bottom: 20px; }
+/* .page-title-header {
+  margin-bottom: 20px; } */
 
 .page-header-toolbar {
   display: -webkit-box;
@@ -832,4 +832,89 @@
   #dashboard-vmap .jvectormap-zoomout {
     display: none; }
 
+.button-question{
+  box-shadow: 0 2px 0 #006799;    
+  margin: 15px 13px 3px 0;
+  padding: 12px 36px;
+  height: auto;
+  line-height: 1.4285714;
+  white-space: normal;
+  font-size: 14px;
+  background: #0085ba;
+  border-color: #0073aa #006799 #006799;
+  box-shadow: 0 1px 0 #006799;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
+}
+.button-question:hover{
+    background: #008ec2;
+    border-color: #006799;
+    color: #fff;
+    text-decoration: none;
+}
+.support-box h4{
+  margin-bottom: 20px;
+}
+.support-box p{
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+.support-box p a{
+  text-decoration: none;
+}
+.support-box p a:hover{
+  color: #00a0d2;
+}
+.column-hh{
+  width: 50%;
+  float: left;
+}
+.column-hh li{
+  list-style-type: circle
+}
+.title-footer p{
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.55;
+}
+.alignright{
+  float: right;
+}
+.alignleft{
+  float: left;
+}
+
+
+.menu-time-hh ul li{
+  list-style-type: none;
+  margin: 5px 0;
+}
+.row-a-text h5 a{
+  text-decoration: none;
+}
+.position-re{
+  position: relative;
+}
+.position-ab{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.scroll-one{
+  height: 350px;
+  overflow: scroll;
+}
+.cut-text-ls{
+  width: 175px;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+}
+.text-cut-qs{
+  width: 435px;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+}
 /*# sourceMappingURL=style.css.map */

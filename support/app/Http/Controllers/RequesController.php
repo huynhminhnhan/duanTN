@@ -141,10 +141,10 @@ class RequesController extends Controller
             // $mail_user = User::find($id_question);
             // dd($mail_user['email']);
             $order = $Ans->getNewAnswer();
-            $messenger = $order[0]['Content_Answer'];
-            // dd($messenger);
-            Mail::to($user->email)->send(new OrderShipped($messenger));
-
+            //mail
+            // $messenger = $order[0]['Content_Answer'];
+            // Mail::to($user->email)->send(new OrderShipped($messenger));
+            //end mail
             // dd($request->user());
             // Mail::to('hungnhps06785@fpt.edu.vn')->send('');
         }
