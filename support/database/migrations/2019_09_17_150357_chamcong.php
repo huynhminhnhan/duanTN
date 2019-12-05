@@ -17,12 +17,11 @@ class Chamcong extends Migration
             $table->increments('id_chamcong');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
-            $table->string('ngay')->nullable();
-            $table->string('thu')->nullable();
-            $table->string('gio_vao1')->nullable();
-            $table->string('gio_ra1')->nullable();
-            $table->string('gio_vao2')->nullable();
-            $table->string('gio_ra2')->nullable();
+            $table->date('ngay')->nullable();
+            $table->dateTime('gio_vao1')->nullable();
+            $table->dateTime('gio_ra1')->nullable();
+            $table->dateTime('gio_vao2')->nullable();
+            $table->dateTime('gio_ra2')->nullable();
             $table->string('ghi_chu')->nullable();
             $table->timestamps();
         });

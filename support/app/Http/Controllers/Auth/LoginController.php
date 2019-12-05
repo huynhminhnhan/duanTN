@@ -90,8 +90,8 @@ class LoginController extends Controller
             $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
            
             Auth::login($finduser);
-           
-            return view('welcome')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
+            return redirect()->route('home')->with('success', 'Xin chào '.$finduser->name.' đã đăng nhập vào hệ thống');
+            
          }
 
         $newUser = User::create([
@@ -137,7 +137,7 @@ class LoginController extends Controller
         $Sessionvalue = $Request->session()->put('AccountInfor',$AccountInfor);
        
         Auth::login($newUser);
-        return view('welcome')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
+        return redirect()->route('home')->with('success', 'Xin chào '.$newUser->name.' đã đăng nhập vào hệ thống');
 
     }
     public function __construct()

@@ -11,7 +11,7 @@
 |
 */
 
-    Route::get('/', 'HomeController@index')->middleware('auth');
+    Route::get('/', 'HomeController@index')->middleware('auth')->name('home');;
     Route::get('/new-request','RequesController@view');
     Route::get('/search-question','RequesController@search');
     Route::post('/search-question/name', 'RequesController@getSearchAjax')->name('search');

@@ -24,7 +24,7 @@ class nhansuController extends Controller
         // $filePath = $file->getPathName();
         // echo realpath($fileName);
         // exit;
-     
+        
         Excel::import(new importChamCong,$my_new_path.'/'.$file['name']);
     }
     
