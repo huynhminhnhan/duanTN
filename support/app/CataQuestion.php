@@ -38,7 +38,7 @@ class CataQuestion extends Model
         return $result;
     }
     public function searchQuestion($user_info,$query){
-        $result = CataQuestion::join('question','CataQuestion.id' ,'=' ,'question.idCataQuestion')
+        $result = CataQuestion::join('question','CataQuestion.id_CataQuestion' ,'=' ,'question.idCataQuestion')
                 ->join('department', 'question.idDepartment', '=', 'department.id_department')
                 ->where('id_user',$user_info)
                 ->where('Title', 'LIKE', "%$query%")
