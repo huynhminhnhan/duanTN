@@ -28,6 +28,7 @@
                                 </div>
                             </div>
                         </form>
+
                 </div>
               </div>
             </div>
@@ -39,5 +40,35 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                @if (session('list_name_erro'))
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">Danh sách tên không thể import</h5>
+                    <table class="table">
+                        <tbody>
+                          @php 
+                            $index = 0;
+                            $data = session('list_name_erro');
+                            for($i = 0;$i< count($data);$i++) {
+                              $index ++;
+                              echo ' <tr>
+                            <th scope="row">'.$index.'</th>
+                            <td>Họ và tên</td>
+                            <td>'.$data[$i].'</td>
+                          </tr>
+                          ';
+                            }
+                          @endphp
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                    @endif
+              {{-- // end  --}}
+            </div>
+          </div>
         </div>
+
 @endsection

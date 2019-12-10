@@ -63,7 +63,7 @@
 
     // check phong ban
     Route::group(['middleware'=> ['checkPhongNhanSu']],function(){
-        Route::get('Employee/importChamCong','nhansu\nhansuController@viewImportChamCong');
+        Route::get('Employee/importChamCong','nhansu\nhansuController@viewImportChamCong')->name('importchamcong');
         Route::post('Employee/importData','nhansu\nhansuController@importData');
         
     });
