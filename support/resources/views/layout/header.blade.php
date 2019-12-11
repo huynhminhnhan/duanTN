@@ -284,6 +284,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/Employee/importChamCong">Import Chấm công</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ route('quanlychamcong') }}">Quản lý Chấm công</a>
+                  </li>
                    
                 </ul>
             </div>

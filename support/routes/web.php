@@ -64,6 +64,12 @@
     // check phong ban
     Route::group(['middleware'=> ['checkPhongNhanSu']],function(){
         Route::get('Employee/importChamCong','nhansu\nhansuController@viewImportChamCong')->name('importchamcong');
+        Route::get('Employee/quanlychamcong','nhansu\nhansuController@viewquanlychamcong')->name('quanlychamcong');
+        Route::get('Employee/themchamcong','nhansu\nhansuController@viewthemchamcong')->name('themchamcong');
+        Route::get('Employee/editchamcong/{id}','nhansu\nhansuController@editchamcong')->name('editchamcong');
+        Route::post('Employee/serch_name_ajax','nhansu\nhansuController@serch_name_ajax')->name('serch_name_ajax');
+        Route::post('Employee/add_chamcong','nhansu\nhansuController@add_cham_cong')->name('add_chamcong');
+        Route::post('Employee/edit_chamcong','nhansu\nhansuController@edit_cham_cong')->name('edit_cham_cong');
         Route::post('Employee/importData','nhansu\nhansuController@importData');
         
     });

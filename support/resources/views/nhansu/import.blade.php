@@ -15,7 +15,7 @@
                                     <input type="file" value=""  name="filechamcong" class="file-upload-default d-none"> 
                                    
                                     <div class="input-group col-xs-12">
-                                        <input type="text" readonly name="ImagesText"  class="form-control file-upload-info"  placeholder="Upload Image">
+                                        <input type="text" readonly name="ImagesText"  class="form-control file-upload-info"  placeholder="Upload file xlsx">
                                       
                                         <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-info" type="button">Upload</button></span>
@@ -32,6 +32,7 @@
                 </div>
               </div>
             </div>
+           
             <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">

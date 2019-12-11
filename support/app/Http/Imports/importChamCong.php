@@ -2,7 +2,7 @@
 
 namespace App\Http\Imports;
 
-use App\chamcong;
+use App\Chamcong;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
@@ -44,7 +44,7 @@ class importChamCong implements ToCollection,WithHeadingRow
             continue;
         }
 
-        chamcong::create([
+        Chamcong::create([
             'id_user' => $row['id_user'],
             'ngay' => $row['ngay'],
             'gio_vao1' => $row['gio_vao_1'],
