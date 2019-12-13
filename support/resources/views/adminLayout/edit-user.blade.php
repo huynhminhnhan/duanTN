@@ -14,8 +14,10 @@
                         <h4 class="card-title mb-4" style="font-size: 20px">Chỉnh sửa tài khoản</h4>
                             <div class="row">
                             @if ($Account) 
+                            <div class="col-md-12">
+                            <form  method="post" action="{{ route('edit_user') }}" >
+                                <div class="row">
                                 <div class="form-group col-md-6">
-                                <form  method="POST" action="/admin/user/" >
                                 @csrf
                                     <label for="tieude">Tên tài khoản</label>
                                     <input type="text" value="{{$Account->name}}" name="name" class="form-control" id="tieude" placeholder="">
@@ -85,8 +87,10 @@
                                     <button name="removeAccount" class="btn btn-warning">Xóa tài khoản</button>
                                 </div>
                             </div>
-                            @endif
+                        </div>
                         </form>
+                    </div>
+                            @endif
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ class UsersController extends Controller
     
     public function ViewEditUser(Request $Request) {
         $idAccount = $Request->id_account;
-       
+        // dd($idAccount);
         $user_info = $this->getUserInfo(); //lây thông tin user 
         // $userInFor = User::where('id',$)
         // ::load('roles');
@@ -46,12 +46,13 @@ class UsersController extends Controller
     }
    public function EditUser(Request $Request) 
    {    
-     
+   
        $input = $Request->all();
-      
+    //    dd($input);
        if (empty($input['name']) ) {
-        return redirect('/admin/user/')->with('erro', 'trường họ tên không được bỏ trống');
+        return redirect('/admin/user/')->with('error', 'trường họ tên không được bỏ trống');
        }
+      
        $Account = Account::join('department','account.department_id' ,'=','department.id_department')
        ->where('account.id_account',$input['idAccount'])
        ->get()->first();
@@ -71,6 +72,7 @@ class UsersController extends Controller
             // return redirect('/admin/user/'.$input['idAccount'].'')->with('successResurt', 'cập nhật thông tin tài khoản  thành công');
         }
         else {
+            
             return redirect('/admin/user/'.$input['idAccount'].'')->with('error', 'Có lỗi xãy ra ');
         }
    }

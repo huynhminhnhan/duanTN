@@ -31,7 +31,15 @@ class HomeController extends Controller
     public function index(Request $Request)
     {
         $user_info = $this->getUserInfo(); //lây thông tin user
-        // dd($user_info);
+        $command = $this->get_data_commands();
+
+        // $data = $command->content;
+        // foreach($data as $item ) {
+            // var_dump($data['ngay']);
+        // }
+        
+        // debug 
+        dd($command);
 
         $qsv = new Question();
         $questionNew = $qsv->questionAll($user_info['user_id']);

@@ -27,6 +27,8 @@ class importChamCong implements ToCollection,WithHeadingRow
         foreach ($array_rows as $key=> $row) 
         {
             $arrTime = [$row['gio_vao_1'],$row['gio_ra_1'],$row['gio_vao_2'],$row['gio_ra_2']];
+            $formatDate = Date::excelToDateTimeObject($row['ngay']);            
+            
             $arrFormatTime = array_map(function($value){
             $formatTime = Date::excelToDateTimeObject($value);
             $format =  $formatTime->format('H:i:s');
@@ -36,6 +38,8 @@ class importChamCong implements ToCollection,WithHeadingRow
         $row['gio_ra_1'] = $arrFormatTime[1];
         $row['gio_vao_2'] = $arrFormatTime[2];
         $row['gio_ra_2'] = $arrFormatTime[3];
+        $row['ngay'] = $formatDate->format('y-m-d');
+           
         $user = User::find($row['id_user']); 
         if(empty($user)) {
             $count_err ++;
@@ -55,6 +59,7 @@ class importChamCong implements ToCollection,WithHeadingRow
             
             
         ]);
+        
         $count_success ++;
          }
          $arr_msg = array(

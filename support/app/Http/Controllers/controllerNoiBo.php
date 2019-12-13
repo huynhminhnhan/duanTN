@@ -15,16 +15,37 @@ class controllerNoiBo extends Controller
     }
     // Chấm công
     public function chamCong(Request $Request){
-        $userInfor = $Request->session()->get('userInfor'); // lây thông tin user
-        //dd($userInfor['userInfo']['id']); exit;
-        $chamcong = Chamcong::all()->where('id_user', $userInfor['userInfo']['id_users']);
-        return view('pages.noibo.chamcong',['chamcong'=>$chamcong, 'user_info'=> $userInfor]);
+        
+        $userInfor = $this->getUserInfo();
+       
+        $month =  (int)date("m");
+        $year = (int)date("Y");
+       if(isset($_GET['month'])) {
+            $month = $_GET['month'];
+       }
+       if(isset($_GET['year'])) {
+        $year = $_GET['year'];
+   }
+        // dd($userInfor);
+        $chamcong = Chamcong::where('id_user', $userInfor['user_id'])
+                    ->whereMonth('ngay',$month)
+                    ->whereYear('ngay',$year)->get()->all();
+    //    dd($chamcong);
+    $arr_time = [
+        "month" => $month,
+        "year" => $year
+    ];
+        return view('pages.noibo.chamcong',[
+            'chamcong'=>$chamcong, 
+            'user_info'=> $userInfor,
+            'arr_time' => $arr_time
+            ]);
     }
     // bảng lương
     public function banluong(Request $Request){
 
         $userInfor = $Request->session()->get('userInfor'); // lây thông tin user
-
+        
         return view('pages.table.payroll',['user_info'=> $userInfor]);
     }
     // xem lịch trực

@@ -79,10 +79,13 @@
         Route::get('/', 'UsersController@homeAdmin');
         Route::get('user', 'UsersController@Viewusers');
         Route::get('user/{id_account}', 'UsersController@ViewEditUser');
-        Route::post('user', 'UsersController@EditUser');
+        Route::post('edit_user', 'UsersController@EditUser')->name('edit_user');
         // phòng ban 
         Route::get('Departments/', 'Departments@showDepartments');
         Route::post('addDepartment', 'Departments@addDepartments');
+        Route::post('edit_department', 'Departments@edit_department');
+        Route::get('delete_department', 'Departments@delete_department')->name('delete_department');
+        Route::get('editDepartment/{id}', 'Departments@editDepartments')->name('editDepartment');
        
         // sentmailDepart
         Route::get('sendNotification', 'Sendmail@viewSendMailDepartments');

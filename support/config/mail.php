@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'mail.hungthinhcorp24h.com'),
+    'host' => env('MAIL_HOST', 'fsupport.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,8 +57,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'mail@fsupport.com'),
-        'name' => env('MAIL_FROM_NAME', 'Support FPT'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hotro@fsupport.com'),
+        'name' => env('MAIL_FROM_NAME', 'ho tro'),
     ],
 
     /*

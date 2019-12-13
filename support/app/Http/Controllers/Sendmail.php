@@ -23,7 +23,7 @@ class Sendmail extends Controller
         ->wherein('id_department',$input['Department'])
         ->get();
         foreach($userEmail as $email) {
-            mail::to($email->email)->send(new sendmailDepart($input['content'],$input['subject']));
+            Mail::to($email->email)->send(new sendmailDepart($input['content'],$input['subject']));
         }
         return redirect('/admin/sendNotification')->with('success', 'Mail đã gửi thành công'); 
       

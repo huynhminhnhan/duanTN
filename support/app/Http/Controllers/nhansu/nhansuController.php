@@ -19,7 +19,7 @@ class nhansuController extends Controller
     }
     public function viewquanlychamcong() {
         
-        $account_chamcong =  Chamcong::join('account', 'account.user_id', '=', 'Chamcong.id_user');
+        $account_chamcong =  Chamcong::join('account', 'account.user_id', '=', 'chamcong.id_user');
        
 
         $Chamcong = $account_chamcong->paginate();
@@ -40,7 +40,7 @@ class nhansuController extends Controller
        
         $id = $Request->route('id');
         $chamcong = Chamcong::find($id)
-        ->join('account', 'account.user_id', '=', 'Chamcong.id_user')
+        ->join('account', 'account.user_id', '=', 'chamcong.id_user')
         ->get()->first();
       
         $arr_chamcong = $chamcong->toArray();

@@ -6,6 +6,7 @@ use App\Question;
 use App\Account;
 use Session;
 use Illuminate\Http\Request;
+use App\Console\Commands\sendmailchamcong;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -26,6 +27,12 @@ class Controller extends BaseController
     $SessionUser = session()->get('AccountInfor'); // lấy session AccountInfor
 
        return $this->Account = $SessionUser;
+     }
+     public function get_data_commands() {
+      $my_command_result = $this->dispatch(
+          new sendmailchamcong
+        );
+        return $my_command_result;
      }
     //  public function information(){
     //     $info = session::get('AccountInfor');

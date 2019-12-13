@@ -10,6 +10,12 @@
                   <div class="card-header">
                     Quy định chấm công
                   </div>
+                  <div class="card-header">
+                      <p class="card-text">Giờ vào quy định : <b>7h30</b> </p>
+                      <p class="card-text">Giờ về quy định : <b>17h30</b> </p>
+                     
+                    </div>
+                  
                   <div class="card-body">
                     <h5 class="card-title">Cho phép đi trễ 130 phút</h5>
                     <p class="card-text">Nghĩ không phép sẽ bị phạt gấp đôi</p>
@@ -43,19 +49,36 @@
 
                       };
                       </script>
-                      <select name="cars"  value="" id="demo">
-                          <script>
-                              for(var i = 1; i<= 12; i++){
-                                  document.write (  '<option value="'+i+'">'+i+'</option>');
-                                  // console.log(i);
-                              }
-                          </script>
+                      <select name="month">
+                         
+                          @php
+                          $selected = '';
+                              for( $i = 1; $i <= 12; $i++){
+                                  if ($i == $arr_time['month']) {
+                                    $selected = "selected";
+                                    
+                                  }  
+                                  else {
+                                    $selected = '';
+                                  }
+                                 
+                                  echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                }
+                                
+                          @endphp
                       </select>
-                      <select name="cars"  value="" id="demo1">
+                      <select name="year"  value="" id="">
                           <script>
                                 var d = new Date();
-                              for(var z = d.getFullYear() ; z>=d.getFullYear()-3 ; z--){
-                                  document.write ('<option value="'+z+'">'+z+'</option>');
+                                $select = '';
+                              for(var z = d.getFullYear() ; z>=d.getFullYear()-10 ; z--){
+                                  if(z == '{{$arr_time["year"]}}') {
+                                    $select = 'selected';
+                                  }
+                                  else {
+                                    $select = '';
+                                  } 
+                                  document.write ('<option '+$select+' value="'+z+'">'+z+'</option>');
                                   // console.log(z);
                               }
                           </script>
@@ -69,7 +92,6 @@
                   <thead>
                     <tr>
                       <th> Ngày </th>
-                      <th> Thứ </th>
                       <th> Giờ vào 1 </th>
                       <th> Giờ ra 1 </th>
                       <th> Giờ vào 2 </th>
@@ -85,7 +107,6 @@
 
 
                       <td> {{$cc->ngay}} </td>
-                      <td> {{$cc->thu}} </td>
                       <td>
                             {{$cc->gio_vao1}}
                       </td>

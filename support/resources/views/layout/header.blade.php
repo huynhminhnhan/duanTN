@@ -72,15 +72,7 @@
               <p class="mb-1 mt-3 font-weight-semibold">{{(session()->get('AccountInfor')['name'])}}</p>
             </div>
             <a class="nav-link pl-3" href="profile">My profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
-            <a class="nav-link pl-3">Messages
-              <i class="dropdown-item-icon ti-comment-alt"></i>
-            </a>
-            <a class="nav-link pl-3">Activity
-              <i class="dropdown-item-icon ti-location-arrow"></i>
-            </a>
-            <a class="nav-link pl-3">FAQ
-              <i class="dropdown-item-icon ti-help-alt"></i>
-            </a>
+           
             <a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
@@ -272,7 +264,10 @@
             </div>
         </li>
         @endif
-       
+       @php 
+        $data = session()->get('AccountInfor');
+       @endphp
+       @if($data['department_id'] == 6)
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic3">
                 <i class="menu-icon typcn typcn-coffee"></i>
@@ -287,9 +282,10 @@
                     <li class="nav-item">
                       <a class="nav-link" href="{{ route('quanlychamcong') }}">Quản lý Chấm công</a>
                   </li>
-                   
+                  
                 </ul>
             </div>
         </li>
+        @endif
       </ul>
     </nav>
