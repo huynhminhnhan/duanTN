@@ -39,7 +39,7 @@ class HomeController extends Controller
         // }
         
         // debug 
-        dd($command);
+        // dd($command);
 
         $qsv = new Question();
         $questionNew = $qsv->questionAll($user_info['user_id']);

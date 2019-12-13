@@ -65,7 +65,7 @@ class sendmailchamcong extends Command
             }
         
         }
-        return $chamcong;
+        // return $data;
         // $chamcong = Chamcong::whereIn('id_user', $arr_id_acount)
         // ->whereMonth('ngay',$month)
         // ->whereYear('ngay',$year)->get()->all();
